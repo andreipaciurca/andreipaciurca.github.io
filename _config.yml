@@ -1,0 +1,26 @@
+# Site settings
+title: Paciurcă Andrei
+email: andrei.paciurca@icloud.com
+url: https://andreipaciurca.github.io
+description: "Keep it simple. Stupid."
+
+# Color settings (hex-codes without the leading hash-tag)
+color:
+  primary-dark: '#000000'
+  links: '#219ab3'
+
+# Footer settings
+footer: andreipaciurca.github.io
+
+# Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
+social:
+  - title: twitter
+    url: https://twitter.com/@AndreiPaciurca
+  - title: github
+    url: https://github.com/andreipaciurca 
+  - title: facebook
+    url: https://facebook.com/andrei.paciurca
+
+# Build settings
+markdown: kramdown
+permalink: pretty
