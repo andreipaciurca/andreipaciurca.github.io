@@ -7,7 +7,7 @@ description: "Keep it simple. Stupid."
 # Color settings (hex-codes without the leading hash-tag)
 color:
   primary-dark: '#000000'
-  links: '#219ab3'
+  links: '#42DCA3'
 
 # Footer settings
 footer: andreipaciurca.github.io
