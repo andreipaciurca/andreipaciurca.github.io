@@ -295,14 +295,14 @@ a:focus {
 }
 
 .btn-default {
-    border: 0px solid {{ site.color.links }};
+    border: 1px solid {{ site.color.links }};
     color: {{ site.color.links }};
     background-color: transparent;
 }
 
 .btn-default:hover,
 .btn-default:focus {
-    border: 0px solid {{ site.color.links }};
+    border: 1px solid {{ site.color.links }};
     outline: 0;
     color: {{ site.color.primary-dark }};
     background-color: {{ site.color.links }};
