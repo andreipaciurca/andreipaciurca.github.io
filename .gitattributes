@@ -1,7 +1,9 @@
 *.css linguist-language=CSS
 *.html linguist-language=HTML
 *.js linguist-language=JavaScript
+*.yml linguist-language=YAML
 
 *.css linguist-detectable=true
 *.html linguist-detectable=true
 *.js linguist-detectable=true
+*.yml linguist-detectable=true
