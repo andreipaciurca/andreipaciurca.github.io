@@ -15,4 +15,4 @@ My own HTML CV (curriculum vitae).
 
 ## Copyright and License
 
-Copyright  Paciurca Andrei. Code released under the [Apache 2.0] license.
+Copyright © Paciurca Andrei. Code released under the [Apache 2.0] license.
