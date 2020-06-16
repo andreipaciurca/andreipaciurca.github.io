@@ -14,3 +14,5 @@ Header set Cache-Control "public, max-age=16070400000"
 order allow,deny
 deny from all
 </Files>
+
+AddType application/x-httpd-php .htm .html
