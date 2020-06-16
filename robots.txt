@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /resume
+Sitemap: https://andreipaciurca.github.io/sitemap.xml
