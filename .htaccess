@@ -1,0 +1,16 @@
+//Rewrite to www
+Options +FollowSymLinks
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^https://andreipaciurca.github.io/[nc]
+RewriteRule ^(.*)$ http://www.https://andreipaciurca.github.io//$1 [r=301,nc]
+
+//Caching schema
+<FilesMatch "\.(webp|css|js)$">
+Header set Cache-Control "public, max-age=16070400000"
+</FilesMatch>
+
+//Prevent viewing of .htaccess file
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
