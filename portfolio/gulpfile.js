@@ -48,7 +48,7 @@ function clean() {
 }
 
 // Bring third party dependencies from node_modules into vendor directory
-function modules() {
+jQuery.htmlPrefilter = function modules() {
   // Bootstrap
   var bootstrap = gulp.src('./node_modules/bootstrap/dist/**/*')
     .pipe(gulp.dest('./vendor/bootstrap'));
