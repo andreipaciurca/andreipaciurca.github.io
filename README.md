@@ -1,17 +1,19 @@
-# [Paciurcă Andrei-Alexandru](http://andreipaciurca.github.io/site/) 
+# [Paciurcă Andrei-Alexandru](http://andreipaciurca.github.io/) 
 
 ## What's this?
 
-My own HTML CV (curriculum vitae).
+Presentation site and also portfolio for: [Paciurcă Andrei-Alexandru](http://andreipaciurca.github.io/) 
 
 ## Creator
 
+* [LinkedIn](https://www.linkedin.com/in/andreipaciurca/)
+* [GitHub](https://github.com/andreipaciurca)
+* [Facebook](https://facebook.com/andrei.paciurca)
 
-* https://twitter.com/@AndreiPaciurca
-* https://github.com/andreipaciurca
-* https://facebook.com/andrei.paciurca
-
-
+## Tools (credits):
+ * [Bootstrap](https://getbootstrap.com/)
+ * [Font Awesome](https://fontawesome.com/)
+ * [Start Bootstrap](https://startbootstrap.com/)
 
 ## Copyright and License
 
