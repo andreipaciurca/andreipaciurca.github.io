@@ -4,6 +4,8 @@
 
 Presentation site and also portfolio for: [Paciurcă Andrei-Alexandru](http://andreipaciurca.github.io/) 
 
+![Full page screencapture](https://i.imgur.com/RcdfL7O.jpg)
+
 ## Creator
 
 * [LinkedIn](https://www.linkedin.com/in/andreipaciurca/)
