@@ -163,7 +163,12 @@
             <footer class="py-5 mt-5">
               <div class="row">
                 <div class="col-lg-6 text-center text-lg-left">
-                  <p>&copy; 2020</p>
+                  <p>&copy; 
+                    <script language="javascript">
+                    if(document.write(new Date().getFullYear()) != null)
+                        document.write(new Date().getFullYear()).innerHTML
+                    </script>
+                  </p>
                 </div>
                 <div class="col-lg-6 text-center text-lg-right">
                   <p><a style="text-decoration: none !important; color: black;" href="https://andreipaciurca.github.io/" target="_blank" rel="noopener noreferrer">Paciurcă Andrei-Alexandru</a></p>
