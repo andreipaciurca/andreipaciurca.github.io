@@ -4,14 +4,13 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Contact me</h2>
                 <p>If you would like to get in touch with me, whether it be for tech support, a business venture, or to just say hi, feel free to send me a message!</p>
-                </p>
                 <ul class="list-inline banner-social-buttons">
                     <li>
-                        <a href="mailto:{{ site.email }}" class="btn btn-default btn-lg"><i class="fa fa-envelope" aria-hidden="true"></i></a> 
+                        <a href="mailto:{{ site.email }}" class="btn btn-default btn-lg" aria-label="Send email"><i class="fa fa-envelope" aria-hidden="true"></i></a>
                     </li>
                     {% for network in site.social %}
                     <li>
-                        <a onclick="window.open('{{ network.url }}', '_blank' ); location.reload();" class="btn btn-default btn-lg"><i class="fa fa-{{ network.title }} fa-fw"></i> <span class="network-name"><!--{{ network.title }}--></span></a>
+                        <a href="{{ network.url }}" target="_blank" rel="noopener noreferrer" class="btn btn-default btn-lg" aria-label="{{ network.title | capitalize }}"><i class="fa fa-{{ network.title }} fa-fw" aria-hidden="true"></i> <span class="network-name"><!--{{ network.title }}--></span></a>
                     </li>
                     {% endfor %}
                 </ul>

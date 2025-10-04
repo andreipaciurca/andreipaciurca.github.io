@@ -2,18 +2,37 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-    <meta name="viewport" content="width=device-width"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="description" content="{{ site.description }}"/>
     <meta name="author" content="Paciurca Andrei-Alexandru"/>
     <meta name="google-site-verification" content="fsCCLd5d9HIYW_Kgj43h8pE8NrVUfjzk2YvhxI92Ntk" />
-    <meta name="keywords" content="Paciurca Andrei Portfolio" />
+    <meta name="keywords" content="Paciurca Andrei, Software Engineer, Full Stack Developer, Portfolio, Web Development, Java, Python, C++"/>
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="{{ site.url }}"/>
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"/>
+    <meta property="og:description" content="{{ site.description }}"/>
+    <meta property="og:image" content="{{ site.url }}/img/intro-bg.jpg"/>
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"/>
+    <meta name="twitter:description" content="{{ site.description }}"/>
+    <meta name="twitter:image" content="{{ site.url }}/img/intro-bg.jpg"/>
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"/>
     <link rel="icon" type="image/png" href="/favicon.png">
     <!--[if IE]><link rel="icon" type="image/png" href="/favicon.png"><![endif]-->
+
+    <!-- Preload critical assets for performance -->
+    <link rel="preload" href="{{ "/style.css" | prepend: site.baseurl }}" as="style"/>
+    <link rel="preload" href="//fonts.googleapis.com/css?family=Montserrat:400,700" as="style"/>
+
     <link rel="stylesheet" href="{{ "/style.css" | prepend: site.baseurl }}" />
 
     <!-- Custom Fonts -->
     <link rel="stylesheet" href="{{ "/css/font-awesome/css/font-awesome.min.css" | prepend: site.baseurl }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
     <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/>
 
@@ -22,12 +41,5 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Google Analytics -->
-    <script>
-        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-        ga('create', 'UA-XXXXX-Y', 'auto');
-        ga('send', 'pageview');
-    </script>
-    <script async src='https://www.google-analytics.com/analytics.js'></script>
-    <!-- End Google Analytics -->
+    <!-- Note: Add your Google Analytics tracking ID in the script below if needed -->
 </head>
