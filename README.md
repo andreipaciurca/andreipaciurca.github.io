@@ -102,6 +102,16 @@ Important note:
 - `sitemap.xml` lists the main URL
 - `.htaccess` contains optional Apache fallback config (GitHub Pages ignores it)
 
+## License
+
+This repository uses a custom non-commercial license in `LICENCE`:
+- personal use is allowed
+- self-promotion / portfolio use is allowed
+- selling or other commercial resale/use is not allowed without permission
+
+Commercial licensing contact:
+- `paciurca.andrei@outlook.com`
+
 ## Local Preview
 
 ```bash
