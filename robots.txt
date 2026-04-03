@@ -1,4 +1,3 @@
 User-agent: *
-Disallow: /resume
-Disallow: /portfolio
+Allow: /
 Sitemap: https://andreipaciurca.github.io/sitemap.xml
