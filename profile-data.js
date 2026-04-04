@@ -38,23 +38,23 @@ export const profileData = {
       "label": "Technical Expertise",
       "items": [
         {
-          "iconClass": "fa-solid fa-code",
+          "iconClass": "fa-brands fa-java",
           "label": "Java 8"
         },
         {
-          "iconClass": "fa-solid fa-code",
+          "iconClass": "fa-brands fa-java",
           "label": "Core Java"
         },
         {
-          "iconClass": "fa-solid fa-code",
+          "iconClass": "fa-brands fa-java",
           "label": "Java 8 Date And Time API"
         },
         {
-          "iconClass": "fa-solid fa-code",
+          "iconClass": "fa-brands fa-java",
           "label": "Java Application Development"
         },
         {
-          "iconClass": "fa-solid fa-code",
+          "iconClass": "fa-brands fa-java",
           "label": "Java SE 8"
         },
         {
@@ -62,12 +62,40 @@ export const profileData = {
           "label": "Lambda Expressions"
         },
         {
-          "iconClass": "fa-solid fa-code",
+          "iconClass": "fa-brands fa-java",
           "label": " Java 8 Date And Time API"
         },
         {
           "iconClass": "fa-solid fa-code",
           "label": "Micronaut"
+        },
+        {
+          "iconClass": "fa-solid fa-code",
+          "label": "Object-oriented Software"
+        },
+        {
+          "iconClass": "fa-solid fa-code",
+          "label": "Microservices"
+        },
+        {
+          "iconClass": "fa-solid fa-code",
+          "label": "Maven"
+        },
+        {
+          "iconClass": "fa-solid fa-code",
+          "label": "Unit Testing"
+        },
+        {
+          "iconClass": "fa-solid fa-code",
+          "label": "Hibernate"
+        },
+        {
+          "iconClass": "fa-solid fa-code",
+          "label": "Play Framework"
+        },
+        {
+          "iconClass": "fa-solid fa-code",
+          "label": "SBT"
         }
       ]
     }
