@@ -1,8 +1,9 @@
+
 /*
  * Local translation dictionary (English -> Romanian).
  * Keep source content in English inside profile-data.js.
  */
-window.resumeI18n = {
+export const resumeI18n = {
   ro: {
     "session:identity": "sesiune:identitate",
     "session:profile": "sesiune:profil",

@@ -1,8 +1,9 @@
+
 /*
  * Single source of truth for profile data.
  * Keep content in English; app.js handles automatic runtime translation.
  */
-window.profileData = {
+export const profileData = {
   availabilityMode: "notice", // "immediate" or "notice"
   birthDateIso: "1998-05-07",
   candidateName: "Andrei-Alexandru Paciurca",

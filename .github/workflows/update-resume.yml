@@ -1,0 +1,23 @@
+name: Auto-Update Resume
+on:
+  schedule:
+    - cron: '0 0 1 * *' 
+  workflow_dispatch: 
+
+jobs:
+  update-resume:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Fetch from Apify
+        run: |
+          curl -o data/linkedin.json "https://api.apify.com/v2/datasets/NCpZLymDg8hhxrjDh/items?token=${{ secrets.APIFY_TOKEN }}"
+      - name: Run Update Script
+        run: node scripts/update-resume.js
+      - name: Commit & Push
+        run: |
+          git config user.name 'GitHub Action'
+          git config user.email 'action@github.com'
+          git add profile-data.js
+          git commit -m "Auto-update profile from LinkedIn"
+          git push
