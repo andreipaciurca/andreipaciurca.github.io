@@ -298,7 +298,6 @@ function handleTerminalKeyDown(event) {
 
     if (commandRegistry[command]) {
       commandRegistry[command]();
-    } else if (command) {
     }
   }
 }

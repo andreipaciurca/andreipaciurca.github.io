@@ -3,46 +3,9 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-// Resolves the actual model name behind the 'gemini-flash-latest' alias via REST API.
-// This alias always points to the newest Flash model (currently gemini-3-flash-preview).
-// Falls back to the stable gemini-2.0-flash if the probe fails.
-async function resolveLatestFlashModel() {
-  try {
-    const https = require('https');
-    const apiKey = process.env.GEMINI_API_KEY;
-    const body = await new Promise((resolve, reject) => {
-      const req = https.request(
-        {
-          hostname: 'generativelanguage.googleapis.com',
-          path: '/v1beta/models/gemini-flash-latest:generateContent',
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-goog-api-key': apiKey
-          }
-        },
-        res => {
-          let data = '';
-          res.on('data', chunk => { data += chunk; });
-          res.on('end', () => resolve(data));
-        }
-      );
-      req.on('error', reject);
-      req.setTimeout(10000, () => { req.destroy(); reject(new Error('timeout')); });
-      req.write(JSON.stringify({ contents: [{ parts: [{ text: 'ping' }] }] }));
-      req.end();
-    });
-    const resolved = JSON.parse(body).modelVersion;
-    if (resolved) {
-      console.log(`Using model: ${resolved} (via gemini-flash-latest)`);
-      return resolved;
-    }
-  } catch (e) {
-    console.warn('Could not resolve latest flash model:', e.message);
-  }
-  console.log('Using model: gemini-2.0-flash (stable fallback)');
-  return 'gemini-2.0-flash';
-}
+// 'gemini-flash-latest' is a stable Google alias that always resolves to the
+// newest Flash model — no discovery ping needed, the SDK handles it directly.
+const GEMINI_MODEL = 'gemini-flash-latest';
 
 // ---------------------------------------------------------------------------
 // CURATED FALLBACK — used when Gemini output fails quality checks.
@@ -156,10 +119,10 @@ function bulletsAreGood(bullets) {
 // ---------------------------------------------------------------------------
 // Gemini helpers
 // ---------------------------------------------------------------------------
-async function processExperienceBullets(text, modelName) {
+async function processExperienceBullets(text) {
   if (!text || text.length < 50) return null;
   try {
-    const model = genAI.getGenerativeModel({ model: modelName });
+    const model = genAI.getGenerativeModel({ model: GEMINI_MODEL });
     const prompt = `Generate 2-3 concise resume bullet points from this job description.
 REQUIREMENTS:
 - Output ONLY the bullet points, one per line, no leading dashes or numbers
@@ -184,10 +147,10 @@ ${text.substring(0, 2000)}`;
   }
 }
 
-async function processSummary(text, modelName) {
+async function processSummary(text) {
   if (!text || text.length < 50) return null;
   try {
-    const model = genAI.getGenerativeModel({ model: modelName });
+    const model = genAI.getGenerativeModel({ model: GEMINI_MODEL });
     const prompt = `Rewrite this LinkedIn about section as a 2-sentence professional summary.
 REQUIREMENTS:
 - Output ONLY the 2 sentences, no preamble or labels
@@ -246,17 +209,17 @@ async function run() {
     return loc.toLowerCase().includes('helped me') ? 'Iaşi, Romania' : loc;
   };
 
-  const modelName = await resolveLatestFlashModel();
+  console.log(`Using model: ${GEMINI_MODEL}`);
 
   // Summary — AI first, fallback to curated
-  const aiSummary = await processSummary(linkedinData.about, modelName);
+  const aiSummary = await processSummary(linkedinData.about);
   const summary = aiSummary || FALLBACK_SUMMARY;
   console.log(aiSummary ? 'Summary: AI' : 'Summary: fallback');
 
   // Experiences — AI bullets first, fallback per-entry to curated
   const experiences = await Promise.all(
     (linkedinData.experience || []).map(async (exp, i) => {
-      const aiBullets = await processExperienceBullets(exp.description, modelName);
+      const aiBullets = await processExperienceBullets(exp.description);
       const fallback = FALLBACK_EXPERIENCES[i];
       const bullets = (aiBullets && bulletsAreGood(aiBullets))
         ? aiBullets

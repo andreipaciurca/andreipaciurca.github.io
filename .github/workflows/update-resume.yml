@@ -13,9 +13,14 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set up Node.js with cache
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
       - name: Create data directory
         run: mkdir -p data
       - name: Fetch LinkedIn data via Apify
@@ -27,7 +32,7 @@ jobs:
             -o data/linkedin.json \
           || { echo "Apify fetch failed or timed out; keeping cached data."; }
       - name: Install dependencies
-        run: npm install
+        run: npm ci
       - name: Run Integration Tests
         run: npm test
       - name: Run Update Script

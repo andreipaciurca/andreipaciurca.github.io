@@ -59,7 +59,7 @@ export function toSafeExternalUrl(rawUrl) {
   }
 
   try {
-    const parsedUrl = new URL(rawUrl, window.location.origin);
+    const parsedUrl = new URL(rawUrl);
     return parsedUrl.protocol === "https:" ? parsedUrl.href : "";
   } catch (error) {
     return "";

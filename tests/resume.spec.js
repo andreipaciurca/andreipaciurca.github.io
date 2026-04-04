@@ -110,10 +110,10 @@ describe('Source File Integrity', () => {
     expect(src).not.toContain('encodeeURIComponent');
   });
 
-  test('update-resume.js uses dynamic model resolution with a stable fallback', () => {
+  test('update-resume.js uses gemini-flash-latest alias and GEMINI_MODEL constant', () => {
     const src = fs.readFileSync('scripts/update-resume.js', 'utf8');
-    expect(src).toContain('resolveLatestFlashModel');
-    expect(src).toContain('gemini-2.0-flash');
+    expect(src).toContain('GEMINI_MODEL');
+    expect(src).toContain('gemini-flash-latest');
   });
 
   test('profile-data.js exports a valid JS module', () => {
