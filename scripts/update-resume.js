@@ -2,21 +2,32 @@ const fs = require('fs');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+// Folosim modelul din env sau default-ul 2.0 Flash Lite Preview
+const modelName = process.env.MODEL_NAME || "gemini-2.0-flash-lite-preview-02-05";
+const model = genAI.getGenerativeModel({ model: modelName });
 
-async function summarize(text) {
-  if (!text) return [];
-  const prompt = `Summarize the following professional experience for a Senior Software Engineer CV. 
-  Extract exactly 3 key bullet points that are impactful and professional.
-  Text: ${text}`;
+async function processWithAI(text, type) {
+  if (!text) return type === 'bullets' ? [] : "";
+  const safeText = text.substring(0, 1500); // Mărim limita la 1500
   
+  const prompt = type === 'bullets' 
+    ? `Summarize this experience into exactly 3 professional bullet points (English). 
+       Strictly return only the bullet points as a list, no extra text. 
+       Text: ${safeText}`
+    : `Summarize/Translate this text into professional English CV tone. 
+       Return only the text, no intro/outro. 
+       Text: ${safeText}`;
+
   try {
     const result = await model.generateContent(prompt);
     const response = await result.response;
-    return response.text().split('\n').filter(line => line.trim().startsWith('*') || line.trim().startsWith('-')).map(l => l.replace(/^[*\-]\s*/, '').trim());
+    const content = response.text().trim();
+    return type === 'bullets' 
+      ? content.split('\n').filter(l => l.trim()).map(l => l.replace(/^[*\-]\s*/, ''))
+      : content;
   } catch (e) {
-    console.error("AI summarization failed, falling back to raw text.", e);
-    return text.split('\n').slice(0, 3);
+    console.error("AI summarization failed, falling back to basic formatting.", e);
+    return type === 'bullets' ? text.split('\n').slice(0, 3) : text;
   }
 }
 
@@ -24,9 +35,10 @@ async function run() {
   const linkedinData = JSON.parse(fs.readFileSync('data/linkedin.json', 'utf8'))[0];
   const currentProfileFile = fs.readFileSync('profile-data.js', 'utf8');
   
-  // Extract existing profile data structure to maintain consistency
   const match = currentProfileFile.match(/export const profileData = ({[\s\S]*});/);
   const currentProfile = JSON.parse(match[1]);
+
+  const cleanLocation = (loc) => (!loc || loc.includes("helped me")) ? "Iaşi, Romania" : loc;
 
   const experiences = [];
   for (const exp of (linkedinData.experience || [])) {
@@ -34,8 +46,8 @@ async function run() {
       title: exp.position,
       company: exp.companyName,
       period: `${exp.startDate.text} - ${exp.endDate?.text || 'Present'}`,
-      location: exp.location,
-      bullets: await summarize(exp.description)
+      location: cleanLocation(exp.location),
+      bullets: await processWithAI(exp.description, 'bullets')
     });
   }
 
@@ -43,9 +55,9 @@ async function run() {
     ...currentProfile,
     candidateName: `${linkedinData.firstName} ${linkedinData.lastName}`,
     role: linkedinData.headline,
-    summary: linkedinData.about,
-    location: linkedinData.location.linkedinText,
-    experiences: experiences,
+    summary: await processWithAI(linkedinData.about, 'summary'),
+    location: cleanLocation(linkedinData.location.linkedinText),
+    experiences,
     education: (linkedinData.education || []).map(edu => ({
       title: edu.degree || edu.degreeName,
       details: `${edu.schoolName} (${edu.period})`,
@@ -66,7 +78,7 @@ async function run() {
 export const profileData = ${JSON.stringify(updatedProfile, null, 2)};`;
 
   fs.writeFileSync('profile-data.js', fileContent);
-  console.log("profile-data.js updated successfully!");
+  console.log(`Updated successfully using ${modelName}`);
 }
 
 run();
