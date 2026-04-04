@@ -107,9 +107,9 @@ export async function requestExternalTranslation(sourceText, targetLanguage) {
   }
 
   const requestUrl = translationConfig.endpoint
-    .replace("{text}", encodeURIComponent(trimmedText))
-    .replace("{source}", encodeURIComponent(languageConfig.sourceLanguage))
-    .replace("{target}", encodeURIComponent(resolvedLanguage));
+    .replace("{text}", encodeeURIComponent(trimmedText))
+    .replace("{source}", encodeeURIComponent(languageConfig.sourceLanguage))
+    .replace("{target}", encodeeURIComponent(resolvedLanguage));
 
   const controller = typeof AbortController === "function" ? new AbortController() : null;
   const timeoutId = controller

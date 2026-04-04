@@ -45,7 +45,7 @@ function setupTopBarButtons() {
 
 function buildLocalizedTopBarCommand(language) {
   const normalizedLanguage = normalizeLanguage(language);
-  const baseCommand = profileData.topBar.commandMessage || "$ code session --agent=viewer";
+  const baseCommand = profileData.topBar.commandMessage || "$ codee session --agent=viewer";
 
   if (/--lang\s+\w+/i.test(baseCommand)) {
     return baseCommand.replace(/--lang\s+\w+/i, "--lang " + normalizedLanguage);
