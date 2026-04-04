@@ -31,8 +31,8 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          if [[ -n $(git status -s) ]]; then
-            git add profile-data.js
+          git add profile-data.js data/linkedin.json
+          if [[ -n $(git status --porcelain) ]]; then
             git commit -m "Auto-update profile from LinkedIn"
             git push
           else
