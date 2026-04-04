@@ -1,31 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>404 - Terminal Error</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body { background: var(--bg-main) !important; color: var(--text-main) !important; font-family: var(--font-code); padding: 40px; }
-        .terminal { background: #000; color: #f00; padding: 20px; border-radius: 8px; border: 1px solid #f00; }
-        .blink { animation: blink 1s step-end infinite; }
-        @keyframes blink { 50% { opacity: 0; } }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Path Not Found · andreipaciurca.github.io</title>
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <div class="terminal" id="terminal"></div>
-    <script>
-        const el = document.getElementById('terminal');
-        async function type(text) {
-            for (let char of text) { el.innerHTML += char; await new Promise(r => setTimeout(r, 30)); }
-            el.innerHTML += '<br>';
-        }
-        async function run() {
-            await type("> ERROR: 404 - PATH NOT FOUND");
-            await type("> systemctl status 404");
-            await type("> Redirecting to root... <span class='blink'>_</span>");
-            setTimeout(() => window.location.href = '/', 3000);
-        }
-        run();
-    </script>
+  <div class="terminal-shell">
+    <header class="terminal-topbar">
+      <div class="window-controls">
+        <button type="button" class="window-button" id="windowButtonClose" data-symbol="x" aria-label="Go home" onclick="window.location.href='/'"></button>
+        <button type="button" class="window-button" id="windowButtonMinimize" data-symbol="-" aria-label="Minimize"></button>
+        <button type="button" class="window-button" id="windowButtonMaximize" data-symbol="+" aria-label="Maximize"></button>
+      </div>
+      <p class="terminal-command">
+        <span id="cmdText"></span><span class="terminal-command-cursor">|</span>
+      </p>
+    </header>
+
+    <main class="workspace-root">
+      <section class="pane">
+        <div class="pane-bar">
+          <p class="pane-title">stderr — http.log</p>
+        </div>
+        <div class="pane-body" id="output" style="min-height: 200px;"></div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const out = document.getElementById('output');
+    const cmdEl = document.getElementById('cmdText');
+
+    function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+    async function typeLine(text, color, speed) {
+      const p = document.createElement('p');
+      p.style.cssText = 'margin:4px 0;font-family:var(--font-code);font-size:0.84rem;color:' + (color || 'var(--text-soft)');
+      out.appendChild(p);
+      for (const ch of text) {
+        p.textContent += ch;
+        await delay(speed || 22);
+      }
+      await delay(100);
+    }
+
+    async function run() {
+      const command = '$ navigate --resolve=/404';
+      for (const ch of command) {
+        cmdEl.textContent += ch;
+        await delay(38);
+      }
+
+      await delay(300);
+      await typeLine('HTTP/1.1 404  Not Found', 'var(--amber)', 20);
+      await typeLine('STDERR: no handler registered for this path', 'var(--amber)', 16);
+      await delay(300);
+      await typeLine('running recovery protocol...', 'var(--text-dim)', 22);
+      await typeLine('scanning registered routes... no match found.', 'var(--text-dim)', 16);
+      await delay(300);
+
+      for (let i = 3; i >= 1; i--) {
+        await typeLine('redirecting to / in ' + i + 's', 'var(--teal)', 20);
+        await delay(850);
+      }
+
+      window.location.href = '/';
+    }
+
+    run();
+  </script>
 </body>
 </html>

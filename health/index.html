@@ -1,38 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>System Health</title>
-    <link rel="stylesheet" href="../style.css">
-    <style>
-        body { background: var(--bg-main) !important; color: var(--text-main) !important; font-family: var(--font-code); padding: 40px; }
-        .terminal { background: #000; color: #0f0; padding: 20px; border-radius: 8px; border: 1px solid var(--line); }
-        .blink { animation: blink 1s step-end infinite; }
-        @keyframes blink { 50% { opacity: 0; } }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Health · andreipaciurca.github.io</title>
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <div class="terminal" id="terminal"></div>
-    <script>
-        const el = document.getElementById('terminal');
-        async function type(text) {
-            for (let char of text) { el.innerHTML += char; await new Promise(r => setTimeout(r, 20)); }
-            el.innerHTML += '<br>';
-        }
-        async function run() {
-            await type("> Initializing System Health Check...");
-            try {
-                const res = await fetch('../health.json').then(r => r.json());
-                await type(`> Status: ${res.status === 'ok' ? '✅ ONLINE' : '❌ FAILED'}`);
-                await type(`> Gemini API: ${res.gemini ? '✅ CONNECTED' : '❌ NOT CONFIGURED'}`);
-                await type(`> Apify API: ${res.apify ? '✅ CONNECTED' : '❌ NOT CONFIGURED'}`);
-                await type(`> Last Update: ${res.timestamp}`);
-            } catch (e) {
-                await type("> ERROR: Could not reach health.json");
-            }
-            el.innerHTML += '<span class="blink">_</span>';
-        }
-        run();
-    </script>
+  <div class="terminal-shell">
+    <header class="terminal-topbar">
+      <div class="window-controls">
+        <button type="button" class="window-button" id="windowButtonClose" data-symbol="x" aria-label="Go home" onclick="window.location.href='/'"></button>
+        <button type="button" class="window-button" id="windowButtonMinimize" data-symbol="-" aria-label="Minimize"></button>
+        <button type="button" class="window-button" id="windowButtonMaximize" data-symbol="+" aria-label="Maximize"></button>
+      </div>
+      <p class="terminal-command">
+        <span id="cmdText"></span><span class="terminal-command-cursor">|</span>
+      </p>
+    </header>
+
+    <main class="workspace-root">
+      <section class="pane">
+        <div class="pane-bar">
+          <p class="pane-title">system.health — diagnostics</p>
+        </div>
+        <div class="pane-body" id="output" style="min-height: 200px;"></div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const out = document.getElementById('output');
+    const cmdEl = document.getElementById('cmdText');
+
+    function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+    async function typeLine(text, color, speed) {
+      const p = document.createElement('p');
+      p.style.cssText = 'margin:4px 0;font-family:var(--font-code);font-size:0.84rem;color:' + (color || 'var(--text-soft)');
+      out.appendChild(p);
+      for (const ch of text) {
+        p.textContent += ch;
+        await delay(speed || 18);
+      }
+      await delay(80);
+    }
+
+    function pad(label, width) {
+      return label + ' ' + '.'.repeat(Math.max(4, width - label.length));
+    }
+
+    async function run() {
+      const command = '$ ./health-check --verbose';
+      for (const ch of command) {
+        cmdEl.textContent += ch;
+        await delay(38);
+      }
+
+      await delay(300);
+      await typeLine('initializing system diagnostics...', 'var(--text-dim)');
+      await delay(400);
+
+      let health;
+      try {
+        const res = await fetch('/health.json');
+        health = await res.json();
+      } catch (e) {
+        await typeLine('[ERROR]  could not reach /health.json', 'var(--amber)');
+        const cursor = document.createElement('span');
+        cursor.className = 'typing-cursor';
+        out.appendChild(cursor);
+        return;
+      }
+
+      const W = 28;
+      const coreOk  = health.status === 'ok';
+      const geminiOk = health.gemini;
+      const apifyOk  = health.apify;
+
+      await typeLine(
+        '[sys]   ' + pad('core', W) + (coreOk ? ' ONLINE' : ' DEGRADED'),
+        coreOk ? 'var(--teal)' : 'var(--amber)'
+      );
+      await typeLine(
+        '[api]   ' + pad('gemini api', W) + (geminiOk ? ' CONNECTED' : ' NOT CONFIGURED'),
+        geminiOk ? 'var(--teal)' : 'var(--amber)'
+      );
+      await typeLine(
+        '[api]   ' + pad('apify api', W) + (apifyOk ? ' CONNECTED' : ' NOT CONFIGURED'),
+        apifyOk ? 'var(--teal)' : 'var(--amber)'
+      );
+
+      await delay(200);
+
+      const ts = health.timestamp
+        ? new Date(health.timestamp).toISOString().replace('T', ' ').substring(0, 19) + ' UTC'
+        : 'unknown';
+      await typeLine('[log]   ' + pad('last pipeline sync', W) + ' ' + ts, 'var(--text-dim)');
+
+      await delay(200);
+      const cursor = document.createElement('span');
+      cursor.className = 'typing-cursor';
+      out.appendChild(cursor);
+    }
+
+    run();
+  </script>
 </body>
 </html>

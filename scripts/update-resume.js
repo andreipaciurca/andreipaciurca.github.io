@@ -10,7 +10,7 @@ async function processText(text, promptPrefix) {
   if (!text || text.length < 50) return text;
   
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite-preview-02-05" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
     const prompt = `${promptPrefix}. 
     REQUIREMENTS: 
     - Output ONLY the final paragraph. 

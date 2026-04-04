@@ -1,51 +1,80 @@
-# Terminal Resume Site
+# andreipaciurca.github.io
 
-[Live URL: https://andreipaciurca.github.io](https://andreipaciurca.github.io)
+**Live:** [andreipaciurca.github.io](https://andreipaciurca.github.io)
 
-## Overview
-A high-performance, ATS-friendly, and self-updating resume site. It features a terminal-inspired aesthetic and a fully automated data pipeline that keeps professional content synchronized with LinkedIn.
+A terminal-styled, ATS-friendly resume site with a fully automated LinkedIn → AI → GitHub Pages data pipeline.
 
-## Core Features
-- **Dynamic Content Pipeline**: Automatically synchronizes data from LinkedIn via Apify, processes it through Google Gemini 2.0 Flash Lite for high-impact narrative summarization, and redeploys.
-- **AI-Driven Summarization**: Professional experience and summary sections are transformed into compelling, concise paragraphs using the latest Gemini Flash Preview models.
-- **Terminal UI**: A static, professional CLI-like aesthetic with support for terminal commands (e.g., `help`, `ls`, `theme`).
-- **Adaptive Theming**: CSS-variable-based Light/Dark mode with high-contrast accessibility optimizations.
-- **ATS-Optimized**: A dedicated printable PDF layout designed for standard Applicant Tracking Systems.
+## Features
 
-## Technical Architecture
-The site is built as a modular static application using **ES Modules**.
+- **Automated Pipeline** — GitHub Actions fetches LinkedIn data via Apify, runs it through Google Gemini 2.0 Flash for narrative summarization, and redeploys on every push.
+- **Terminal UI** — Modular vanilla JS (ES Modules) with a CLI aesthetic, 3D profile card flip, and typewriter animations.
+- **ATS-Optimized Print** — Dedicated printable layout with heuristic quality scoring targeting standard ATS parsers.
+- **Multi-language** — EN/RO toggle backed by MyMemory Translation API with local i18n fallback and session caching.
+- **Dark / Light mode** — CSS variable–driven theming with smooth transitions.
 
-### Automation Pipeline
-The pipeline runs automatically via **GitHub Actions** (triggered on `push` to master or via `schedule`):
-1. **Fetch**: `curl` retrieves raw JSON data from LinkedIn using Apify's LinkedIn Profile Scraper.
-2. **Transform**: `scripts/update-resume.js` parses the JSON, cleans location strings, and invokes Gemini AI (dynamically selecting the latest Flash Preview model) for narrative summarization.
-3. **Commit**: The generated `profile-data.js` and raw `linkedin.json` are committed back to the repository, triggering a site redeploy via GitHub Pages.
+## Architecture
 
-### Folder Structure
-```text
-├── js/                  # Core JS Engine (ES Modules)
-│   ├── main.js          # Entry point and event orchestration
-│   └── modules/         # Decoupled components (UI, Print, Translation, State)
-├── scripts/             # Automation logic
-│   └── update-resume.js # Gemini AI sync script
-├── .github/workflows/   # CI/CD pipelines
-└── profile-data.js      # The single source of truth (Auto-generated)
+```
+.github/workflows/
+  update-resume.yml       # Cron + push trigger: Apify → Gemini → commit
+
+js/
+  main.js                 # Bootstrap and event orchestration
+  modules/
+    config.js             # UI constants and configuration
+    state.js              # Global application state
+    dom.js                # Typed DOM element references
+    utils.js              # Pure utility functions
+    translation.js        # MyMemory API + local i18n fallback
+    ui.js                 # Animations, ASCII art, typewriter
+    print.js              # ATS print layout and heuristic scoring
+
+scripts/
+  update-resume.js        # LinkedIn JSON → Gemini → profile-data.js
+
+tests/
+  resume.spec.js          # Jest integration tests
+
+profile-data.js           # Single source of truth (auto-generated)
+i18n-data.js              # Romanian translation dictionary
+data/linkedin.json        # Raw LinkedIn export (auto-synced)
+health.json               # Pipeline status (auto-generated)
 ```
 
-## Setup & Development
-1. **GitHub Secrets**: Configure these in your repository settings:
-   - `APIFY_TOKEN`: API token for Apify LinkedIn Scraper.
-   - `GEMINI_API_KEY`: API key for Gemini AI.
-2. **Local Development**:
-   - Because this project uses ES Modules, you must serve files via a local web server:
-     ```bash
-     python3 -m http.server 8080
-     ```
-   - Access the site at `http://localhost:8080`.
+## Setup
+
+### GitHub Secrets (required for the pipeline)
+
+| Secret | Description |
+|--------|-------------|
+| `APIFY_TOKEN` | Apify API token for the LinkedIn Profile Scraper dataset |
+| `GEMINI_API_KEY` | Google AI Studio API key |
+
+Configure at **Settings → Secrets and variables → Actions**.
+
+### Local Development
+
+ES Modules require a local HTTP server:
+
+```bash
+python3 -m http.server 8080
+# then open http://localhost:8080
+```
+
+### Manual Pipeline Run
+
+```bash
+GEMINI_API_KEY=<key> APIFY_TOKEN=<token> node scripts/update-resume.js
+```
 
 ## Testing
-To verify the integrity of the data pipeline and AI logic, run the unit test suite:
+
 ```bash
 npm test
 ```
-The tests mock the Gemini SDK to verify model selection logic and fallback mechanisms.
+
+Tests cover profile data completeness, skill integrity, health endpoint structure, and source file integrity checks (no deprecated model names, no known typos).
+
+## Health
+
+Pipeline status is available at [/health/](https://andreipaciurca.github.io/health/).
