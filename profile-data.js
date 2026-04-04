@@ -91,9 +91,7 @@ export const profileData = {
       "period": "May 2024 - Present",
       "location": "Iaşi, Romania",
       "bullets": [
-        "Specializations:",
-        "- Core Backend & Data Engineer: Java, Scala, Python",
-        "- Distributed Systems & Event-Driven Architectures"
+        "Specializations:"
       ]
     },
     {
@@ -102,9 +100,7 @@ export const profileData = {
       "period": "Aug 2022 - May 2024",
       "location": "Iaşi, Romania",
       "bullets": [
-        "Specializations:",
-        "- Core Backend Developer: Java, Scala, Python",
-        "- Worked with Various Versions of Git"
+        "Specializations:"
       ]
     },
     {
@@ -113,9 +109,7 @@ export const profileData = {
       "period": "Jul 2021 - Jul 2022",
       "location": "Iaşi, Romania",
       "bullets": [
-        "- Embedded C programming",
-        "- Ability to analyze embedded software solutions",
-        "- Good microcontrollers understanding (single and multi core)"
+        "- Embedded C programming"
       ]
     },
     {
@@ -124,9 +118,7 @@ export const profileData = {
       "period": "Jul 2020 - Jul 2021",
       "location": "Iaşi, Romania",
       "bullets": [
-        "During this period I've managed to:",
-        "- define the SW and HW requirements based on mentor's input",
-        "- buid an IoT project using RaspBerry Pi Zero W and Flask framework from Python throughout the entire period of Summer Practice 2020 "
+        "During this period I've managed to:"
       ]
     }
   ],
