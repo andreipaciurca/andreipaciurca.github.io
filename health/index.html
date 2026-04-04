@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>System Health</title>
+    <link rel="stylesheet" href="../style.css">
     <style>
-        body { background: #000; color: #0f0; font-family: 'Courier New', monospace; padding: 20px; }
+        body { background: var(--bg-main) !important; color: var(--text-main) !important; font-family: var(--font-code); padding: 40px; }
+        .terminal { background: #000; color: #0f0; padding: 20px; border-radius: 8px; border: 1px solid var(--line); }
         .blink { animation: blink 1s step-end infinite; }
         @keyframes blink { 50% { opacity: 0; } }
     </style>
 </head>
 <body>
-    <div id="terminal"></div>
+    <div class="terminal" id="terminal"></div>
     <script>
         const el = document.getElementById('terminal');
         async function type(text) {
-            for (let char of text) { el.innerHTML += char; await new Promise(r => setTimeout(r, 30)); }
+            for (let char of text) { el.innerHTML += char; await new Promise(r => setTimeout(r, 20)); }
             el.innerHTML += '<br>';
         }
         async function run() {
