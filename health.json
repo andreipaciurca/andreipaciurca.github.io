@@ -1,0 +1,7 @@
+{
+  "services": {
+    "gemini": true,
+    "apify": false
+  },
+  "timestamp": "2026-04-04T13:46:12.655Z"
+}
