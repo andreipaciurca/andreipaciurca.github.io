@@ -1,3 +1,7 @@
+/**
+ * @module Config
+ * @description Centralized configuration constants for the resume site.
+ */
 
 export const uiText = {
   heroPaneTitle: "session:identity",

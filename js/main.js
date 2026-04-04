@@ -1,3 +1,7 @@
+/**
+ * @module Main
+ * @description Entry point for the application. Orchestrates UI initialization and event listeners.
+ */
 import { uiText, languageConfig } from './modules/config.js';
 import { state, clearActiveAsyncWork, trackTimeout } from './modules/state.js';
 import { dom } from './modules/dom.js';

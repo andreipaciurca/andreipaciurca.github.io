@@ -1,3 +1,7 @@
+/**
+ * @module UI
+ * @description Handles DOM manipulation, profile animations, and user interactions.
+ */
 
 import { state, trackTimeout, trackAnimationFrame } from './state.js';
 import { fallbackAsciiFrames } from './config.js';
