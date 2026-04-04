@@ -807,14 +807,6 @@
   "composeOptionType": "UPSELL",
   "moreProfiles": [
     {
-      "id": "ACoAAAPoE8sBTWF6jhiaBlaxAmvNQ9-b24Eq0JU",
-      "firstName": "Nivea",
-      "lastName": "N.",
-      "position": "Software Engineer Specialist-Application/Production Support ",
-      "publicIdentifier": "nivea-n-a37b4819",
-      "linkedinUrl": "https://www.linkedin.com/in/nivea-n-a37b4819"
-    },
-    {
       "id": "ACoAADoYfNAB7zE9wlVIF5MnRFveGr4I8JZmsaI",
       "firstName": "Daniel Georgian",
       "lastName": "Nedelea",
@@ -826,7 +818,6 @@
       "id": "ACoAADOINMABMkaRbVBkf4-r8p2tA94a5_jLXnk",
       "firstName": "Andrei",
       "lastName": "Alionte",
-      "position": "Software Developer | .NET, Java, Angular , React",
       "publicIdentifier": "andreialionte",
       "linkedinUrl": "https://www.linkedin.com/in/andreialionte"
     },
@@ -834,39 +825,13 @@
       "id": "ACoAAFNsa3QB7i-2mzulnTqDtSu6mZUYSvvxxKs",
       "firstName": "Serban",
       "lastName": "Spiratos",
-      "position": "General Surgeon ",
       "publicIdentifier": "serban-spiratos-bb0889330",
       "linkedinUrl": "https://www.linkedin.com/in/serban-spiratos-bb0889330"
-    },
-    {
-      "id": "ACoAAAL2wu4BG6zZcWjKqDLlSmMF1ZrrX7aso4s",
-      "firstName": "Iulia",
-      "lastName": "Cretu",
-      "position": "\"Integrity is doing the right thing, knowing that nobody's going to know whether you did it or not\"",
-      "publicIdentifier": "cretu-iulia",
-      "linkedinUrl": "https://www.linkedin.com/in/cretu-iulia"
-    },
-    {
-      "id": "ACoAAAP5ulsBZzCrfpN80PKW777nm_zSy8sNhpU",
-      "firstName": "Florin-Emil",
-      "lastName": "Predescu, PMP",
-      "position": "Solutions Manager Connected Vehicles",
-      "publicIdentifier": "florin-emil-predescu-pmp-3374061a",
-      "linkedinUrl": "https://www.linkedin.com/in/florin-emil-predescu-pmp-3374061a"
-    },
-    {
-      "id": "ACoAACiUjSsByFmtbW3sRJXHPt9i34xP_Ht70QQ",
-      "firstName": "Cosmina",
-      "lastName": "Radu",
-      "position": "Java Developer at SII Romania",
-      "publicIdentifier": "cosmina-radu",
-      "linkedinUrl": "https://www.linkedin.com/in/cosmina-radu"
     },
     {
       "id": "ACoAAAYbvTIBZXPwzwnW-e5ezkxK5RYpann5y7w",
       "firstName": "Alexandru",
       "lastName": "Pintilie",
-      "position": "Support Engineer at Endava",
       "publicIdentifier": "alexandru-pintilie-3023a22a",
       "linkedinUrl": "https://www.linkedin.com/in/alexandru-pintilie-3023a22a"
     },
@@ -874,9 +839,71 @@
       "id": "ACoAABr-fgUBv9sWr4pv_48E1YaVH5ZjFlcuLlY",
       "firstName": "Marius",
       "lastName": "Borcan",
-      "position": "Manager, Software Infrastructure - VOIS",
       "publicIdentifier": "marius-borcan-999806107",
       "linkedinUrl": "https://www.linkedin.com/in/marius-borcan-999806107"
+    },
+    {
+      "id": "ACoAAATlVJABuK671Fx5LouHS9o9hxJYh1o6ymc",
+      "firstName": "Volodymyr (Vova)",
+      "lastName": "Shulha l FCCA l FMVA",
+      "publicIdentifier": "volodymyr-shulha",
+      "linkedinUrl": "https://www.linkedin.com/in/volodymyr-shulha"
+    },
+    {
+      "id": "ACoAACQbWjMBE4SGMRf2_7fkrbCdqp8acPm_j6g",
+      "firstName": "Liviu",
+      "lastName": "Alexandrescu",
+      "publicIdentifier": "liviu-alexandrescu",
+      "linkedinUrl": "https://www.linkedin.com/in/liviu-alexandrescu"
+    },
+    {
+      "id": "ACoAAAeddn4BSCBIToXpvv-Oq-uy6H3HPpaRusE",
+      "firstName": "Laura",
+      "lastName": "Tribus",
+      "publicIdentifier": "laura-tribus-22695336",
+      "linkedinUrl": "https://www.linkedin.com/in/laura-tribus-22695336"
+    },
+    {
+      "id": "ACoAACRjnHgBJ1BMVHqll1JtR_8nHgEIlvDtYLQ",
+      "firstName": "Mihaela",
+      "lastName": "Lupanciuc",
+      "publicIdentifier": "mihaela-lupanciuc-22055b150",
+      "linkedinUrl": "https://www.linkedin.com/in/mihaela-lupanciuc-22055b150"
+    },
+    {
+      "id": "ACoAAClMObMBCUc6PK6aYe3u1kXGwMYGJ-bBdAk",
+      "firstName": "Raluca-Alexandra",
+      "lastName": "Dascalu",
+      "publicIdentifier": "raluca-alexandra-dascalu-52b055174",
+      "linkedinUrl": "https://www.linkedin.com/in/raluca-alexandra-dascalu-52b055174"
+    },
+    {
+      "id": "ACoAAAPoE8sBTWF6jhiaBlaxAmvNQ9-b24Eq0JU",
+      "firstName": "Nivea",
+      "lastName": "N.",
+      "publicIdentifier": "nivea-n-a37b4819",
+      "linkedinUrl": "https://www.linkedin.com/in/nivea-n-a37b4819"
+    },
+    {
+      "id": "ACoAAAL2wu4BG6zZcWjKqDLlSmMF1ZrrX7aso4s",
+      "firstName": "Iulia",
+      "lastName": "Cretu",
+      "publicIdentifier": "cretu-iulia",
+      "linkedinUrl": "https://www.linkedin.com/in/cretu-iulia"
+    },
+    {
+      "id": "ACoAAAP5ulsBZzCrfpN80PKW777nm_zSy8sNhpU",
+      "firstName": "Florin-Emil",
+      "lastName": "Predescu, PMP",
+      "publicIdentifier": "florin-emil-predescu-pmp-3374061a",
+      "linkedinUrl": "https://www.linkedin.com/in/florin-emil-predescu-pmp-3374061a"
+    },
+    {
+      "id": "ACoAACiUjSsByFmtbW3sRJXHPt9i34xP_Ht70QQ",
+      "firstName": "Cosmina",
+      "lastName": "Radu",
+      "publicIdentifier": "cosmina-radu",
+      "linkedinUrl": "https://www.linkedin.com/in/cosmina-radu"
     },
     {
       "id": "ACoAAA4LQ0EBnw2g_JuCfGpl4PO2JlzV8CQUlvw",
@@ -890,25 +917,8 @@
       "id": "ACoAACrBo_0BmEkFBoHJqXPjOWXLqL1B8BwSisk",
       "firstName": "Malina",
       "lastName": "Dumitrescu",
-      "position": "Java Developer at 1&1 Internet Development",
       "publicIdentifier": "malina-dumitrescu",
       "linkedinUrl": "https://www.linkedin.com/in/malina-dumitrescu"
-    },
-    {
-      "id": "ACoAAATlVJABuK671Fx5LouHS9o9hxJYh1o6ymc",
-      "firstName": "Volodymyr (Vova)",
-      "lastName": "Shulha l FCCA l FMVA",
-      "position": "Revenue control",
-      "publicIdentifier": "volodymyr-shulha",
-      "linkedinUrl": "https://www.linkedin.com/in/volodymyr-shulha"
-    },
-    {
-      "id": "ACoAACQbWjMBE4SGMRf2_7fkrbCdqp8acPm_j6g",
-      "firstName": "Liviu",
-      "lastName": "Alexandrescu",
-      "position": "Kinetoterapeut la Spitalul Clinic Judetean de Urgenta Ilfov",
-      "publicIdentifier": "liviu-alexandrescu",
-      "linkedinUrl": "https://www.linkedin.com/in/liviu-alexandrescu"
     },
     {
       "id": "ACoAAAsZKIUBcdct9ywFcSNff8zcyQtGtyrIy30",
@@ -919,42 +929,16 @@
       "linkedinUrl": "https://www.linkedin.com/in/anca-mihaela-predescu-68543552"
     },
     {
-      "id": "ACoAAAeddn4BSCBIToXpvv-Oq-uy6H3HPpaRusE",
-      "firstName": "Laura",
-      "lastName": "Tribus",
-      "position": "at",
-      "publicIdentifier": "laura-tribus-22695336",
-      "linkedinUrl": "https://www.linkedin.com/in/laura-tribus-22695336"
-    },
-    {
-      "id": "ACoAACRjnHgBJ1BMVHqll1JtR_8nHgEIlvDtYLQ",
-      "firstName": "Mihaela",
-      "lastName": "Lupanciuc",
-      "position": "Medic rezident în Medicină Internă la Institutul Clinic Fundeni",
-      "publicIdentifier": "mihaela-lupanciuc-22055b150",
-      "linkedinUrl": "https://www.linkedin.com/in/mihaela-lupanciuc-22055b150"
-    },
-    {
       "id": "ACoAADI-OCUBWHr61-6QAp5KdK5fPqRcXxF4KYU",
       "firstName": "Claudiu Alexandru",
       "lastName": "Prundoiu",
-      "position": "Inginer",
       "publicIdentifier": "claudiu-alexandru-prundoiu-6b136b1b6",
       "linkedinUrl": "https://www.linkedin.com/in/claudiu-alexandru-prundoiu-6b136b1b6"
-    },
-    {
-      "id": "ACoAAClMObMBCUc6PK6aYe3u1kXGwMYGJ-bBdAk",
-      "firstName": "Raluca-Alexandra",
-      "lastName": "Dascalu",
-      "position": "Mobile and Web Developer | Android Development, Flutter, Next.js",
-      "publicIdentifier": "raluca-alexandra-dascalu-52b055174",
-      "linkedinUrl": "https://www.linkedin.com/in/raluca-alexandra-dascalu-52b055174"
     },
     {
       "id": "ACoAAABid2ABMKg4DkNDxWVkPQbxEk323k8DnDc",
       "firstName": "Dan",
       "lastName": "Mutescu",
-      "position": "Principal Software Development Engineer at Amazon",
       "publicIdentifier": "dan-mutescu-5141b22",
       "linkedinUrl": "https://www.linkedin.com/in/dan-mutescu-5141b22"
     },
@@ -962,89 +946,88 @@
       "id": "ACoAADG33wQBOzLW6hwTlLliiGexhHCFNHYYOZY",
       "firstName": "Andrei",
       "lastName": "R.",
-      "position": "Java Back-End Developer | Passionate about Innovation & Efficiency",
       "publicIdentifier": "andreiresmerita",
       "linkedinUrl": "https://www.linkedin.com/in/andreiresmerita"
     },
     {
-      "id": "ACoAAGUhkRwBPThkc8-SA94bp1-zHsCkP7woXpI",
-      "firstName": "Srujana",
-      "lastName": "Ch",
-      "position": "AI Product Manager | LLM, RAG and Agentic AI Solutions | Conversational AI | Fine-Tuning and Prompt Engineering ",
-      "publicIdentifier": "srujana-ch-9642793b4",
-      "linkedinUrl": "https://www.linkedin.com/in/srujana-ch-9642793b4"
+      "id": "ACoAAEILp74B-qm6VdybF6wt7d4TbcqXcvfYZBw",
+      "firstName": "Lina",
+      "lastName": "Alrumaih",
+      "position": "Audit Associate at Deloitte ",
+      "publicIdentifier": "lina-alrumaih-59210626b",
+      "linkedinUrl": "https://www.linkedin.com/in/lina-alrumaih-59210626b"
     },
     {
-      "id": "ACoAAGUNcagBz0Gghy-JjPYQ_DJbmkreI9dxs9w",
-      "firstName": "Garima ",
-      "lastName": "Pandey",
-      "position": "Human Resources Assistant at Deloitte ",
-      "publicIdentifier": "garima-pandey-7489423b3",
-      "linkedinUrl": "https://www.linkedin.com/in/garima-pandey-7489423b3"
+      "id": "ACoAADX4r6kB0_LMPPAu7_FtDMI3FxP8bk0cmMU",
+      "firstName": "Holger Karl",
+      "lastName": "Eggers",
+      "position": "SDS Associate at Amazon",
+      "publicIdentifier": "holger-karl-eggers-7492b6213",
+      "linkedinUrl": "https://www.linkedin.com/in/holger-karl-eggers-7492b6213"
     },
     {
-      "id": "ACoAAGUBZ9cBRH2_tynY9WOjhbbGGS1T11Fg9Zo",
-      "firstName": "Lucky",
-      "lastName": "islam",
-      "position": "--",
-      "publicIdentifier": "lucky-islam-0736223b3",
-      "linkedinUrl": "https://www.linkedin.com/in/lucky-islam-0736223b3"
+      "id": "ACoAAEDcCsoBsgPkO9XebfhGOgrdYxvXt9Wzqo0",
+      "firstName": "Mohammed",
+      "lastName": "Alharbi",
+      "position": "Associate Auditor at EY",
+      "publicIdentifier": "mtaloufi",
+      "linkedinUrl": "https://www.linkedin.com/in/mtaloufi"
     },
     {
-      "id": "ACoAAGUtlH4B6iPxA_spHnuHpEtYkASLyHJneUA",
-      "firstName": "AbdulRahman",
-      "lastName": "Khan",
-      "position": "1st yr B-tech",
-      "publicIdentifier": "abdulrahman-khan-4a65993b4",
-      "linkedinUrl": "https://www.linkedin.com/in/abdulrahman-khan-4a65993b4"
+      "id": "ACoAAC0_1fABinLzpDU9sRWSvC4qPmiRS8PVKHQ",
+      "firstName": "Naif",
+      "lastName": "Alabdullatif",
+      "position": "M&A Senior Associate at stc",
+      "publicIdentifier": "naif-alabdullatif",
+      "linkedinUrl": "https://www.linkedin.com/in/naif-alabdullatif"
     },
     {
-      "id": "ACoAAGYJxzoBnAhFKL3SvZkPFr8zXwWUrD_RJ1U",
-      "firstName": "Komal",
-      "lastName": "Singh",
-      "position": "fresher",
-      "publicIdentifier": "komal-singh-7623983b9",
-      "linkedinUrl": "https://www.linkedin.com/in/komal-singh-7623983b9"
+      "id": "ACoAAAX_7nkBLqeaETrKHzCng1ThrD5wxucrsww",
+      "firstName": "Gaby",
+      "lastName": "Chebly,  PMP",
+      "position": "Associate Director",
+      "publicIdentifier": "gaby-chebly-pmp-76186329",
+      "linkedinUrl": "https://www.linkedin.com/in/gaby-chebly-pmp-76186329"
     },
     {
-      "id": "ACoAAGTduBQB0D2C_mi26zz2W-V4xnlDW8ZKVus",
-      "firstName": "zubb",
-      "lastName": "ino",
-      "position": "FinOps & IT Solution Architect  at Deloitte",
-      "publicIdentifier": "zubb-ino-7308943b2",
-      "linkedinUrl": "https://www.linkedin.com/in/zubb-ino-7308943b2"
+      "id": "ACoAAC9_9FwByrRUt8iG7vp4zae8eNVZFYAN72Y",
+      "firstName": "Abdullah",
+      "lastName": "Alyoubi",
+      "position": "Associate at Boston Consulting Group (BCG)",
+      "publicIdentifier": "abdullah-alyoubi-650a751a2",
+      "linkedinUrl": "https://www.linkedin.com/in/abdullah-alyoubi-650a751a2"
     },
     {
-      "id": "ACoAAGYMizMB4Im_QvV7dTrjzlBSiHscQu95Ue4",
-      "firstName": "Santhosh",
-      "lastName": "undefined",
-      "position": "student at seshadripuram degree college ",
-      "publicIdentifier": "santhosh-undefined-6174653b9",
-      "linkedinUrl": "https://www.linkedin.com/in/santhosh-undefined-6174653b9"
+      "id": "ACoAAEoAJ7gBYM_gt1gffXeVMy6CUjtyS4jp7g8",
+      "firstName": "Abdulrahman",
+      "lastName": "Almoghames",
+      "position": "Audit Associate at EY",
+      "publicIdentifier": "abdulrahman-almoghames-76094a2a7",
+      "linkedinUrl": "https://www.linkedin.com/in/abdulrahman-almoghames-76094a2a7"
     },
     {
-      "id": "ACoAAGSXmPkBAPPf8eT0czO19gwXxFRjwZsBoIo",
-      "firstName": "Ashok",
-      "lastName": "Mannuru",
-      "position": "Software Developer Student | Java, HTML, C | Web Development | Programming & Problem Solving",
-      "publicIdentifier": "ashok-mannuru-2212393b1",
-      "linkedinUrl": "https://www.linkedin.com/in/ashok-mannuru-2212393b1"
+      "id": "ACoAAEJkEAIBrY9kghvGOxkvUL20hZLEAPatNao",
+      "firstName": "Alanoud",
+      "lastName": "Alkhamees",
+      "position": "Audit Associate at PwC",
+      "publicIdentifier": "alanoud-alkhamees-4aa03b271",
+      "linkedinUrl": "https://www.linkedin.com/in/alanoud-alkhamees-4aa03b271"
     },
     {
-      "id": "ACoAAGSmeaYBQMsqPeX8-GFgr7CJy3gth6XPysE",
-      "firstName": "Prince",
-      "lastName": "Maan",
-      "position": "Student at Graphic Era Deemed to be University",
-      "publicIdentifier": "prince-maan-51a6293b1",
-      "linkedinUrl": "https://www.linkedin.com/in/prince-maan-51a6293b1"
+      "id": "ACoAAAL1LSsBoPUIkpjHVh_dcUdhb62-fP3x5z4",
+      "firstName": "Khalid Arab",
+      "lastName": "MD MSc, MBA, FRCSC, FEBOPRAS",
+      "position": "Associate Professor & Plastic Surgery Consultant",
+      "publicIdentifier": "khalid-arab-md-msc-mba-frcsc-febopras-74b75014",
+      "linkedinUrl": "https://www.linkedin.com/in/khalid-arab-md-msc-mba-frcsc-febopras-74b75014"
     },
     {
-      "id": "ACoAAGTVjGwBMdAukn2j7SYyRwujVHgyad2UxxY",
-      "firstName": "Praveen",
-      "lastName": "Patil",
-      "position": "Recruiter at Deloitte",
-      "publicIdentifier": "praveen-patil-8906763b2",
-      "linkedinUrl": "https://www.linkedin.com/in/praveen-patil-8906763b2"
+      "id": "ACoAADJuZVYBnDI060z2_-AUQMUwXqmwCUEvTy8",
+      "firstName": "Norah",
+      "lastName": "Alharabi",
+      "position": "Audit Associate at EY",
+      "publicIdentifier": "norah-alharabi-8724321b7",
+      "linkedinUrl": "https://www.linkedin.com/in/norah-alharabi-8724321b7"
     }
   ],
   "originalQuery": {
