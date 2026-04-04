@@ -3,12 +3,26 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-// Resolves the latest experimental/preview Flash model available on the account.
-// Falls back to the stable gemini-2.0-flash if nothing experimental is found.
+// Resolves the latest experimental/preview Flash model via REST API.
+// Falls back to the stable gemini-2.0-flash if the call fails or nothing experimental is found.
 async function resolveLatestFlashModel() {
   try {
-    const { models } = await genAI.listModels();
-    const flashExp = models
+    const https = require('https');
+    const apiKey = process.env.GEMINI_API_KEY;
+    const body = await new Promise((resolve, reject) => {
+      const req = https.get(
+        `https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`,
+        res => {
+          let data = '';
+          res.on('data', chunk => { data += chunk; });
+          res.on('end', () => resolve(data));
+        }
+      );
+      req.on('error', reject);
+      req.setTimeout(8000, () => { req.destroy(); reject(new Error('timeout')); });
+    });
+    const { models } = JSON.parse(body);
+    const flashExp = (models || [])
       .map(m => m.name.replace('models/', ''))
       .filter(n => n.includes('flash') && (n.includes('exp') || n.includes('preview')))
       .sort()
