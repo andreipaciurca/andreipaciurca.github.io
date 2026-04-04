@@ -210,9 +210,19 @@ ${text.substring(0, 1500)}`;
 // ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
+// Fields from Apify that are large, unused, or contain third-party PII.
+const LINKEDIN_STRIP_KEYS = new Set([
+  'moreProfiles', 'receivedRecommendations', 'photo', 'profilePicture', 'coverPicture'
+]);
+
 async function run() {
   const allProfiles = JSON.parse(fs.readFileSync('data/linkedin.json', 'utf8'));
-  const linkedinData = Array.isArray(allProfiles) ? allProfiles[0] : null;
+  const raw = Array.isArray(allProfiles) ? allProfiles[0] : null;
+
+  // Strip unwanted fields before any processing or writing.
+  const linkedinData = raw
+    ? Object.fromEntries(Object.entries(raw).filter(([k]) => !LINKEDIN_STRIP_KEYS.has(k)))
+    : null;
 
   const healthStatus = {
     status: 'ok',
@@ -271,6 +281,8 @@ async function run() {
   };
 
   fs.writeFileSync('profile-data.js', `export const profileData = ${JSON.stringify(updatedProfile, null, 2)};`);
+  // Write back the cleaned linkedin.json (stripped of moreProfiles and other unused fields).
+  fs.writeFileSync('data/linkedin.json', JSON.stringify([linkedinData], null, 2));
   fs.writeFileSync('health.json', JSON.stringify(healthStatus, null, 2));
   console.log('Pipeline sync complete.');
 }
