@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System Health</title>
+    <style>body { font-family: monospace; background: #000; color: #0f0; padding: 20px; }</style>
+</head>
+<body>
+    <h1>System Health Dashboard</h1>
+    <div id="status">Checking connectivity...</div>
+    <script>
+        async function check() {
+            const res = await fetch('health.json').then(r => r.json());
+            document.getElementById('status').innerHTML = `<pre>${JSON.stringify(res, null, 2)}</pre>`;
+        }
+        check();
+    </script>
+</body>
+</html>
