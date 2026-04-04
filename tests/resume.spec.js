@@ -1,29 +1,22 @@
 const fs = require('fs');
 
-test('LinkedIn data mapping should produce valid profile object', async () => {
-    // Mocking input data structure based on the provided LinkedIn JSON
-    const mockData = [{
-        about: "Software Engineer with 5 years experience.",
-        experience: [{
-            position: "Senior Engineer",
-            companyName: "TechCorp",
-            startDate: { text: "2020" },
-            endDate: { text: "Present" },
-            location: "Remote",
-            description: "Built scalable systems."
-        }],
-        skills: [{ name: "Java" }]
-    }];
+describe('Resume Pipeline Integration Tests', () => {
+  test('Generated profile-data.js must contain valid structure', () => {
+    const content = fs.readFileSync('profile-data.js', 'utf8');
+    const profile = JSON.parse(content.split('export const profileData = ')[1].replace(';', ''));
     
-    // Simulate mapping logic (simplified for test)
-    const summary = "A professional summary.";
-    const experiences = mockData[0].experience.map(exp => ({
-        title: exp.position,
-        company: exp.companyName,
-        bullets: ["Concise summary of experience."]
-    }));
+    expect(profile).toHaveProperty('candidateName');
+    expect(profile).toHaveProperty('experiences');
+    expect(Array.isArray(profile.experiences)).toBe(true);
+  });
+
+  test('Experience items should not be empty', () => {
+    const content = fs.readFileSync('profile-data.js', 'utf8');
+    const profile = JSON.parse(content.split('export const profileData = ')[1].replace(';', ''));
     
-    expect(summary).toBeDefined();
-    expect(experiences[0].title).toBe("Senior Engineer");
-    expect(experiences[0].bullets).toHaveLength(1);
+    profile.experiences.forEach(exp => {
+        expect(exp.title.length).toBeGreaterThan(0);
+        expect(exp.bullets[0].length).toBeGreaterThan(0);
+    });
+  });
 });
