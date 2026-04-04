@@ -23,7 +23,7 @@ jobs:
           curl -s --max-time 120 -X POST \
             "https://api.apify.com/v2/acts/harvestapi~linkedin-profile-scraper/run-sync-get-dataset-items?token=${{ secrets.APIFY_TOKEN }}&format=json" \
             -H "Content-Type: application/json" \
-            -d '{"urls":["https://www.linkedin.com/in/andreipaciurca"]}' \
+            -d '{"queries":["https://www.linkedin.com/in/andreipaciurca/"]}' \
             -o data/linkedin.json \
           || { echo "Apify fetch failed or timed out; keeping cached data."; }
       - name: Install dependencies
