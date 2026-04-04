@@ -9,7 +9,7 @@ export const profileData = {
   "driversLicense": "Category B",
   "role": "Senior Software Engineer | Backend & Data Engineering | Java, AWS, Kafka, Spark | Distributed Systems",
   "statusLine": "ACTIVE CANDIDATE · OPEN TO WORK",
-  "summary": "Building systems that handle complexity, scale, and real-world constraints.\nSenior Software Engineer with experience across very different domains, from embedded systems in the automotive industry (C/C++) to cloud-native distributed systems processing high volumes of data.\nCurrent work focuses on data-intensive systems that process millions of events using AWS, Kafka, and Spark-based pipelines. Strong emphasis on reliable data flows, complex business logic, and performance under real production",
+  "summary": "Building systems that handle complexity, scale, and real-world constraints.\nSenior Software Engineer with experience across very different domains, from embedded systems in the automotive industry (C/C++) to cloud-native distributed systems processing high volumes of data.\nCurrent work focuses on data-intensive systems that process millions of events using AWS, Kafka, and Spark-based pipelines. Strong emphasis on reliable data flows, complex business logic, and performance under real production conditions.",
   "activityMessages": [
     "Analyzing production constraints and engineering trade-offs...",
     "Optimizing backend architecture for reliability and scale..."
@@ -60,10 +60,6 @@ export const profileData = {
         {
           "iconClass": "fa-solid fa-code",
           "label": "Lambda Expressions"
-        },
-        {
-          "iconClass": "fa-solid fa-code",
-          "label": " Java 8 Date And Time API"
         },
         {
           "iconClass": "fa-solid fa-code",
