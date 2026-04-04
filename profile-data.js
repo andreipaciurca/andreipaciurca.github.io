@@ -43,7 +43,9 @@ export const profileData = {
       "period": "May 2024 - Present",
       "location": "Iaşi, Romania",
       "bullets": [
-        "Specializations:"
+        [
+          "Specializations:"
+        ]
       ]
     },
     {
@@ -52,7 +54,9 @@ export const profileData = {
       "period": "Aug 2022 - May 2024",
       "location": "Iaşi, Romania",
       "bullets": [
-        "Specializations:"
+        [
+          "Specializations:"
+        ]
       ]
     },
     {
@@ -61,7 +65,9 @@ export const profileData = {
       "period": "Jul 2021 - Jul 2022",
       "location": "Iaşi, Romania",
       "bullets": [
-        "- Embedded C programming"
+        [
+          "- Embedded C programming"
+        ]
       ]
     },
     {
@@ -70,7 +76,9 @@ export const profileData = {
       "period": "Jul 2020 - Jul 2021",
       "location": "Iaşi, Romania",
       "bullets": [
-        "During this period I've managed to:"
+        [
+          "During this period I've managed to:"
+        ]
       ]
     }
   ],
