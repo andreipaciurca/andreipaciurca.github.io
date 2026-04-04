@@ -3,14 +3,14 @@
 [Live URL: https://andreipaciurca.github.io](https://andreipaciurca.github.io)
 
 ## Overview
-A high-performance, ATS-friendly, and self-updating resume site. It features a terminal-inspired aesthetic, real-time theme adaptation (Light/Dark), and a fully automated data pipeline that keeps professional content synchronized with LinkedIn.
+A high-performance, ATS-friendly, and self-updating resume site. It features a terminal-inspired aesthetic and a fully automated data pipeline that keeps professional content synchronized with LinkedIn.
 
 ## Core Features
 - **Dynamic Content Pipeline**: Automatically synchronizes data from LinkedIn via Apify, processes it through Google Gemini 2.0 Flash Lite for high-impact narrative summarization, and redeploys.
 - **AI-Driven Summarization**: Professional experience and summary sections are transformed into compelling, concise paragraphs using the latest Gemini Flash Preview models.
-- **Terminal UI**: A custom-designed CLI aesthetic with support for terminal-like commands (e.g., `help`, `ls`, `theme`).
+- **Terminal UI**: A static, professional CLI-like aesthetic with support for terminal commands (e.g., `help`, `ls`, `theme`).
 - **Adaptive Theming**: CSS-variable-based Light/Dark mode with high-contrast accessibility optimizations.
-- **ATS-Friendly**: Optimized printable PDF layout designed for standard Applicant Tracking Systems.
+- **ATS-Optimized**: A dedicated printable PDF layout designed for standard Applicant Tracking Systems.
 
 ## Technical Architecture
 The site is built as a modular static application using **ES Modules**.
@@ -19,7 +19,7 @@ The site is built as a modular static application using **ES Modules**.
 The pipeline runs automatically via **GitHub Actions** (triggered on `push` to master or via `schedule`):
 1. **Fetch**: `curl` retrieves raw JSON data from LinkedIn using Apify's LinkedIn Profile Scraper.
 2. **Transform**: `scripts/update-resume.js` parses the JSON, cleans location strings, and invokes Gemini AI (dynamically selecting the latest Flash Preview model) for narrative summarization.
-3. **Commit**: The generated `profile-data.js` is committed back to the repository, triggering a site redeploy via GitHub Pages.
+3. **Commit**: The generated `profile-data.js` and raw `linkedin.json` are committed back to the repository, triggering a site redeploy via GitHub Pages.
 
 ### Folder Structure
 ```text
@@ -44,7 +44,7 @@ The pipeline runs automatically via **GitHub Actions** (triggered on `push` to m
    - Access the site at `http://localhost:8080`.
 
 ## Testing
-To verify the integrity of the data pipeline and AI logic, run the test suite:
+To verify the integrity of the data pipeline and AI logic, run the unit test suite:
 ```bash
 npm test
 ```
