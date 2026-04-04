@@ -5,8 +5,6 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 async function getLatestFlashPreview() {
   const models = await genAI.listModels();
-  
-  // Filtrare: să conțină "flash" și "preview", ignorând modelele Pro sau TTS
   const flashPreviewModels = models.models.filter(m => 
     m.name.toLowerCase().includes('flash') && 
     m.name.toLowerCase().includes('preview') &&
@@ -14,9 +12,7 @@ async function getLatestFlashPreview() {
     !m.name.toLowerCase().includes('tts')
   );
 
-  // Sortare după nume pentru a obține versiunea cea mai recentă
   flashPreviewModels.sort((a, b) => b.name.localeCompare(a.name));
-
   const selected = flashPreviewModels[0]?.name || "gemini-2.0-flash-lite-preview-02-05";
   console.log(`Auto-selected model: ${selected}`);
   return selected;
@@ -24,14 +20,15 @@ async function getLatestFlashPreview() {
 
 async function processWithAI(text, type) {
   if (!text) return type === 'bullets' ? [] : "";
-  const safeText = text.substring(0, 1500); 
+  const safeText = text.substring(0, 1500);
   
   const prompt = type === 'bullets' 
-    ? `Summarize this experience into exactly 3 professional bullet points (English). 
-       Strictly return only the bullet points as a list, no extra text. 
+    ? `Rewrite this work experience into a concise, high-impact paragraph (approx. 3-4 sentences). 
+       Focus on achievements, technologies used, and the scale of the impact. Use professional, 
+       active voice for a Senior Software Engineer. Do not use bullet points, just a paragraph.
        Text: ${safeText}`
-    : `Summarize/Translate this text into professional English CV tone. 
-       Return only the text, no intro/outro. 
+    : `Summarize this professional summary into a compelling, high-impact paragraph for a CV. 
+       Professional, senior tone. No intro/outro.
        Text: ${safeText}`;
 
   try {
@@ -40,12 +37,10 @@ async function processWithAI(text, type) {
     const result = await model.generateContent(prompt);
     const response = await result.response;
     const content = response.text().trim();
-    return type === 'bullets' 
-      ? content.split('\n').filter(l => l.trim()).map(l => l.replace(/^[*\-]\s*/, ''))
-      : content;
+    return type === 'bullets' ? [content] : content;
   } catch (e) {
-    console.error("AI summarization failed, falling back to basic formatting.", e);
-    return type === 'bullets' ? text.split('\n').slice(0, 3) : text;
+    console.error("AI summarization failed, falling back.", e);
+    return type === 'bullets' ? [text.split('\n')[0]] : text;
   }
 }
 
