@@ -3,15 +3,24 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-// Resolves the latest experimental/preview Flash model via REST API.
-// Falls back to the stable gemini-2.0-flash if the call fails or nothing experimental is found.
+// Resolves the actual model name behind the 'gemini-flash-latest' alias via REST API.
+// This alias always points to the newest Flash model (currently gemini-3-flash-preview).
+// Falls back to the stable gemini-2.0-flash if the probe fails.
 async function resolveLatestFlashModel() {
   try {
     const https = require('https');
     const apiKey = process.env.GEMINI_API_KEY;
     const body = await new Promise((resolve, reject) => {
-      const req = https.get(
-        `https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`,
+      const req = https.request(
+        {
+          hostname: 'generativelanguage.googleapis.com',
+          path: '/v1beta/models/gemini-flash-latest:generateContent',
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-goog-api-key': apiKey
+          }
+        },
         res => {
           let data = '';
           res.on('data', chunk => { data += chunk; });
@@ -19,21 +28,19 @@ async function resolveLatestFlashModel() {
         }
       );
       req.on('error', reject);
-      req.setTimeout(8000, () => { req.destroy(); reject(new Error('timeout')); });
+      req.setTimeout(10000, () => { req.destroy(); reject(new Error('timeout')); });
+      req.write(JSON.stringify({ contents: [{ parts: [{ text: 'ping' }] }] }));
+      req.end();
     });
-    const { models } = JSON.parse(body);
-    const flashExp = (models || [])
-      .map(m => m.name.replace('models/', ''))
-      .filter(n => n.includes('flash') && (n.includes('exp') || n.includes('preview')))
-      .sort()
-      .pop();
-    if (flashExp) {
-      console.log(`Using model: ${flashExp}`);
-      return flashExp;
+    const resolved = JSON.parse(body).modelVersion;
+    if (resolved) {
+      console.log(`Using model: ${resolved} (via gemini-flash-latest)`);
+      return resolved;
     }
   } catch (e) {
-    console.warn('Could not list models, using stable flash:', e.message);
+    console.warn('Could not resolve latest flash model:', e.message);
   }
+  console.log('Using model: gemini-2.0-flash (stable fallback)');
   return 'gemini-2.0-flash';
 }
 
