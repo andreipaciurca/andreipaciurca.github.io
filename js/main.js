@@ -7,7 +7,6 @@ import { state, clearActiveAsyncWork, trackTimeout } from './modules/state.js';
 import { dom } from './modules/dom.js';
 import { profileData } from '../profile-data.js';
 import {
-  escapeHtml,
   calculateAgeYears,
   formatYearMonth,
   toSafeMailtoUrl,
@@ -24,6 +23,12 @@ import {
   warmUpRomanianTranslations
 } from './modules/translation.js';
 import { optimizePrintResumeLayout } from './modules/print.js';
+import {
+  renderExperienceList,
+  renderSkillsGroups,
+  renderEducationList,
+  renderCertificationsList
+} from './modules/renderer.js';
 import {
   renderProfileImage,
   startProfileFlipLoop,
@@ -200,133 +205,17 @@ async function applyLanguage(language) {
   startActivityLoop(state.localizedActivityMessages);
   startProfileFlipLoop();
 
-  const experienceMarkup = profileData.experiences
-    .map(function mapExperience(experienceEntry) {
-      const bulletMarkup = experienceEntry.bullets
-        .map(function mapBullet(bullet) {
-          return "<li>" + escapeHtml(translate(bullet)) + "</li>";
-        })
-        .join("");
-
-      return (
-        '<article class="experience-card">' +
-        '<div class="experience-header">' +
-        "<div>" +
-        '<div class="experience-meta">' +
-        "<span>" + escapeHtml(translate(experienceEntry.period)) + "</span>" +
-        '<span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> ' +
-        escapeHtml(translate(experienceEntry.location)) +
-        "</span>" +
-        "</div>" +
-        '<h3 class="experience-title">' +
-        escapeHtml(translate(experienceEntry.title)) +
-        " · " +
-        escapeHtml(experienceEntry.company) +
-        "</h3>" +
-        "</div>" +
-        '<button type="button" class="experience-toggle" aria-expanded="false" ' +
-        'data-expand-label="' +
-        escapeHtml(translate(uiText.expandLabel)) +
-        '" data-collapse-label="' +
-        escapeHtml(translate(uiText.collapseLabel)) +
-        '">' +
-        '<span class="experience-toggle-label"></span>' +
-        '<i class="fa-solid fa-chevron-down" aria-hidden="true"></i>' +
-        "</button>" +
-        "</div>" +
-        '<div class="experience-content"><ul>' +
-        bulletMarkup +
-        "</ul></div>" +
-        "</article>"
-      );
-    })
-    .join("");
-  dom.experienceList.innerHTML = experienceMarkup;
+  dom.experienceList.innerHTML = renderExperienceList(
+    profileData.experiences,
+    translate,
+    uiText.expandLabel,
+    uiText.collapseLabel
+  );
   bindExperienceToggleEvents();
 
-  const skillsMarkup = profileData.skillGroups
-    .map(function mapSkillGroup(groupEntry, index) {
-      const groupClass = "group-" + String((index % 5) + 1);
-      const itemMarkup = groupEntry.items
-        .map(function mapSkillItem(skillEntry) {
-          return (
-            '<span class="skill-chip">' +
-            '<i class="' +
-            escapeHtml(skillEntry.iconClass) +
-            '" aria-hidden="true"></i>' +
-            "<span>" + escapeHtml(translate(skillEntry.label)) + "</span>" +
-            "</span>"
-          );
-        })
-        .join("");
-
-      return (
-        '<section class="skill-group">' +
-        '<h3 class="skill-group-title ' +
-        escapeHtml(groupClass) +
-        '">' +
-        escapeHtml(translate(groupEntry.label)) +
-        "</h3>" +
-        '<div class="skill-chip-list">' +
-        itemMarkup +
-        "</div>" +
-        "</section>"
-      );
-    })
-    .join("");
-  dom.skillsGroupList.innerHTML = skillsMarkup;
-
-  const educationMarkup = profileData.education
-    .map(function mapEducation(educationEntry) {
-      const optionalExtra = educationEntry.extra
-        ? "<p>" + escapeHtml(translate(educationEntry.extra)) + "</p>"
-        : "";
-      return (
-        '<article class="info-card">' +
-        '<i class="' +
-        escapeHtml(educationEntry.iconClass) +
-        '" aria-hidden="true"></i>' +
-        "<div>" +
-        "<strong>" + escapeHtml(translate(educationEntry.title)) + "</strong>" +
-        "<p>" + escapeHtml(translate(educationEntry.details)) + "</p>" +
-        optionalExtra +
-        "</div>" +
-        "</article>"
-      );
-    })
-    .join("");
-  dom.educationList.innerHTML = educationMarkup;
-
-  const certificationsMarkup = profileData.certifications
-    .map(function mapCertification(certificationEntry) {
-      const skillTagMarkup = (certificationEntry.skills || [])
-        .map(function mapSkillTag(skillTag) {
-          return '<span class="cert-skill-tag">' + escapeHtml(translate(skillTag)) + "</span>";
-        })
-        .join("");
-
-      const expiresLine = certificationEntry.expires
-        ? '<p class="cert-meta-line">' + escapeHtml(translate(certificationEntry.expires)) + "</p>"
-        : "";
-      const credentialIdLine = certificationEntry.credentialId
-        ? '<p class="cert-meta-line">' + escapeHtml(translate(certificationEntry.credentialId)) + "</p>"
-        : "";
-      return (
-        '<article class="info-card cert-card">' +
-        '<i class="' + escapeHtml(certificationEntry.iconClass) + '" aria-hidden="true"></i>' +
-        "<div>" +
-        "<strong>" + escapeHtml(translate(certificationEntry.title)) + "</strong>" +
-        '<p class="cert-meta-line">' + escapeHtml(translate(certificationEntry.issuer)) + "</p>" +
-        '<p class="cert-meta-line">' + escapeHtml(translate(certificationEntry.issued)) + "</p>" +
-        expiresLine +
-        credentialIdLine +
-        (skillTagMarkup ? '<div class="cert-skill-row">' + skillTagMarkup + "</div>" : "") +
-        "</div>" +
-        "</article>"
-      );
-    })
-    .join("");
-  dom.certificationList.innerHTML = certificationsMarkup;
+  dom.skillsGroupList.innerHTML = renderSkillsGroups(profileData.skillGroups, translate);
+  dom.educationList.innerHTML = renderEducationList(profileData.education, translate);
+  dom.certificationList.innerHTML = renderCertificationsList(profileData.certifications, translate);
 
   setLanguageToggleUi(false, targetLanguage);
   optimizePrintResumeLayout();

@@ -31,7 +31,22 @@ async function processText(text, promptPrefix) {
 }
 
 async function run() {
-  const linkedinData = JSON.parse(fs.readFileSync('data/linkedin.json', 'utf8'))[0];
+  const allProfiles = JSON.parse(fs.readFileSync('data/linkedin.json', 'utf8'));
+  const linkedinData = Array.isArray(allProfiles) ? allProfiles[0] : null;
+
+  const healthStatus = {
+    status: 'ok',
+    timestamp: new Date().toISOString(),
+    gemini: !!process.env.GEMINI_API_KEY,
+    apify: !!process.env.APIFY_TOKEN && !!linkedinData
+  };
+
+  if (!linkedinData) {
+    console.log('No LinkedIn data available. Skipping profile update.');
+    fs.writeFileSync('health.json', JSON.stringify(healthStatus, null, 2));
+    return;
+  }
+
   const currentProfileFile = fs.readFileSync('profile-data.js', 'utf8');
   const match = currentProfileFile.match(/export const profileData = ({[\s\S]*});/);
   const currentProfile = JSON.parse(match[1]);
@@ -68,13 +83,6 @@ async function run() {
   };
 
   fs.writeFileSync('profile-data.js', `export const profileData = ${JSON.stringify(updatedProfile, null, 2)};`);
-  
-  const healthStatus = { 
-    status: 'ok', 
-    timestamp: new Date().toISOString(),
-    gemini: !!process.env.GEMINI_API_KEY,
-    apify: !!process.env.APIFY_TOKEN
-  };
   fs.writeFileSync('health.json', JSON.stringify(healthStatus, null, 2));
   console.log("Pipeline sync successful.");
 }
