@@ -44,10 +44,10 @@ export const translationConfig = {
 export const printConfig = {
   pageContentHeightPx: 970,
   strategySteps: [
+    { maxBulletsPerExperience: 3, summaryMaxChars: 600, skillsMaxChars: 420 },
     { maxBulletsPerExperience: 2, summaryMaxChars: 520, skillsMaxChars: 380 },
     { maxBulletsPerExperience: 2, summaryMaxChars: 420, skillsMaxChars: 330 },
-    { maxBulletsPerExperience: 1, summaryMaxChars: 360, skillsMaxChars: 280 },
-    { maxBulletsPerExperience: 1, summaryMaxChars: 300, skillsMaxChars: 230 }
+    { maxBulletsPerExperience: 1, summaryMaxChars: 360, skillsMaxChars: 280 }
   ]
 };
 

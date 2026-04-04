@@ -77,7 +77,7 @@ export function renderPrintResume(options) {
   const resolvedOptions = Object.assign(
     {
       language: languageConfig.sourceLanguage,
-      maxBulletsPerExperience: printResumeSettings.maxBulletsPerExperience || 2,
+      maxBulletsPerExperience: printResumeSettings.maxBulletsPerExperience || 3,
       summaryMaxChars: 520,
       skillsMaxChars: 380
     },
@@ -268,7 +268,7 @@ export function optimizePrintResumeLayout() {
     const payload = renderPrintResume({
       language: preferredPrintLanguage,
       maxBulletsPerExperience: Math.min(
-        printResumeSettings.maxBulletsPerExperience || 2,
+        printResumeSettings.maxBulletsPerExperience || 3,
         step.maxBulletsPerExperience
       ),
       summaryMaxChars: step.summaryMaxChars,
