@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-inline'; connect-src 'self' https://api.mymemory.translated.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests"> -->
+  <title>Andrei-Alexandru Paciurca | Terminal Resume</title>
+  <meta name="description" content="Senior Software Engineer focused on backend and distributed data systems.">
+  <meta property="og:title" content="Andrei-Alexandru Paciurca | Terminal Resume">
+  <meta property="og:description" content="Backend, data engineering, distributed systems.">
+  <meta property="og:url" content="https://andreipaciurca.github.io">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://andreipaciurca.github.io/assets/profile-photo.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Andrei-Alexandru Paciurca | Terminal Resume">
+  <meta name="twitter:description" content="Senior Software Engineer focused on backend and distributed data systems.">
+  <meta name="twitter:image" content="https://andreipaciurca.github.io/assets/profile-photo.jpg">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Andrei-Alexandru Paciurca",
+      "jobTitle": "Senior Software Engineer",
+      "url": "https://andreipaciurca.github.io",
+      "sameAs": [
+        "https://github.com/andreipaciurca",
+        "https://www.linkedin.com/in/andreipaciurca"
+      ],
+      "description": "Senior Software Engineer focused on backend and distributed data systems.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Iasi",
+        "addressCountry": "Romania"
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <div class="terminal-shell">
+    <header class="terminal-topbar ui-only">
+      <div class="window-controls">
+        <button type="button" class="window-button" id="windowButtonClose" aria-label="Close"></button>
+        <button type="button" class="window-button" id="windowButtonMinimize" aria-label="Minimize"></button>
+        <button type="button" class="window-button" id="windowButtonMaximize" aria-label="Maximize"></button>
+        <button type="button" class="window-button theme-toggle" id="themeToggleButton" aria-label="Toggle theme">
+          <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
+        </button>
+      </div>
+      <p class="terminal-command">
+        <span id="terminalCommandText" aria-live="polite"></span>
+        <span class="terminal-command-cursor" id="terminalCommandCursor"></span>
+      </p>
+    </header>
+
+    <main class="workspace-root ui-only">
+      <section class="pane hero-pane">
+        <div class="pane-bar">
+          <p class="pane-title" id="heroPaneTitle"></p>
+        </div>
+        <div class="pane-body hero-grid">
+          <div class="hero-left">
+            <div class="identity-row">
+              <div class="profile-photo-frame" id="profilePhotoFrame">
+                <div class="photo-face photo-face-front">
+                  <img id="profilePhoto" alt="Profile photo">
+                  <span id="profileInitials"></span>
+                </div>
+                <pre class="photo-face photo-face-back" id="profileAsciiArt" aria-hidden="true"></pre>
+              </div>
+              <div>
+                <p class="status-line" id="statusLine" aria-live="polite"></p>
+                <h1 id="candidateName"></h1>
+                <p class="hero-role" id="heroRole"></p>
+              </div>
+            </div>
+            <p class="hero-summary" id="heroSummary" aria-live="polite"></p>
+
+            <div class="hero-actions">
+              <span class="resume-pointer" aria-hidden="true">
+                <i class="fa-solid fa-hand-point-right"></i>
+              </span>
+              <button type="button" class="action-button secondary" id="printResumeButton">
+                <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+                <span id="printResumeLabel"></span>
+              </button>
+              <span class="resume-pointer resume-pointer-right" aria-hidden="true">
+                <i class="fa-solid fa-hand-point-left"></i>
+              </span>
+            </div>
+
+            <div class="contact-grid">
+              <a class="contact-chip" id="emailLink" href="">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                <span id="emailValue"></span>
+              </a>
+              <a class="contact-chip" id="phoneLink" href="">
+                <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                <span id="phoneValue"></span>
+              </a>
+              <a class="contact-chip" id="linkedinLink" href="" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                <span id="linkedinValue"></span>
+              </a>
+              <a class="contact-chip" id="githubLink" href="" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+                <span id="githubValue"></span>
+              </a>
+            </div>
+          </div>
+
+          <aside class="hero-right">
+            <section class="nested-pane">
+              <div class="pane-bar compact">
+                <p class="pane-title" id="profilePaneTitle"></p>
+              </div>
+              <div class="pane-body compact">
+                <div class="profile-row">
+                  <span class="profile-label" id="profileLocationLabel"></span>
+                  <strong id="profileLocationValue"></strong>
+                </div>
+                <div class="profile-row">
+                  <span class="profile-label" id="profileJobTypeLabel"></span>
+                  <strong id="profileJobTypeValue"></strong>
+                </div>
+                <div class="profile-row">
+                  <span class="profile-label" id="profileDriversLicenseLabel"></span>
+                  <strong id="profileDriversLicenseValue"></strong>
+                </div>
+                <div class="profile-row">
+                  <span class="profile-label" id="profileAgeLabel"></span>
+                  <strong id="profileAgeValue"></strong>
+                </div>
+                <div class="profile-row availability-row">
+                  <span class="profile-label" id="profileAvailabilityLabel"></span>
+                  <div class="availability-actions">
+                    <strong id="profileAvailabilityValue"></strong>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="nested-pane">
+              <div class="pane-bar compact">
+                <p class="pane-title" id="activityPaneTitle"></p>
+              </div>
+              <div class="pane-body compact">
+                <p class="typing-line" aria-live="polite">
+                  <span class="prompt">$</span>
+                  <span id="activityTypingText"></span>
+                  <span class="typing-cursor"></span>
+                </p>
+              </div>
+            </section>
+          </aside>
+        </div>
+      </section>
+
+      <section class="workspace-grid">
+        <section class="pane">
+          <div class="pane-bar">
+            <p class="pane-title" id="experiencePaneTitle"></p>
+          </div>
+          <div class="pane-body">
+            <p class="pane-hint" id="experiencePaneHint"></p>
+            <div id="experienceList"></div>
+          </div>
+        </section>
+
+        <aside class="right-stack">
+          <section class="pane">
+            <div class="pane-bar">
+              <p class="pane-title" id="skillsPaneTitle"></p>
+            </div>
+            <div class="pane-body">
+              <div id="skillsGroupList"></div>
+            </div>
+          </section>
+
+          <section class="pane">
+            <div class="pane-bar">
+              <p class="pane-title" id="educationPaneTitle"></p>
+            </div>
+            <div class="pane-body">
+              <div id="educationList"></div>
+            </div>
+          </section>
+
+          <section class="pane">
+            <div class="pane-bar">
+              <p class="pane-title" id="certificationsPaneTitle"></p>
+            </div>
+            <div class="pane-body">
+              <div id="certificationList"></div>
+            </div>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <section class="print-only print-resume" id="printResumeRoot" aria-label="Printable resume">
+      <header class="print-header">
+        <h1 id="printName"></h1>
+        <p id="printContactLine"></p>
+      </header>
+
+      <section class="print-section">
+        <h2>Summary</h2>
+        <p id="printSummary"></p>
+      </section>
+
+      <section class="print-section">
+        <h2>Technical Skills</h2>
+        <p id="printSkills"></p>
+      </section>
+
+      <section class="print-section">
+        <h2>Professional Experience</h2>
+        <div id="printExperienceList"></div>
+      </section>
+
+      <section class="print-section split-print">
+        <div>
+          <h2>Education</h2>
+          <div id="printEducationList"></div>
+        </div>
+        <div>
+          <h2>Certifications</h2>
+          <div id="printCertificationList"></div>
+        </div>
+      </section>
+    </section>
+
+    <footer class="site-footer">
+      <p class="footer-line">
+        <span class="footer-mainline">
+          <span id="footerCopyrightWord"></span> &copy; <span id="footerName"></span> <span id="currentYear"></span>
+        </span>
+        <span class="footer-branchline">
+          <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
+          <span id="footerBranchLabel"></span>
+        </span>
+      </p>
+    </footer>
+  </div>
+
+  <div class="app-launcher" id="appLauncher">
+    <div class="launcher-card" id="launcherCard" role="button" tabindex="0" aria-label="Open app">
+      <p class="launcher-terminal-line" id="launcherTerminalLine"></p>
+      <i id="launcherIcon" class="fa-solid fa-terminal" aria-hidden="true"></i>
+      <pre id="launcherSpeech"></pre>
+    </div>
+  </div>
+</body>
+</html>

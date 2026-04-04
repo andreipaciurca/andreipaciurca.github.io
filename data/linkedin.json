@@ -1,0 +1,681 @@
+[
+  {
+    "id": "ACoAACLvWNYBYnte-G9EK0b5aPfYTdT371AUioc",
+    "publicIdentifier": "andreipaciurca",
+    "linkedinUrl": "https://www.linkedin.com/in/andreipaciurca",
+    "firstName": "Andrei-Alexandru",
+    "lastName": "Paciurcă",
+    "headline": "Senior Software Engineer | Backend & Data Engineering | Java, AWS, Kafka, Spark | Distributed Systems",
+    "openToWork": false,
+    "hiring": false,
+    "premium": false,
+    "influencer": false,
+    "memorialized": false,
+    "location": {
+      "linkedinText": "Iaşi, Romania",
+      "countryCode": "RO",
+      "parsed": {
+        "text": "Iaşi, Romania",
+        "countryCode": "RO",
+        "regionCode": null,
+        "country": "Romania",
+        "countryFull": "Romania",
+        "state": "Iași County",
+        "city": "Iaşi"
+      }
+    },
+    "objectUrn": "586111190",
+    "registeredAt": "2017-05-30T08:52:59.962Z",
+    "topSkills": null,
+    "connectionsCount": 866,
+    "followerCount": 874,
+    "verified": false,
+    "about": "Building systems that handle complexity, scale, and real-world constraints.\nSenior Software Engineer with experience across very different domains, from embedded systems in the automotive industry (C/C++) to cloud-native distributed systems processing high volumes of data.\nCurrent work focuses on data-intensive systems that process millions of events using AWS, Kafka, and Spark-based pipelines. Strong emphasis on reliable data flows, complex business logic, and performance under real production load.\nVersatility is a key strength. Experience spans low-level programming, backend systems, and large-scale data platforms, enabling a full end-to-end understanding of complex systems and better technical decisions.\nCore strengths:\n• Debugging low-level performance issues  \n• Designing distributed systems and data pipelines  \n• Working across multiple languages and technologies  \n• Adapting quickly to new domains and business logic  \nFocus remains on delivering solutions that are practical, scalable, and reliable in production environments.\nAlways more to learn, more to build, and more problems to solve.",
+    "currentPosition": [
+      {
+        "companyId": "1038",
+        "companyLinkedinUrl": "https://www.linkedin.com/company/1038/",
+        "companyName": "Deloitte",
+        "dateRange": {
+          "start": {
+            "month": 5,
+            "year": 2024,
+            "day": null
+          },
+          "end": null
+        }
+      }
+    ],
+    "profileTopEducation": [],
+    "profileActions": [],
+    "profileLocales": [
+      {
+        "country": "US",
+        "language": "en"
+      }
+    ],
+    "primaryLocale": {
+      "country": "US",
+      "language": "en"
+    },
+    "multiLocaleHeadline": [
+      {
+        "headline": "Senior Software Engineer | Backend & Data Engineering | Java, AWS, Kafka, Spark | Distributed Systems",
+        "locale": "en_US"
+      }
+    ],
+    "services": null,
+    "experience": [
+      {
+        "position": "Senior Java Software Engineer",
+        "location": "  helped me get this job",
+        "employmentType": "Full-time",
+        "workplaceType": "Remote",
+        "companyName": "Deloitte",
+        "companyLinkedinUrl": "https://www.linkedin.com/company/deloitte/",
+        "companyId": "1038",
+        "companyUniversalName": "deloitte",
+        "duration": "2 yrs",
+        "description": "Specializations:\n- Core Backend & Data Engineer: Java, Scala, Python\n- Distributed Systems & Event-Driven Architectures\n- Cloud & Data Pipelines: AWS, Kafka, Spark\n- Infrastructure as Code: Terraform\n- Experience with Git and modern CI/CD workflows\n\nExperience:\n\nProject 4: Enterprise Banking Integration Platform, Norway (Year: 2025 - 2026)\nAs a Senior Software Engineer, I work on large-scale data integration systems for a major banking institution. I design and maintain distributed data pipelines that process millions of events daily.\n\nMy responsibilities include building end-to-end data flows using Kafka, AWS Glue, and Spark, implementing complex financial business logic, and ensuring systems scale reliably under high load. I also contribute to system design decisions, optimize data processing performance, and support production environments through deep analysis and debugging.\n\nIn addition, I mentor developers, contribute to code reviews, and help improve engineering practices across the team.\n\nProject 3: Enterprise Automotive Analytics Platform, Germany (Year: 2024 - 2025)\nAs a Software Engineer, I contributed to a cloud-based analytics platform for one of the largest automotive companies in Germany.\n\nI developed and deployed scalable data solutions using Python, AWS, and Terraform, focusing on building reusable infrastructure and efficient data pipelines. I worked on optimizing system performance and ensuring reliability in production environments.\n\nThe role required strong adaptability, working across different technologies and collaborating with cross-functional teams to deliver data-driven solutions.\n\nPersonal Qualities:  \nI focus on solving complex problems, understanding systems end-to-end, and delivering practical, reliable solutions in real-world production environments.",
+        "skills": null,
+        "experienceGroupId": "c72b9430c5ecb6ec2573ef22a7bf462c678e1b00",
+        "startDate": {
+          "month": "May",
+          "year": 2024,
+          "text": "May 2024"
+        },
+        "endDate": {
+          "text": "Present"
+        },
+        "companyLogo": {
+          "url": "https://media.licdn.com/dms/image/v2/C560BAQGNtpblgQpJoQ/company-logo_400_400/company-logo_400_400/0/1662120928214/deloitte_logo?e=1776902400&v=beta&t=-xtSr56F53mDz3l8oJut4N15FIoXVGveDKLwHWCNt8U",
+          "sizes": [
+            {
+              "url": "https://media.licdn.com/dms/image/v2/C560BAQGNtpblgQpJoQ/company-logo_400_400/company-logo_400_400/0/1662120928214/deloitte_logo?e=1776902400&v=beta&t=-xtSr56F53mDz3l8oJut4N15FIoXVGveDKLwHWCNt8U",
+              "width": 400,
+              "height": 400,
+              "expiresAt": 1776902400000
+            },
+            {
+              "url": "https://media.licdn.com/dms/image/v2/C560BAQGNtpblgQpJoQ/company-logo_200_200/company-logo_200_200/0/1662120928214/deloitte_logo?e=1776902400&v=beta&t=59HV-MR4OY9qDwCTIbvQh0DXUxZIM5lk3guSfY8EV9A",
+              "width": 200,
+              "height": 200,
+              "expiresAt": 1776902400000
+            },
+            {
+              "url": "https://media.licdn.com/dms/image/v2/C560BAQGNtpblgQpJoQ/company-logo_100_100/company-logo_100_100/0/1662120928214/deloitte_logo?e=1776902400&v=beta&t=R9wsOveU1QI1BEFA5HPYJemEZX8PPRa7xOfmpWPO9KY",
+              "width": 100,
+              "height": 100,
+              "expiresAt": 1776902400000
+            }
+          ]
+        }
+      },
+      {
+        "position": "Java Software Engineer",
+        "location": "  helped me get this job",
+        "employmentType": "Full-time",
+        "workplaceType": "Remote",
+        "companyName": "Deloitte",
+        "companyLinkedinUrl": "https://www.linkedin.com/company/deloitte/",
+        "companyId": "1038",
+        "companyUniversalName": "deloitte",
+        "duration": "1 yr 10 mos",
+        "description": "Specializations:\n- Core Backend Developer: Java, Scala, Python\n- Worked with Various Versions of Git\n\nExperience:\n\nProject 1: HomeOffice, UK Government (Year: 2022-2023)\nAs a Continuous Improvement Developer for the HomeOffice department of the UK Government, I collaborated with a diverse, multicultural, and multilingual team. My role ranged from platform support to creating new functionalities, primarily using Scala, and also Java, Python, Groovy, and Bash.\n\nProject 2: eCommerce Solution for NHS, UK Government (September 2023 - May 2024)\nRecently, I joined a new project focused on developing an eCommerce solution for the NHS. In this role, I have the privilege of building functionalities from scratch, utilizing cutting-edge technologies such as Java 17, the Micronaut framework, and JUnit for testing.\n\nPersonal Qualities:  \nI am a proactive and detail-oriented developer, committed to delivering high-quality software solutions. I initially joined Deloitte Digital through a Java reconversion bootcamp and have since been dedicated to high-value client projects.",
+        "skills": [
+          "Spring Framework",
+          "Hibernate",
+          "Amazon Web Services (AWS)",
+          "Play Framework",
+          "Gitlab",
+          "Jenkins",
+          "Object-oriented Software",
+          "GitHub",
+          "Java",
+          "Micronaut",
+          "Scala",
+          "Maven",
+          "SBT",
+          "Docker",
+          "JSON Web Token (JWT)",
+          "Spring Boot",
+          "Unit Testing",
+          "Microservices",
+          "Kubernetes"
+        ],
+        "experienceGroupId": "c72b9430c5ecb6ec2573ef22a7bf462c678e1b00",
+        "startDate": {
+          "month": "Aug",
+          "year": 2022,
+          "text": "Aug 2022"
+        },
+        "endDate": {
+          "month": "May",
+          "year": 2024,
+          "text": "May 2024"
+        },
+        "companyLogo": {
+          "url": "https://media.licdn.com/dms/image/v2/C560BAQGNtpblgQpJoQ/company-logo_400_400/company-logo_400_400/0/1662120928214/deloitte_logo?e=1776902400&v=beta&t=-xtSr56F53mDz3l8oJut4N15FIoXVGveDKLwHWCNt8U",
+          "sizes": [
+            {
+              "url": "https://media.licdn.com/dms/image/v2/C560BAQGNtpblgQpJoQ/company-logo_400_400/company-logo_400_400/0/1662120928214/deloitte_logo?e=1776902400&v=beta&t=-xtSr56F53mDz3l8oJut4N15FIoXVGveDKLwHWCNt8U",
+              "width": 400,
+              "height": 400,
+              "expiresAt": 1776902400000
+            },
+            {
+              "url": "https://media.licdn.com/dms/image/v2/C560BAQGNtpblgQpJoQ/company-logo_200_200/company-logo_200_200/0/1662120928214/deloitte_logo?e=1776902400&v=beta&t=59HV-MR4OY9qDwCTIbvQh0DXUxZIM5lk3guSfY8EV9A",
+              "width": 200,
+              "height": 200,
+              "expiresAt": 1776902400000
+            },
+            {
+              "url": "https://media.licdn.com/dms/image/v2/C560BAQGNtpblgQpJoQ/company-logo_100_100/company-logo_100_100/0/1662120928214/deloitte_logo?e=1776902400&v=beta&t=R9wsOveU1QI1BEFA5HPYJemEZX8PPRa7xOfmpWPO9KY",
+              "width": 100,
+              "height": 100,
+              "expiresAt": 1776902400000
+            }
+          ]
+        }
+      },
+      {
+        "position": "Embedded C Junior Software Developer",
+        "location": "Iaşi, Romania",
+        "employmentType": "Full-time",
+        "workplaceType": "Hybrid",
+        "companyName": "Vitesco Technologies",
+        "companyLinkedinUrl": "https://www.linkedin.com/company/19057123/",
+        "companyId": "19057123",
+        "duration": "1 yr 1 mo",
+        "description": "- Embedded C programming\n- Ability to analyze embedded software solutions\n- Good microcontrollers understanding (single and multi core)\n- Working with Embedded Real-Time Operating Systems (based on RTA-OS by ETAS)\n- Functional Safety (ISO 26262)\n- AUTOSAR architecture\n- MISRA C 2012 standard\n- Unit Testing with Tessy & PTU test scripts by IBM\n- ASPICE\n- Jira ticket management tool\n- Gerrit/GitHub/IMS",
+        "skills": null,
+        "startDate": {
+          "month": "Jul",
+          "year": 2021,
+          "text": "Jul 2021"
+        },
+        "endDate": {
+          "month": "Jul",
+          "year": 2022,
+          "text": "Jul 2022"
+        },
+        "companyLogo": {
+          "url": "https://media.licdn.com/dms/image/v2/C4D0BAQHTFi5N1EY2xg/company-logo_400_400/company-logo_400_400/0/1630565044116/vitesco_technologies_logo?e=1776902400&v=beta&t=lf7pb2gRqngwWMWig1QgsBZY2tof_j0P3JrT1wfNawQ",
+          "sizes": [
+            {
+              "url": "https://media.licdn.com/dms/image/v2/C4D0BAQHTFi5N1EY2xg/company-logo_400_400/company-logo_400_400/0/1630565044116/vitesco_technologies_logo?e=1776902400&v=beta&t=lf7pb2gRqngwWMWig1QgsBZY2tof_j0P3JrT1wfNawQ",
+              "width": 400,
+              "height": 400,
+              "expiresAt": 1776902400000
+            },
+            {
+              "url": "https://media.licdn.com/dms/image/v2/C4D0BAQHTFi5N1EY2xg/company-logo_200_200/company-logo_200_200/0/1630565044116/vitesco_technologies_logo?e=1776902400&v=beta&t=BEf6bAmYEX4hA1WZxzsGkL736MXK3n_tyJubTGN48IE",
+              "width": 200,
+              "height": 200,
+              "expiresAt": 1776902400000
+            },
+            {
+              "url": "https://media.licdn.com/dms/image/v2/C4D0BAQHTFi5N1EY2xg/company-logo_100_100/company-logo_100_100/0/1630565044116/vitesco_technologies_logo?e=1776902400&v=beta&t=sl07fgTb_6ubUt5r25XaxepeNwnyREsTQID1qbwAKrg",
+              "width": 100,
+              "height": 100,
+              "expiresAt": 1776902400000
+            }
+          ]
+        }
+      },
+      {
+        "position": "C++ Intern Software Developer",
+        "location": "Iaşi, Romania",
+        "employmentType": "Internship",
+        "workplaceType": "Hybrid",
+        "companyName": "Continental",
+        "companyLinkedinUrl": "https://www.linkedin.com/company/3534/",
+        "companyId": "3534",
+        "duration": "1 yr 1 mo",
+        "description": "During this period I've managed to:\n- define the SW and HW requirements based on mentor's input\n- buid an IoT project using RaspBerry Pi Zero W and Flask framework from Python throughout the entire period of Summer Practice 2020 \n- gain experience with agile methodology\n- make improvements upon a chrome extension written in jQuery\n- write a simple HTTP server in C/C++ for test purposes\n- learn about and write some unit tests in Google Test Framework",
+        "skills": [
+          "Unit Testing"
+        ],
+        "startDate": {
+          "month": "Jul",
+          "year": 2020,
+          "text": "Jul 2020"
+        },
+        "endDate": {
+          "month": "Jul",
+          "year": 2021,
+          "text": "Jul 2021"
+        },
+        "companyLogo": {
+          "url": "https://media.licdn.com/dms/image/v2/C560BAQFYrK_MuDgrbg/company-logo_400_400/company-logo_400_400/0/1631328590640?e=1776902400&v=beta&t=qIt-Yu3KK4cDCoLlnSZzIPCzehSz9S5Tpl5VJxGbYyE",
+          "sizes": [
+            {
+              "url": "https://media.licdn.com/dms/image/v2/C560BAQFYrK_MuDgrbg/company-logo_400_400/company-logo_400_400/0/1631328590640?e=1776902400&v=beta&t=qIt-Yu3KK4cDCoLlnSZzIPCzehSz9S5Tpl5VJxGbYyE",
+              "width": 400,
+              "height": 400,
+              "expiresAt": 1776902400000
+            },
+            {
+              "url": "https://media.licdn.com/dms/image/v2/C560BAQFYrK_MuDgrbg/company-logo_200_200/company-logo_200_200/0/1631328590640?e=1776902400&v=beta&t=YckkgD3VVeYa4fy6fECtzJNsnwzvHcr8UkKSSuqjz14",
+              "width": 200,
+              "height": 200,
+              "expiresAt": 1776902400000
+            },
+            {
+              "url": "https://media.licdn.com/dms/image/v2/C560BAQFYrK_MuDgrbg/company-logo_100_100/company-logo_100_100/0/1631328590640?e=1776902400&v=beta&t=Y4pfUIyMQA-zx4C6XddfCxZuS-IxmGFu22TwN95ebDc",
+              "width": 100,
+              "height": 100,
+              "expiresAt": 1776902400000
+            }
+          ]
+        }
+      }
+    ],
+    "education": [
+      {
+        "schoolName": "Faculty of Automatic Control and Computer Engineering, Iași",
+        "schoolLinkedinUrl": "https://www.linkedin.com/search/results/all/?keywords=Faculty+of+Automatic+Control+and+Computer+Engineering%2C+Ia%C8%99i",
+        "schoolId": null,
+        "degree": "Bachelor of Applied Science - BASc",
+        "fieldOfStudy": "Computer  Science and Engineering",
+        "skills": [],
+        "description": "Graduation Thesis: Real Time Trafic Sign Recognition using Deep Learning and Convolutional Neuronal Networks",
+        "insights": "Grade: 9.25",
+        "startDate": {
+          "year": 2017,
+          "text": "2017"
+        },
+        "endDate": {
+          "year": 2021,
+          "text": "2021"
+        },
+        "period": "2017 - 2021",
+        "schoolLogo": null
+      },
+      {
+        "schoolName": "Colegiul Național „Grigore Moisil” Onești",
+        "schoolLinkedinUrl": "https://www.linkedin.com/search/results/all/?keywords=Colegiul+Na%C8%9Bional+%E2%80%9EGrigore+Moisil%E2%80%9D+One%C8%99ti",
+        "schoolId": null,
+        "degree": "Assistant Programmer",
+        "fieldOfStudy": null,
+        "skills": [],
+        "startDate": {
+          "year": 2013,
+          "text": "2013"
+        },
+        "endDate": {
+          "year": 2017,
+          "text": "2017"
+        },
+        "period": "2013 - 2017",
+        "schoolLogo": null
+      }
+    ],
+    "certifications": [
+      {
+        "title": "Oracle Certified Associate, Java SE 8 Programmer",
+        "issuedAt": "Issued Feb 2025",
+        "link": null,
+        "issuedBy": "Oracle",
+        "issuedByLink": "https://www.linkedin.com/company/1028/",
+        "issuedByLogo": {
+          "url": "https://media.licdn.com/dms/image/v2/D4E0BAQHYCgYovUuPtQ/company-logo_400_400/company-logo_400_400/0/1665755678957/oracle_logo?e=1776902400&v=beta&t=AUY5bsbbDzc-3uh3SqjAudna8rzIA5H72XNUifJC_F8",
+          "sizes": [
+            {
+              "url": "https://media.licdn.com/dms/image/v2/D4E0BAQHYCgYovUuPtQ/company-logo_400_400/company-logo_400_400/0/1665755678957/oracle_logo?e=1776902400&v=beta&t=AUY5bsbbDzc-3uh3SqjAudna8rzIA5H72XNUifJC_F8",
+              "width": 400,
+              "height": 400,
+              "expiresAt": 1776902400000
+            },
+            {
+              "url": "https://media.licdn.com/dms/image/v2/D4E0BAQHYCgYovUuPtQ/company-logo_200_200/company-logo_200_200/0/1665755678957/oracle_logo?e=1776902400&v=beta&t=M1GlI6uNXMUev4jZSrdKQKKrm_IwWsrh9BCayM6vP4Q",
+              "width": 200,
+              "height": 200,
+              "expiresAt": 1776902400000
+            },
+            {
+              "url": "https://media.licdn.com/dms/image/v2/D4E0BAQHYCgYovUuPtQ/company-logo_100_100/company-logo_100_100/0/1665755678957/oracle_logo?e=1776902400&v=beta&t=5uYaJw2hoN6n2N23sVI-kqS1pParXQ1LbTj4XukI_WU",
+              "width": 100,
+              "height": 100,
+              "expiresAt": 1776902400000
+            }
+          ]
+        }
+      },
+      {
+        "title": "AWS Certified Cloud Practitioner",
+        "issuedAt": "Issued Oct 2022 · Expired Oct 2025",
+        "link": "https://www.credly.com/badges/0a4da4b9-db08-4194-a0f2-91ec8d1fe7a1/linked_in_profile",
+        "issuedBy": "Amazon Web Services (AWS)",
+        "issuedByLink": "https://www.linkedin.com/company/2382910/",
+        "issuedByLogo": {
+          "url": "https://media.licdn.com/dms/image/v2/D4E0BAQFqdm1TZ-RZKQ/company-logo_400_400/B4EZgOay6gHEAg-/0/1752588562343/amazon_web_services_logo?e=1776902400&v=beta&t=LDRq2nbifI5rRrDAI6jngUEQaV-WTVhmAm3YngokD2Q",
+          "sizes": [
+            {
+              "url": "https://media.licdn.com/dms/image/v2/D4E0BAQFqdm1TZ-RZKQ/company-logo_400_400/B4EZgOay6gHEAg-/0/1752588562343/amazon_web_services_logo?e=1776902400&v=beta&t=LDRq2nbifI5rRrDAI6jngUEQaV-WTVhmAm3YngokD2Q",
+              "width": 400,
+              "height": 400,
+              "expiresAt": 1776902400000
+            },
+            {
+              "url": "https://media.licdn.com/dms/image/v2/D4E0BAQFqdm1TZ-RZKQ/company-logo_200_200/B4EZgOay6gHEAQ-/0/1752588562343/amazon_web_services_logo?e=1776902400&v=beta&t=9bOR4L95CezbFXSu0PKkhCgPblCO28Ux13sxvx60-bA",
+              "width": 200,
+              "height": 200,
+              "expiresAt": 1776902400000
+            },
+            {
+              "url": "https://media.licdn.com/dms/image/v2/D4E0BAQFqdm1TZ-RZKQ/company-logo_100_100/B4EZgOay6gHEAY-/0/1752588562343/amazon_web_services_logo?e=1776902400&v=beta&t=q7oWUykvyUlA8IMiTPfRtw5AwohlF_GlXbyn0DGEKnI",
+              "width": 100,
+              "height": 100,
+              "expiresAt": 1776902400000
+            }
+          ]
+        }
+      },
+      {
+        "title": "Database Design and Programming with SQL",
+        "issuedAt": "Issued May 2017",
+        "link": null,
+        "issuedBy": "Oracle",
+        "issuedByLink": "https://www.linkedin.com/company/1028/",
+        "issuedByLogo": {
+          "url": "https://media.licdn.com/dms/image/v2/D4E0BAQHYCgYovUuPtQ/company-logo_400_400/company-logo_400_400/0/1665755678957/oracle_logo?e=1776902400&v=beta&t=AUY5bsbbDzc-3uh3SqjAudna8rzIA5H72XNUifJC_F8",
+          "sizes": [
+            {
+              "url": "https://media.licdn.com/dms/image/v2/D4E0BAQHYCgYovUuPtQ/company-logo_400_400/company-logo_400_400/0/1665755678957/oracle_logo?e=1776902400&v=beta&t=AUY5bsbbDzc-3uh3SqjAudna8rzIA5H72XNUifJC_F8",
+              "width": 400,
+              "height": 400,
+              "expiresAt": 1776902400000
+            },
+            {
+              "url": "https://media.licdn.com/dms/image/v2/D4E0BAQHYCgYovUuPtQ/company-logo_200_200/company-logo_200_200/0/1665755678957/oracle_logo?e=1776902400&v=beta&t=M1GlI6uNXMUev4jZSrdKQKKrm_IwWsrh9BCayM6vP4Q",
+              "width": 200,
+              "height": 200,
+              "expiresAt": 1776902400000
+            },
+            {
+              "url": "https://media.licdn.com/dms/image/v2/D4E0BAQHYCgYovUuPtQ/company-logo_100_100/company-logo_100_100/0/1665755678957/oracle_logo?e=1776902400&v=beta&t=5uYaJw2hoN6n2N23sVI-kqS1pParXQ1LbTj4XukI_WU",
+              "width": 100,
+              "height": 100,
+              "expiresAt": 1776902400000
+            }
+          ]
+        }
+      },
+      {
+        "title": "European Computer Driving Licence",
+        "issuedAt": "Issued Nov 2014",
+        "link": null,
+        "issuedBy": "ICDL Certification",
+        "issuedByLink": "https://www.linkedin.com/company/9476558/",
+        "issuedByLogo": {
+          "url": "https://media.licdn.com/dms/image/v2/C4D0BAQF_IBZqayNi_A/company-logo_400_400/company-logo_400_400/0/1630541007225/ecdl_icdl_certification_logo?e=1776902400&v=beta&t=8L3X7H1Gs0mf50XvW6IQtuYzTSLxLtpjH0uUJjCIh2Y",
+          "sizes": [
+            {
+              "url": "https://media.licdn.com/dms/image/v2/C4D0BAQF_IBZqayNi_A/company-logo_400_400/company-logo_400_400/0/1630541007225/ecdl_icdl_certification_logo?e=1776902400&v=beta&t=8L3X7H1Gs0mf50XvW6IQtuYzTSLxLtpjH0uUJjCIh2Y",
+              "width": 400,
+              "height": 400,
+              "expiresAt": 1776902400000
+            },
+            {
+              "url": "https://media.licdn.com/dms/image/v2/C4D0BAQF_IBZqayNi_A/company-logo_200_200/company-logo_200_200/0/1630541007225/ecdl_icdl_certification_logo?e=1776902400&v=beta&t=oOiJhfk3pILr-LRQgazMgA45OQQTy27jwzqrWoCFAuE",
+              "width": 200,
+              "height": 200,
+              "expiresAt": 1776902400000
+            },
+            {
+              "url": "https://media.licdn.com/dms/image/v2/C4D0BAQF_IBZqayNi_A/company-logo_100_100/company-logo_100_100/0/1630541007225/ecdl_icdl_certification_logo?e=1776902400&v=beta&t=R0N30-hwpThBWdlVGYYuxofJIIowzvYbcGqGVcIkips",
+              "width": 100,
+              "height": 100,
+              "expiresAt": 1776902400000
+            }
+          ]
+        }
+      }
+    ],
+    "projects": [],
+    "volunteering": [],
+    "skills": [
+      {
+        "name": "Java 8",
+        "positions": [
+          "Oracle Certified Associate, Java SE 8 Programmer"
+        ],
+        "assessments": "Passed LinkedIn Skill Assessment"
+      },
+      {
+        "name": "Core Java",
+        "positions": [
+          "Oracle Certified Associate, Java SE 8 Programmer"
+        ]
+      },
+      {
+        "name": "Java 8 Date And Time API",
+        "positions": [
+          "Oracle Certified Associate, Java SE 8 Programmer"
+        ]
+      },
+      {
+        "name": "Java Application Development",
+        "positions": [
+          "Oracle Certified Associate, Java SE 8 Programmer"
+        ]
+      },
+      {
+        "name": "Java SE 8",
+        "positions": [
+          "Oracle Certified Associate, Java SE 8 Programmer"
+        ]
+      },
+      {
+        "name": "Lambda Expressions",
+        "positions": [
+          "Oracle Certified Associate, Java SE 8 Programmer"
+        ]
+      },
+      {
+        "name": " Java 8 Date And Time API",
+        "positions": [
+          "Oracle Certified Associate, Java SE 8 Programmer"
+        ]
+      },
+      {
+        "name": "Micronaut",
+        "positions": [
+          "Java Software Engineer at Deloitte Digital Romania"
+        ]
+      },
+      {
+        "name": "Object-oriented Software",
+        "positions": [
+          "Java Software Engineer at Deloitte Digital Romania"
+        ]
+      },
+      {
+        "name": "Microservices",
+        "positions": [
+          "Java Software Engineer at Deloitte Digital Romania"
+        ]
+      },
+      {
+        "name": "Maven",
+        "positions": [
+          "Java Software Engineer at Deloitte Digital Romania"
+        ]
+      },
+      {
+        "name": "Unit Testing",
+        "positions": [
+          "2 experiences across Deloitte Digital Romania and 1 other company"
+        ]
+      },
+      {
+        "name": "Hibernate",
+        "positions": [
+          "Java Software Engineer at Deloitte Digital Romania"
+        ]
+      },
+      {
+        "name": "Play Framework",
+        "positions": [
+          "Java Software Engineer at Deloitte Digital Romania"
+        ],
+        "endorsements": "3 endorsements"
+      },
+      {
+        "name": "SBT",
+        "positions": [
+          "Java Software Engineer at Deloitte Digital Romania"
+        ],
+        "endorsements": "4 endorsements"
+      },
+      {
+        "name": "Scala",
+        "positions": [
+          "Java Software Engineer at Deloitte Digital Romania"
+        ],
+        "assessments": "Passed LinkedIn Skill Assessment",
+        "endorsements": "8 endorsements"
+      },
+      {
+        "name": "Docker",
+        "positions": [
+          "Java Software Engineer at Deloitte Digital Romania"
+        ],
+        "endorsements": "5 endorsements"
+      },
+      {
+        "name": "Kubernetes",
+        "positions": [
+          "Java Software Engineer at Deloitte Digital Romania"
+        ],
+        "endorsements": "5 endorsements"
+      },
+      {
+        "name": "JSON Web Token (JWT)",
+        "positions": [
+          "Java Software Engineer at Deloitte Digital Romania"
+        ],
+        "endorsements": "4 endorsements"
+      },
+      {
+        "name": "Amazon Web Services (AWS)",
+        "positions": [
+          "Java Software Engineer at Deloitte Digital Romania"
+        ],
+        "endorsements": "4 endorsements"
+      },
+      {
+        "name": "Gitlab",
+        "positions": [
+          "Java Software Engineer at Deloitte Digital Romania"
+        ],
+        "endorsements": "5 endorsements"
+      },
+      {
+        "name": "Agile Methodologies",
+        "assessments": "Passed LinkedIn Skill Assessment",
+        "endorsements": "3 endorsements"
+      },
+      {
+        "name": "Gerrit",
+        "endorsements": "1 endorsement"
+      },
+      {
+        "name": "Requirements Analysis",
+        "endorsements": "1 endorsement"
+      },
+      {
+        "name": "Spring Boot",
+        "positions": [
+          "Java Software Engineer at Deloitte Digital Romania"
+        ],
+        "endorsements": "8 endorsements"
+      },
+      {
+        "name": "Spring Framework",
+        "positions": [
+          "Java Software Engineer at Deloitte Digital Romania"
+        ],
+        "endorsements": "6 endorsements"
+      },
+      {
+        "name": "C (Programming Language)",
+        "assessments": "Passed LinkedIn Skill Assessment",
+        "endorsements": "5 endorsements"
+      },
+      {
+        "name": "C++",
+        "assessments": "Passed LinkedIn Skill Assessment",
+        "endorsements": "5 endorsements"
+      },
+      {
+        "name": "Java",
+        "positions": [
+          "Java Software Engineer at Deloitte Digital Romania"
+        ],
+        "assessments": "Passed LinkedIn Skill Assessment",
+        "endorsements": "10 endorsements"
+      },
+      {
+        "name": "HTML",
+        "endorsements": "1 endorsement"
+      },
+      {
+        "name": "Linux",
+        "endorsements": "1 endorsement"
+      },
+      {
+        "name": "MySQL",
+        "assessments": "Passed LinkedIn Skill Assessment",
+        "endorsements": "2 endorsements"
+      },
+      {
+        "name": "Python (Programming Language)",
+        "endorsements": "2 endorsements"
+      },
+      {
+        "name": "Git",
+        "endorsements": "4 endorsements"
+      },
+      {
+        "name": "GitHub",
+        "positions": [
+          "Java Software Engineer at Deloitte Digital Romania"
+        ],
+        "endorsements": "1 endorsement"
+      },
+      {
+        "name": "Jenkins",
+        "positions": [
+          "Java Software Engineer at Deloitte Digital Romania"
+        ],
+        "endorsements": "3 endorsements"
+      },
+      {
+        "name": "C# Enthusiast",
+        "endorsements": "1 endorsement"
+      },
+      {
+        "name": "Jira",
+        "endorsements": "1 endorsement"
+      }
+    ],
+    "publications": [],
+    "courses": [],
+    "patents": [],
+    "honorsAndAwards": [],
+    "languages": [
+      {
+        "name": "English",
+        "proficiency": "Professional working proficiency"
+      }
+    ],
+    "causes": [],
+    "featured": null,
+    "composeOptionType": "UPSELL",
+    "originalQuery": {
+      "query": "https://www.linkedin.com/in/andreipaciurca/"
+    }
+  }
+]

@@ -1,0 +1,26 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local tooling state
+.claude/
+.conductor/
+
+# Logs / temp
+*.log
+*.tmp
+*.temp
+
+# Node / test artifacts (safe even for static project)
+node_modules/
+coverage/
+dist/
+
+# Generated PDFs
+*.pdf
