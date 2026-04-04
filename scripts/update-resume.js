@@ -2,13 +2,29 @@ const fs = require('fs');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-// Folosim modelul din env sau default-ul 2.0 Flash Lite Preview
-const modelName = process.env.MODEL_NAME || "gemini-2.0-flash-lite-preview-02-05";
-const model = genAI.getGenerativeModel({ model: modelName });
+
+async function getLatestFlashPreview() {
+  const models = await genAI.listModels();
+  
+  // Filtrare: să conțină "flash" și "preview", ignorând modelele Pro sau TTS
+  const flashPreviewModels = models.models.filter(m => 
+    m.name.toLowerCase().includes('flash') && 
+    m.name.toLowerCase().includes('preview') &&
+    !m.name.toLowerCase().includes('pro') &&
+    !m.name.toLowerCase().includes('tts')
+  );
+
+  // Sortare după nume pentru a obține versiunea cea mai recentă
+  flashPreviewModels.sort((a, b) => b.name.localeCompare(a.name));
+
+  const selected = flashPreviewModels[0]?.name || "gemini-2.0-flash-lite-preview-02-05";
+  console.log(`Auto-selected model: ${selected}`);
+  return selected;
+}
 
 async function processWithAI(text, type) {
   if (!text) return type === 'bullets' ? [] : "";
-  const safeText = text.substring(0, 1500); // Mărim limita la 1500
+  const safeText = text.substring(0, 1500); 
   
   const prompt = type === 'bullets' 
     ? `Summarize this experience into exactly 3 professional bullet points (English). 
@@ -19,6 +35,8 @@ async function processWithAI(text, type) {
        Text: ${safeText}`;
 
   try {
+    const modelName = await getLatestFlashPreview();
+    const model = genAI.getGenerativeModel({ model: modelName });
     const result = await model.generateContent(prompt);
     const response = await result.response;
     const content = response.text().trim();
@@ -78,7 +96,7 @@ async function run() {
 export const profileData = ${JSON.stringify(updatedProfile, null, 2)};`;
 
   fs.writeFileSync('profile-data.js', fileContent);
-  console.log(`Updated successfully using ${modelName}`);
+  console.log("profile-data.js updated successfully!");
 }
 
 run();

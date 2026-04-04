@@ -26,7 +26,6 @@ jobs:
       - name: Run Update Script
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          MODEL_NAME: "gemini-2.0-flash-lite-preview-02-05"
         run: node scripts/update-resume.js
       - name: Commit & Push
         run: |
