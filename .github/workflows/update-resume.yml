@@ -18,7 +18,11 @@ jobs:
       - name: Fetch from Apify
         run: |
           curl -o data/linkedin.json "https://api.apify.com/v2/datasets/NCpZLymDg8hhxrjDh/items?token=${{ secrets.APIFY_TOKEN }}"
+      - name: Install dependencies
+        run: npm install
       - name: Run Update Script
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: node scripts/update-resume.js
       - name: Commit & Push
         run: |

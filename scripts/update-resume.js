@@ -1,72 +1,72 @@
 const fs = require('fs');
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-// Citim datele de la Apify
-const linkedinData = JSON.parse(fs.readFileSync('data/linkedin.json', 'utf8'))[0];
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-const updatedProfile = {
-  availabilityMode: "notice",
-  birthDateIso: "1998-05-07",
-  candidateName: `${linkedinData.firstName} ${linkedinData.lastName}`,
-  profilePictureUrl: "profile-photo.jpg",
-  profileInitials: `${linkedinData.firstName[0]}${linkedinData.lastName[0]}`,
-  location: linkedinData.location.linkedinText,
-  jobType: "Full-time / Remote",
-  driversLicense: "Category B",
-  role: linkedinData.headline,
-  statusLine: "ACTIVE CANDIDATE · OPEN TO WORK",
-  summary: linkedinData.about,
-  activityMessages: [
-    "Analyzing production constraints and engineering trade-offs...",
-    "Compiling a concise impact report for distributed data pipelines...",
-    "Optimizing backend architecture for reliability, scale, and maintainability..."
-  ],
-  topBar: {
-    firstVisitMessage: "Welcome to my 127.0.0.1",
-    commandMessage: "$ code session --agent=viewer --profile=andrei",
-    commandCursor: "|",
-    buttonLabels: { close: "x", minimize: "-", maximize: "+" },
-    launcherSpeechText: "Pss! Please open and hire me!",
-    launcherIconClass: "fa-solid fa-robot"
-  },
-  contact: {
-    email: "andreipaciurca@icloud.com",
-    phone: "+40748376161",
-    linkedinUrl: linkedinData.linkedinUrl,
-    githubUrl: "https://github.com/andreipaciurca"
-  },
-  skillGroups: [
-    {
-      id: "backend",
-      label: "Skills",
-      items: (linkedinData.skills || []).slice(0, 10).map(s => ({ iconClass: "fa-solid fa-code", label: s.name }))
-    }
-  ],
-  experiences: (linkedinData.experience || []).map(exp => ({
-    title: exp.position,
-    company: exp.companyName,
-    period: `${exp.startDate.text} - ${exp.endDate?.text || 'Present'}`,
-    location: exp.location,
-    bullets: exp.description ? exp.description.split('\n').filter(line => line.trim()) : []
-  })),
-  education: (linkedinData.education || []).map(edu => ({
-    title: edu.degree || edu.degreeName,
-    details: `${edu.schoolName} (${edu.period})`,
-    extra: edu.description || "",
-    iconClass: "fa-solid fa-graduation-cap"
-  })),
-  certifications: (linkedinData.certifications || []).map(cert => ({
-    title: cert.title,
-    issuer: cert.issuedBy,
-    issued: cert.issuedAt,
-    iconClass: "fa-solid fa-certificate"
-  }))
-};
+async function summarize(text) {
+  if (!text) return [];
+  const prompt = `Summarize the following professional experience for a Senior Software Engineer CV. 
+  Extract exactly 3 key bullet points that are impactful and professional.
+  Text: ${text}`;
+  
+  try {
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    return response.text().split('\n').filter(line => line.trim().startsWith('*') || line.trim().startsWith('-')).map(l => l.replace(/^[*\-]\s*/, '').trim());
+  } catch (e) {
+    console.error("AI summarization failed, falling back to raw text.", e);
+    return text.split('\n').slice(0, 3);
+  }
+}
 
-const fileContent = `/*
- * Single source of truth for profile data.
- * Keep content in English; app.js handles automatic runtime translation.
+async function run() {
+  const linkedinData = JSON.parse(fs.readFileSync('data/linkedin.json', 'utf8'))[0];
+  const currentProfileFile = fs.readFileSync('profile-data.js', 'utf8');
+  
+  // Extract existing profile data structure to maintain consistency
+  const match = currentProfileFile.match(/export const profileData = ({[\s\S]*});/);
+  const currentProfile = JSON.parse(match[1]);
+
+  const experiences = [];
+  for (const exp of (linkedinData.experience || [])) {
+    experiences.push({
+      title: exp.position,
+      company: exp.companyName,
+      period: `${exp.startDate.text} - ${exp.endDate?.text || 'Present'}`,
+      location: exp.location,
+      bullets: await summarize(exp.description)
+    });
+  }
+
+  const updatedProfile = {
+    ...currentProfile,
+    candidateName: `${linkedinData.firstName} ${linkedinData.lastName}`,
+    role: linkedinData.headline,
+    summary: linkedinData.about,
+    location: linkedinData.location.linkedinText,
+    experiences: experiences,
+    education: (linkedinData.education || []).map(edu => ({
+      title: edu.degree || edu.degreeName,
+      details: `${edu.schoolName} (${edu.period})`,
+      extra: edu.description || "",
+      iconClass: "fa-solid fa-graduation-cap"
+    })),
+    certifications: (linkedinData.certifications || []).map(cert => ({
+      title: cert.title,
+      issuer: cert.issuedBy,
+      issued: cert.issuedAt,
+      iconClass: "fa-solid fa-certificate"
+    }))
+  };
+
+  const fileContent = `/*
+ * Profile data - Automatically synced from LinkedIn.
  */
 export const profileData = ${JSON.stringify(updatedProfile, null, 2)};`;
 
-fs.writeFileSync('profile-data.js', fileContent);
-console.log("profile-data.js a fost actualizat cu succes!");
+  fs.writeFileSync('profile-data.js', fileContent);
+  console.log("profile-data.js updated successfully!");
+}
+
+run();
