@@ -23,6 +23,8 @@ jobs:
           curl -o data/linkedin.json "https://api.apify.com/v2/datasets/NCpZLymDg8hhxrjDh/items?token=${{ secrets.APIFY_TOKEN }}"
       - name: Install dependencies
         run: npm install
+      - name: Run Integration Tests
+        run: npm test
       - name: Run Update Script
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -31,11 +33,9 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          # Discard changes to package-lock.json to avoid noise/errors
-          git checkout package-lock.json
           git add profile-data.js data/linkedin.json health.json
           if [[ -n $(git status --porcelain) ]]; then
-            git commit -m "Auto-update profile from LinkedIn"
+            git commit -m "Auto-update profile and sync artifacts"
             git push
           else
             echo "No changes to commit."
