@@ -31,9 +31,11 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add .
+          # Discard changes to package-lock.json to avoid noise/errors
+          git checkout package-lock.json
+          git add profile-data.js data/linkedin.json health.json
           if [[ -n $(git status --porcelain) ]]; then
-            git commit -m "Auto-update profile and health status"
+            git commit -m "Auto-update profile from LinkedIn"
             git push
           else
             echo "No changes to commit."
