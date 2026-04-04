@@ -23,6 +23,129 @@
   --shadow: 0 26px 90px rgba(0, 0, 0, 0.58);
 }
 
+body.light-mode .pane-title {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+body.light-mode .footer-branchline {
+  color: var(--text-soft);
+  background: var(--bg-secondary);
+  border-color: var(--line);
+}
+
+body.light-mode .photo-face-back {
+  background: radial-gradient(circle at 20% 10%, rgba(200, 200, 200, 0.5), rgba(240, 242, 247, 0.98));
+  color: var(--text-main);
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .terminal-topbar,
+body.light-mode .pane-bar {
+  background: #e2e8f0;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+body.light-mode .pane {
+  background: var(--bg-panel);
+}
+
+body.light-mode .photo-face-front {
+  transform: rotateY(0deg) !important;
+  backface-visibility: visible !important;
+}
+
+body.light-mode .profile-photo-frame.photo-flipped .photo-face-front {
+  transform: rotateY(0deg) !important;
+}
+
+body.light-mode .coin-spin {
+  animation: none !important;
+}
+
+body.light-mode {
+  --bg-main: #f0f2f7;
+  --bg-secondary: #e3e8f2;
+  --bg-panel: #ffffff;
+  --bg-panel-soft: #f8fafc;
+  --line: rgba(6, 6, 7, 0.12);
+  --line-soft: rgba(6, 6, 7, 0.06);
+  --text-main: #060607;
+  --text-soft: #2d2e30;
+  --text-dim: #64748b;
+  --shadow: 0 26px 90px rgba(0, 0, 0, 0.12);
+  background: var(--bg-main);
+}
+
+body.light-mode .action-button.secondary {
+  background: var(--bg-secondary);
+  color: var(--text-main);
+  border-color: var(--line);
+}
+
+body.light-mode .action-button.primary {
+  background: var(--text-main);
+  color: var(--bg-panel);
+}
+
+body.light-mode .contact-chip {
+  background: var(--bg-panel-soft);
+  border-color: var(--line);
+  color: var(--text-main);
+}
+
+body.light-mode .experience-card,
+body.light-mode .info-card {
+  background: var(--bg-panel-soft);
+  border-color: var(--line);
+}
+
+body.light-mode .skill-chip {
+  background: var(--bg-secondary);
+  color: var(--text-main);
+  border-color: var(--line);
+}
+
+body.light-mode .terminal-command {
+  color: var(--text-main);
+}
+
+body.light-mode .terminal-command-cursor {
+  background: var(--text-main);
+}
+
+body.light-mode::before {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.02) 0,
+      rgba(0, 0, 0, 0.02) 1px,
+      transparent 1px,
+      transparent 20px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.02) 0,
+      rgba(0, 0, 0, 0.02) 1px,
+      transparent 1px,
+      transparent 20px
+    );
+}
+
+body.light-mode::after {
+  mix-blend-mode: multiply;
+  opacity: 0.1;
+}
+
+body.light-mode .pane-bar,
+body.light-mode .terminal-topbar {
+  background: var(--bg-secondary);
+}
+
+body.light-mode .pane-body {
+  background: var(--bg-panel);
+}
+
 *,
 *::before,
 *::after {
@@ -122,7 +245,6 @@ a {
   align-items: center;
   margin-right: 6px;
 }
-
 .window-button {
   position: relative;
   width: 14px;
@@ -134,6 +256,35 @@ a {
   font-family: var(--font-code);
   cursor: pointer;
   transition: transform 0.16s ease, filter 0.16s ease, box-shadow 0.16s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.window-button.theme-toggle {
+  width: 22px;
+  height: 22px;
+  margin-left: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--line);
+  color: var(--text-soft);
+  font-size: 12px;
+}
+
+body.light-mode .window-button.theme-toggle {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--line);
+  color: var(--text-main);
+}
+
+.window-button.theme-toggle:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+body.light-mode .window-button.theme-toggle:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.26);
 }
 
@@ -451,6 +602,10 @@ a {
   filter: grayscale(1) contrast(1.08) brightness(0.97);
 }
 
+body.light-mode .profile-photo-frame img {
+  filter: none !important;
+}
+
 .profile-photo-frame span {
   display: grid;
   place-items: center;
@@ -468,6 +623,22 @@ a {
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+}
+
+body.light-mode .status-line {
+  color: #1e40af;
+  font-weight: 700;
+}
+
+body.light-mode .hero-summary,
+body.light-mode .hero-role,
+body.light-mode .info-card p,
+body.light-mode .experience-content ul {
+  color: #1e293b;
+}
+
+body.light-mode .pane-hint {
+  color: #475569;
 }
 
 h1 {

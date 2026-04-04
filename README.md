@@ -102,6 +102,36 @@ Important note:
 - `sitemap.xml` lists the main URL
 - `.htaccess` contains optional Apache fallback config (GitHub Pages ignores it)
 
+## Features & Improvements
+
+- **Modular Architecture**: ES Modules for better maintainability.
+- **Light/Dark Mode**: Full UI theme support with a dedicated toggle button.
+- **Interactive Terminal**: The headline command line is now editable and supports commands:
+  - `help` - list available commands
+  - `theme` - toggle light/dark mode
+  - `clear` - clear the command line
+  - `ls` - list files in the project
+  - `contact` - trigger the email link
+  - `resume` - trigger the PDF download
+- **SEO Optimized**: JSON-LD structured data and improved meta tags.
+
+## Local Development & Browser Support
+
+This project uses **ES Modules**, which are not supported when opening `index.html` directly from the file system (`file://`) due to browser security restrictions (CORS).
+
+### Local Preview
+
+To view the site locally, you **must** run a local web server:
+
+```bash
+python3 -m http.server 8080
+```
+
+Open:
+- `http://localhost:8080`
+
+**Note for Safari users:** If you experience issues on `localhost`, ensure you are using `http://` explicitly. Safari may attempt to force `https://` via HSTS, which can cause connection errors on local non-SSL servers.
+
 ## License
 
 This repository uses a custom non-commercial license in `LICENCE`:
