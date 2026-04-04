@@ -9,7 +9,7 @@ export const profileData = {
   "driversLicense": "Category B",
   "role": "Senior Software Engineer | Backend & Data Engineering | Java, AWS, Kafka, Spark | Distributed Systems",
   "statusLine": "ACTIVE CANDIDATE · OPEN TO WORK",
-  "summary": "Building systems that handle complexity, scale, and real-world constraints.\nSenior Software Engineer with experience across very different domains, from embedded systems in the automotive industry (C/C++) to cloud-native distributed systems processing high volumes of data.\nCurrent work focuses on data-intensive systems that process millions of events using AWS, Kafka, and Spark-based pipelines. St",
+  "summary": "Building systems that handle complexity, scale, and real-world constraints.\nSenior Software Engineer with experience across very different domains, from embedded systems in the automotive industry (C/C++) to cloud-native distributed systems processing high volumes of data.\nCurrent work focuses on data-intensive systems that process millions of events using AWS, Kafka, and Spark-based pipelines. Strong emphasis on reliable data flows, complex business logic, and performance under real production",
   "activityMessages": [
     "Analyzing production constraints and engineering trade-offs...",
     "Optimizing backend architecture for reliability and scale..."
@@ -38,23 +38,23 @@ export const profileData = {
       "label": "Technical Expertise",
       "items": [
         {
-          "iconClass": "fa-brands fa-java",
+          "iconClass": "fa-solid fa-code",
           "label": "Java 8"
         },
         {
-          "iconClass": "fa-brands fa-java",
+          "iconClass": "fa-solid fa-code",
           "label": "Core Java"
         },
         {
-          "iconClass": "fa-brands fa-java",
+          "iconClass": "fa-solid fa-code",
           "label": "Java 8 Date And Time API"
         },
         {
-          "iconClass": "fa-brands fa-java",
+          "iconClass": "fa-solid fa-code",
           "label": "Java Application Development"
         },
         {
-          "iconClass": "fa-brands fa-java",
+          "iconClass": "fa-solid fa-code",
           "label": "Java SE 8"
         },
         {
@@ -62,7 +62,7 @@ export const profileData = {
           "label": "Lambda Expressions"
         },
         {
-          "iconClass": "fa-brands fa-java",
+          "iconClass": "fa-solid fa-code",
           "label": " Java 8 Date And Time API"
         },
         {
@@ -107,7 +107,7 @@ export const profileData = {
       "period": "May 2024 - Present",
       "location": "Iaşi, Romania",
       "bullets": [
-        "Specializations:\n- Core Backend & Data Engineer: Java, Scala, Python\n- Distributed Systems & Event-Driven Architectures\n- Cloud & Data Pipelines: AWS, Kafka, Spark\n- Infrastructure as Code: Terraform\n- Experience with Git and modern CI/CD workflows\n\nExperience:\n\nProject 4: Enterprise Banking Integration Platform, Norway (Year: 2025 - 2026)\nAs a Senior Software Engineer, I work on large-scale data "
+        "Specializations:\n- Core Backend & Data Engineer: Java, Scala, Python\n- Distributed Systems & Event-Driven Architectures\n- Cloud & Data Pipelines: AWS, Kafka, Spark\n- Infrastructure as Code: Terraform\n- Experience with Git and modern CI/CD workflows\n\nExperience:\n\nProject 4: Enterprise Banking Integration Platform, Norway (Year: 2025 - 2026)\nAs a Senior Software Engineer, I work on large-scale data integration systems for a major banking institution. I design and maintain distributed data pipelin"
       ]
     },
     {
@@ -116,7 +116,7 @@ export const profileData = {
       "period": "Aug 2022 - May 2024",
       "location": "Iaşi, Romania",
       "bullets": [
-        "Specializations:\n- Core Backend Developer: Java, Scala, Python\n- Worked with Various Versions of Git\n\nExperience:\n\nProject 1: HomeOffice, UK Government (Year: 2022-2023)\nAs a Continuous Improvement Developer for the HomeOffice department of the UK Government, I collaborated with a diverse, multicultural, and multilingual team. My role ranged from platform support to creating new functionalities, p"
+        "Specializations:\n- Core Backend Developer: Java, Scala, Python\n- Worked with Various Versions of Git\n\nExperience:\n\nProject 1: HomeOffice, UK Government (Year: 2022-2023)\nAs a Continuous Improvement Developer for the HomeOffice department of the UK Government, I collaborated with a diverse, multicultural, and multilingual team. My role ranged from platform support to creating new functionalities, primarily using Scala, and also Java, Python, Groovy, and Bash.\n\nProject 2: eCommerce Solution for N"
       ]
     },
     {
@@ -125,7 +125,7 @@ export const profileData = {
       "period": "Jul 2021 - Jul 2022",
       "location": "Iaşi, Romania",
       "bullets": [
-        "- Embedded C programming\n- Ability to analyze embedded software solutions\n- Good microcontrollers understanding (single and multi core)\n- Working with Embedded Real-Time Operating Systems (based on RTA-OS by ETAS)\n- Functional Safety (ISO 26262)\n- AUTOSAR architecture\n- MISRA C 2012 standard\n- Unit Testing with Tessy & PTU test scripts by IBM\n- ASPICE\n- Jira ticket management tool\n- Gerrit/GitHub/"
+        "- Embedded C programming\n- Ability to analyze embedded software solutions\n- Good microcontrollers understanding (single and multi core)\n- Working with Embedded Real-Time Operating Systems (based on RTA-OS by ETAS)\n- Functional Safety (ISO 26262)\n- AUTOSAR architecture\n- MISRA C 2012 standard\n- Unit Testing with Tessy & PTU test scripts by IBM\n- ASPICE\n- Jira ticket management tool\n- Gerrit/GitHub/IMS"
       ]
     },
     {
@@ -134,7 +134,7 @@ export const profileData = {
       "period": "Jul 2020 - Jul 2021",
       "location": "Iaşi, Romania",
       "bullets": [
-        "During this period I've managed to:\n- define the SW and HW requirements based on mentor's input\n- buid an IoT project using RaspBerry Pi Zero W and Flask framework from Python throughout the entire period of Summer Practice 2020 \n- gain experience with agile methodology\n- make improvements upon a chrome extension written in jQuery\n- write a simple HTTP server in C/C++ for test purposes\n- learn abo"
+        "During this period I've managed to:\n- define the SW and HW requirements based on mentor's input\n- buid an IoT project using RaspBerry Pi Zero W and Flask framework from Python throughout the entire period of Summer Practice 2020 \n- gain experience with agile methodology\n- make improvements upon a chrome extension written in jQuery\n- write a simple HTTP server in C/C++ for test purposes\n- learn about and write some unit tests in Google Test Framework"
       ]
     }
   ],

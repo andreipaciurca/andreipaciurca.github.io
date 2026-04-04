@@ -1,4 +1,6 @@
 {
   "status": "ok",
-  "timestamp": "2026-04-04T14:07:27.844Z"
+  "timestamp": "2026-04-04T14:17:52.441Z",
+  "gemini": true,
+  "apify": false
 }
