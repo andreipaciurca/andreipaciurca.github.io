@@ -1,6 +1,5 @@
 /*
- * Single source of truth for profile data.
- * Keep content in English; app.js handles automatic runtime translation.
+ * Profile data - Automatically synced from LinkedIn.
  */
 export const profileData = {
   "availabilityMode": "notice",
@@ -94,21 +93,7 @@ export const profileData = {
       "bullets": [
         "Specializations:",
         "- Core Backend & Data Engineer: Java, Scala, Python",
-        "- Distributed Systems & Event-Driven Architectures",
-        "- Cloud & Data Pipelines: AWS, Kafka, Spark",
-        "- Infrastructure as Code: Terraform",
-        "- Experience with Git and modern CI/CD workflows",
-        "Experience:",
-        "Project 4: Enterprise Banking Integration Platform, Norway (Year: 2025 - 2026)",
-        "As a Senior Software Engineer, I work on large-scale data integration systems for a major banking institution. I design and maintain distributed data pipelines that process millions of events daily.",
-        "My responsibilities include building end-to-end data flows using Kafka, AWS Glue, and Spark, implementing complex financial business logic, and ensuring systems scale reliably under high load. I also contribute to system design decisions, optimize data processing performance, and support production environments through deep analysis and debugging.",
-        "In addition, I mentor developers, contribute to code reviews, and help improve engineering practices across the team.",
-        "Project 3: Enterprise Automotive Analytics Platform, Germany (Year: 2024 - 2025)",
-        "As a Software Engineer, I contributed to a cloud-based analytics platform for one of the largest automotive companies in Germany.",
-        "I developed and deployed scalable data solutions using Python, AWS, and Terraform, focusing on building reusable infrastructure and efficient data pipelines. I worked on optimizing system performance and ensuring reliability in production environments.",
-        "The role required strong adaptability, working across different technologies and collaborating with cross-functional teams to deliver data-driven solutions.",
-        "Personal Qualities:  ",
-        "I focus on solving complex problems, understanding systems end-to-end, and delivering practical, reliable solutions in real-world production environments."
+        "- Distributed Systems & Event-Driven Architectures"
       ]
     },
     {
@@ -119,14 +104,7 @@ export const profileData = {
       "bullets": [
         "Specializations:",
         "- Core Backend Developer: Java, Scala, Python",
-        "- Worked with Various Versions of Git",
-        "Experience:",
-        "Project 1: HomeOffice, UK Government (Year: 2022-2023)",
-        "As a Continuous Improvement Developer for the HomeOffice department of the UK Government, I collaborated with a diverse, multicultural, and multilingual team. My role ranged from platform support to creating new functionalities, primarily using Scala, and also Java, Python, Groovy, and Bash.",
-        "Project 2: eCommerce Solution for NHS, UK Government (September 2023 - May 2024)",
-        "Recently, I joined a new project focused on developing an eCommerce solution for the NHS. In this role, I have the privilege of building functionalities from scratch, utilizing cutting-edge technologies such as Java 17, the Micronaut framework, and JUnit for testing.",
-        "Personal Qualities:  ",
-        "I am a proactive and detail-oriented developer, committed to delivering high-quality software solutions. I initially joined Deloitte Digital through a Java reconversion bootcamp and have since been dedicated to high-value client projects."
+        "- Worked with Various Versions of Git"
       ]
     },
     {
@@ -137,15 +115,7 @@ export const profileData = {
       "bullets": [
         "- Embedded C programming",
         "- Ability to analyze embedded software solutions",
-        "- Good microcontrollers understanding (single and multi core)",
-        "- Working with Embedded Real-Time Operating Systems (based on RTA-OS by ETAS)",
-        "- Functional Safety (ISO 26262)",
-        "- AUTOSAR architecture",
-        "- MISRA C 2012 standard",
-        "- Unit Testing with Tessy & PTU test scripts by IBM",
-        "- ASPICE",
-        "- Jira ticket management tool",
-        "- Gerrit/GitHub/IMS"
+        "- Good microcontrollers understanding (single and multi core)"
       ]
     },
     {
@@ -156,11 +126,7 @@ export const profileData = {
       "bullets": [
         "During this period I've managed to:",
         "- define the SW and HW requirements based on mentor's input",
-        "- buid an IoT project using RaspBerry Pi Zero W and Flask framework from Python throughout the entire period of Summer Practice 2020 ",
-        "- gain experience with agile methodology",
-        "- make improvements upon a chrome extension written in jQuery",
-        "- write a simple HTTP server in C/C++ for test purposes",
-        "- learn about and write some unit tests in Google Test Framework"
+        "- buid an IoT project using RaspBerry Pi Zero W and Flask framework from Python throughout the entire period of Summer Practice 2020 "
       ]
     }
   ],
