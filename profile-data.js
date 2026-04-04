@@ -38,42 +38,96 @@ export const profileData = {
       "id": "backend",
       "label": "Backend Engineering",
       "items": [
-        { "iconClass": "fa-brands fa-java",    "label": "Java" },
-        { "iconClass": "fa-solid fa-code",      "label": "Scala" },
-        { "iconClass": "fa-brands fa-python",   "label": "Python" },
-        { "iconClass": "fa-solid fa-leaf",      "label": "Spring Boot" },
-        { "iconClass": "fa-solid fa-microchip", "label": "Micronaut" },
-        { "iconClass": "fa-solid fa-database",  "label": "SQL" }
+        {
+          "iconClass": "fa-brands fa-java",
+          "label": "Java"
+        },
+        {
+          "iconClass": "fa-solid fa-code",
+          "label": "Scala"
+        },
+        {
+          "iconClass": "fa-brands fa-python",
+          "label": "Python"
+        },
+        {
+          "iconClass": "fa-solid fa-leaf",
+          "label": "Spring Boot"
+        },
+        {
+          "iconClass": "fa-solid fa-microchip",
+          "label": "Micronaut"
+        },
+        {
+          "iconClass": "fa-solid fa-database",
+          "label": "SQL"
+        }
       ]
     },
     {
       "id": "data",
       "label": "Data and Streaming",
       "items": [
-        { "iconClass": "fa-solid fa-shuffle",         "label": "Kafka" },
-        { "iconClass": "fa-solid fa-bolt",            "label": "Spark" },
-        { "iconClass": "fa-solid fa-diagram-project", "label": "Data Pipelines" },
-        { "iconClass": "fa-solid fa-network-wired",   "label": "Distributed Systems" }
+        {
+          "iconClass": "fa-solid fa-shuffle",
+          "label": "Kafka"
+        },
+        {
+          "iconClass": "fa-solid fa-bolt",
+          "label": "Spark"
+        },
+        {
+          "iconClass": "fa-solid fa-diagram-project",
+          "label": "Data Pipelines"
+        },
+        {
+          "iconClass": "fa-solid fa-network-wired",
+          "label": "Distributed Systems"
+        }
       ]
     },
     {
       "id": "cloud",
       "label": "Cloud and Infrastructure",
       "items": [
-        { "iconClass": "fa-brands fa-aws",         "label": "AWS" },
-        { "iconClass": "fa-solid fa-layer-group",  "label": "Terraform" },
-        { "iconClass": "fa-brands fa-docker",      "label": "Docker" },
-        { "iconClass": "fa-solid fa-dharmachakra", "label": "Kubernetes" }
+        {
+          "iconClass": "fa-brands fa-aws",
+          "label": "AWS"
+        },
+        {
+          "iconClass": "fa-solid fa-layer-group",
+          "label": "Terraform"
+        },
+        {
+          "iconClass": "fa-brands fa-docker",
+          "label": "Docker"
+        },
+        {
+          "iconClass": "fa-solid fa-dharmachakra",
+          "label": "Kubernetes"
+        }
       ]
     },
     {
       "id": "delivery",
       "label": "Delivery and Engineering Process",
       "items": [
-        { "iconClass": "fa-solid fa-rotate",          "label": "CI/CD" },
-        { "iconClass": "fa-brands fa-git-alt",        "label": "Git" },
-        { "iconClass": "fa-solid fa-chalkboard-user", "label": "Mentoring" },
-        { "iconClass": "fa-solid fa-shield-halved",   "label": "Production Reliability" }
+        {
+          "iconClass": "fa-solid fa-rotate",
+          "label": "CI/CD"
+        },
+        {
+          "iconClass": "fa-brands fa-git-alt",
+          "label": "Git"
+        },
+        {
+          "iconClass": "fa-solid fa-chalkboard-user",
+          "label": "Mentoring"
+        },
+        {
+          "iconClass": "fa-solid fa-shield-halved",
+          "label": "Production Reliability"
+        }
       ]
     }
   ],

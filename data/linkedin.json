@@ -807,14 +807,6 @@
   "composeOptionType": "UPSELL",
   "moreProfiles": [
     {
-      "id": "ACoAAAPoE8sBTWF6jhiaBlaxAmvNQ9-b24Eq0JU",
-      "firstName": "Nivea",
-      "lastName": "N.",
-      "position": "Software Engineer Specialist-Application/Production Support ",
-      "publicIdentifier": "nivea-n-a37b4819",
-      "linkedinUrl": "https://www.linkedin.com/in/nivea-n-a37b4819"
-    },
-    {
       "id": "ACoAADoYfNAB7zE9wlVIF5MnRFveGr4I8JZmsaI",
       "firstName": "Daniel Georgian",
       "lastName": "Nedelea",
@@ -826,7 +818,6 @@
       "id": "ACoAADOINMABMkaRbVBkf4-r8p2tA94a5_jLXnk",
       "firstName": "Andrei",
       "lastName": "Alionte",
-      "position": "Software Developer | .NET, Java, Angular , React",
       "publicIdentifier": "andreialionte",
       "linkedinUrl": "https://www.linkedin.com/in/andreialionte"
     },
@@ -834,39 +825,13 @@
       "id": "ACoAAFNsa3QB7i-2mzulnTqDtSu6mZUYSvvxxKs",
       "firstName": "Serban",
       "lastName": "Spiratos",
-      "position": "General Surgeon ",
       "publicIdentifier": "serban-spiratos-bb0889330",
       "linkedinUrl": "https://www.linkedin.com/in/serban-spiratos-bb0889330"
-    },
-    {
-      "id": "ACoAAAL2wu4BG6zZcWjKqDLlSmMF1ZrrX7aso4s",
-      "firstName": "Iulia",
-      "lastName": "Cretu",
-      "position": "\"Integrity is doing the right thing, knowing that nobody's going to know whether you did it or not\"",
-      "publicIdentifier": "cretu-iulia",
-      "linkedinUrl": "https://www.linkedin.com/in/cretu-iulia"
-    },
-    {
-      "id": "ACoAAAP5ulsBZzCrfpN80PKW777nm_zSy8sNhpU",
-      "firstName": "Florin-Emil",
-      "lastName": "Predescu, PMP",
-      "position": "Solutions Manager Connected Vehicles",
-      "publicIdentifier": "florin-emil-predescu-pmp-3374061a",
-      "linkedinUrl": "https://www.linkedin.com/in/florin-emil-predescu-pmp-3374061a"
-    },
-    {
-      "id": "ACoAACiUjSsByFmtbW3sRJXHPt9i34xP_Ht70QQ",
-      "firstName": "Cosmina",
-      "lastName": "Radu",
-      "position": "Java Developer at SII Romania",
-      "publicIdentifier": "cosmina-radu",
-      "linkedinUrl": "https://www.linkedin.com/in/cosmina-radu"
     },
     {
       "id": "ACoAAAYbvTIBZXPwzwnW-e5ezkxK5RYpann5y7w",
       "firstName": "Alexandru",
       "lastName": "Pintilie",
-      "position": "Support Engineer at Endava",
       "publicIdentifier": "alexandru-pintilie-3023a22a",
       "linkedinUrl": "https://www.linkedin.com/in/alexandru-pintilie-3023a22a"
     },
@@ -874,9 +839,71 @@
       "id": "ACoAABr-fgUBv9sWr4pv_48E1YaVH5ZjFlcuLlY",
       "firstName": "Marius",
       "lastName": "Borcan",
-      "position": "Manager, Software Infrastructure - VOIS",
       "publicIdentifier": "marius-borcan-999806107",
       "linkedinUrl": "https://www.linkedin.com/in/marius-borcan-999806107"
+    },
+    {
+      "id": "ACoAAATlVJABuK671Fx5LouHS9o9hxJYh1o6ymc",
+      "firstName": "Volodymyr (Vova)",
+      "lastName": "Shulha l FCCA l FMVA",
+      "publicIdentifier": "volodymyr-shulha",
+      "linkedinUrl": "https://www.linkedin.com/in/volodymyr-shulha"
+    },
+    {
+      "id": "ACoAACQbWjMBE4SGMRf2_7fkrbCdqp8acPm_j6g",
+      "firstName": "Liviu",
+      "lastName": "Alexandrescu",
+      "publicIdentifier": "liviu-alexandrescu",
+      "linkedinUrl": "https://www.linkedin.com/in/liviu-alexandrescu"
+    },
+    {
+      "id": "ACoAAAeddn4BSCBIToXpvv-Oq-uy6H3HPpaRusE",
+      "firstName": "Laura",
+      "lastName": "Tribus",
+      "publicIdentifier": "laura-tribus-22695336",
+      "linkedinUrl": "https://www.linkedin.com/in/laura-tribus-22695336"
+    },
+    {
+      "id": "ACoAACRjnHgBJ1BMVHqll1JtR_8nHgEIlvDtYLQ",
+      "firstName": "Mihaela",
+      "lastName": "Lupanciuc",
+      "publicIdentifier": "mihaela-lupanciuc-22055b150",
+      "linkedinUrl": "https://www.linkedin.com/in/mihaela-lupanciuc-22055b150"
+    },
+    {
+      "id": "ACoAAClMObMBCUc6PK6aYe3u1kXGwMYGJ-bBdAk",
+      "firstName": "Raluca-Alexandra",
+      "lastName": "Dascalu",
+      "publicIdentifier": "raluca-alexandra-dascalu-52b055174",
+      "linkedinUrl": "https://www.linkedin.com/in/raluca-alexandra-dascalu-52b055174"
+    },
+    {
+      "id": "ACoAAAPoE8sBTWF6jhiaBlaxAmvNQ9-b24Eq0JU",
+      "firstName": "Nivea",
+      "lastName": "N.",
+      "publicIdentifier": "nivea-n-a37b4819",
+      "linkedinUrl": "https://www.linkedin.com/in/nivea-n-a37b4819"
+    },
+    {
+      "id": "ACoAAAL2wu4BG6zZcWjKqDLlSmMF1ZrrX7aso4s",
+      "firstName": "Iulia",
+      "lastName": "Cretu",
+      "publicIdentifier": "cretu-iulia",
+      "linkedinUrl": "https://www.linkedin.com/in/cretu-iulia"
+    },
+    {
+      "id": "ACoAAAP5ulsBZzCrfpN80PKW777nm_zSy8sNhpU",
+      "firstName": "Florin-Emil",
+      "lastName": "Predescu, PMP",
+      "publicIdentifier": "florin-emil-predescu-pmp-3374061a",
+      "linkedinUrl": "https://www.linkedin.com/in/florin-emil-predescu-pmp-3374061a"
+    },
+    {
+      "id": "ACoAACiUjSsByFmtbW3sRJXHPt9i34xP_Ht70QQ",
+      "firstName": "Cosmina",
+      "lastName": "Radu",
+      "publicIdentifier": "cosmina-radu",
+      "linkedinUrl": "https://www.linkedin.com/in/cosmina-radu"
     },
     {
       "id": "ACoAAA4LQ0EBnw2g_JuCfGpl4PO2JlzV8CQUlvw",
@@ -890,25 +917,8 @@
       "id": "ACoAACrBo_0BmEkFBoHJqXPjOWXLqL1B8BwSisk",
       "firstName": "Malina",
       "lastName": "Dumitrescu",
-      "position": "Java Developer at 1&1 Internet Development",
       "publicIdentifier": "malina-dumitrescu",
       "linkedinUrl": "https://www.linkedin.com/in/malina-dumitrescu"
-    },
-    {
-      "id": "ACoAAATlVJABuK671Fx5LouHS9o9hxJYh1o6ymc",
-      "firstName": "Volodymyr (Vova)",
-      "lastName": "Shulha l FCCA l FMVA",
-      "position": "Revenue control",
-      "publicIdentifier": "volodymyr-shulha",
-      "linkedinUrl": "https://www.linkedin.com/in/volodymyr-shulha"
-    },
-    {
-      "id": "ACoAACQbWjMBE4SGMRf2_7fkrbCdqp8acPm_j6g",
-      "firstName": "Liviu",
-      "lastName": "Alexandrescu",
-      "position": "Kinetoterapeut la Spitalul Clinic Judetean de Urgenta Ilfov",
-      "publicIdentifier": "liviu-alexandrescu",
-      "linkedinUrl": "https://www.linkedin.com/in/liviu-alexandrescu"
     },
     {
       "id": "ACoAAAsZKIUBcdct9ywFcSNff8zcyQtGtyrIy30",
@@ -919,42 +929,16 @@
       "linkedinUrl": "https://www.linkedin.com/in/anca-mihaela-predescu-68543552"
     },
     {
-      "id": "ACoAAAeddn4BSCBIToXpvv-Oq-uy6H3HPpaRusE",
-      "firstName": "Laura",
-      "lastName": "Tribus",
-      "position": "at",
-      "publicIdentifier": "laura-tribus-22695336",
-      "linkedinUrl": "https://www.linkedin.com/in/laura-tribus-22695336"
-    },
-    {
-      "id": "ACoAACRjnHgBJ1BMVHqll1JtR_8nHgEIlvDtYLQ",
-      "firstName": "Mihaela",
-      "lastName": "Lupanciuc",
-      "position": "Medic rezident în Medicină Internă la Institutul Clinic Fundeni",
-      "publicIdentifier": "mihaela-lupanciuc-22055b150",
-      "linkedinUrl": "https://www.linkedin.com/in/mihaela-lupanciuc-22055b150"
-    },
-    {
       "id": "ACoAADI-OCUBWHr61-6QAp5KdK5fPqRcXxF4KYU",
       "firstName": "Claudiu Alexandru",
       "lastName": "Prundoiu",
-      "position": "Inginer",
       "publicIdentifier": "claudiu-alexandru-prundoiu-6b136b1b6",
       "linkedinUrl": "https://www.linkedin.com/in/claudiu-alexandru-prundoiu-6b136b1b6"
-    },
-    {
-      "id": "ACoAAClMObMBCUc6PK6aYe3u1kXGwMYGJ-bBdAk",
-      "firstName": "Raluca-Alexandra",
-      "lastName": "Dascalu",
-      "position": "Mobile and Web Developer | Android Development, Flutter, Next.js",
-      "publicIdentifier": "raluca-alexandra-dascalu-52b055174",
-      "linkedinUrl": "https://www.linkedin.com/in/raluca-alexandra-dascalu-52b055174"
     },
     {
       "id": "ACoAAABid2ABMKg4DkNDxWVkPQbxEk323k8DnDc",
       "firstName": "Dan",
       "lastName": "Mutescu",
-      "position": "Principal Software Development Engineer at Amazon",
       "publicIdentifier": "dan-mutescu-5141b22",
       "linkedinUrl": "https://www.linkedin.com/in/dan-mutescu-5141b22"
     },
@@ -962,92 +946,91 @@
       "id": "ACoAADG33wQBOzLW6hwTlLliiGexhHCFNHYYOZY",
       "firstName": "Andrei",
       "lastName": "R.",
-      "position": "Java Back-End Developer | Passionate about Innovation & Efficiency",
       "publicIdentifier": "andreiresmerita",
       "linkedinUrl": "https://www.linkedin.com/in/andreiresmerita"
     },
     {
-      "id": "ACoAAGXGajUB7OWX5B1MU_tNFtxh8mwPojyMThw",
-      "firstName": "Anushka",
-      "lastName": "Panchal",
-      "position": "Frontend Developer at Deloitte",
-      "publicIdentifier": "anushka-panchal-985a093b7",
-      "linkedinUrl": "https://www.linkedin.com/in/anushka-panchal-985a093b7"
+      "id": "ACoAAD6eMGsBOusjLgu0n0Ok1Za8YxIsKvyD9sE",
+      "firstName": "Samuel",
+      "lastName": "Wood",
+      "position": "Student Pharmacist / KGI PharmD Candidate Class of 2026",
+      "publicIdentifier": "samuelcwood3",
+      "linkedinUrl": "https://www.linkedin.com/in/samuelcwood3"
     },
     {
-      "id": "ACoAAGWcqggBKjfDbfPai0erEqna5BF8UhN_288",
-      "firstName": "Swetha",
-      "lastName": "Bollaman",
-      "position": "Mainframe Developer at Deloitte",
-      "publicIdentifier": "swetha-bollaman-460b0a3b6",
-      "linkedinUrl": "https://www.linkedin.com/in/swetha-bollaman-460b0a3b6"
+      "id": "ACoAACyYIuABmj0jvB3pU1pWd2XG5moYif7kR-4",
+      "firstName": "Samar",
+      "lastName": "M.",
+      "position": "Pharmacist ",
+      "publicIdentifier": "samar-m-65468718a",
+      "linkedinUrl": "https://www.linkedin.com/in/samar-m-65468718a"
     },
     {
-      "id": "ACoAAGV4ZIUBtuFEXXHCp5xT9G98a-g2NY5i1Qo",
-      "firstName": "Madhur",
-      "lastName": "Nagpal",
-      "position": "Sr Analytics Consultant Deloitte",
-      "publicIdentifier": "madhur-nagpal-8b11623b6",
-      "linkedinUrl": "https://www.linkedin.com/in/madhur-nagpal-8b11623b6"
+      "id": "ACoAAC_4RScB7FSAJjXbiB6QJVkOVFTpwYr7etE",
+      "firstName": "Lynn",
+      "lastName": "Kayali, PharmD, RPh",
+      "position": "Medical Director- Lung Cancer",
+      "publicIdentifier": "lynn-kayali",
+      "linkedinUrl": "https://www.linkedin.com/in/lynn-kayali"
     },
     {
-      "id": "ACoAAGU7gocBl2HMK-VuklxjnwHy7_8CF00LcR8",
-      "firstName": "akash",
-      "lastName": "Singh",
-      "position": "Business Intelligence Analyst at Deloitte",
-      "publicIdentifier": "akash-singh-85b9593b4",
-      "linkedinUrl": "https://www.linkedin.com/in/akash-singh-85b9593b4"
+      "id": "ACoAACzwZAEBoG_Fm1HBHwQwzi1U6HcH1VBpT2o",
+      "firstName": "Deborah",
+      "lastName": "Adams",
+      "position": "Pharmacist | Regulatory Affairs",
+      "publicIdentifier": "deborahadamspharmd",
+      "linkedinUrl": "https://www.linkedin.com/in/deborahadamspharmd"
     },
     {
-      "id": "ACoAAGUbkjQBqqqWnqF-z_kpW06gl6VOU1TG4W0",
-      "firstName": "keerti",
-      "lastName": "undefined",
-      "position": "Software Test Engineer at Deloitte",
-      "publicIdentifier": "keerti-undefined-49810a3b4",
-      "linkedinUrl": "https://www.linkedin.com/in/keerti-undefined-49810a3b4"
+      "id": "ACoAACLK14kBzQkxjsMaoeLvF6Bk2Q-Eh51THmM",
+      "firstName": "EYOB",
+      "lastName": "KEBEDE, Msc, Pharm D, RPH ",
+      "position": "Doctor of Pharmacy,  MSC (Pharmacology), BSC",
+      "publicIdentifier": "eyob-kebede-msc-pharm-d-rph-2895a0143",
+      "linkedinUrl": "https://www.linkedin.com/in/eyob-kebede-msc-pharm-d-rph-2895a0143"
     },
     {
-      "id": "ACoAAGW82pIBV1Si_gDHTllQsl2BpzVKP63Hm1Y",
-      "firstName": "Kondabathina ",
-      "lastName": "Guruteja",
-      "position": "Consultant at Deloitte",
-      "publicIdentifier": "kondabathina-guruteja-2427673b7",
-      "linkedinUrl": "https://www.linkedin.com/in/kondabathina-guruteja-2427673b7"
+      "id": "ACoAAB67LV0BHxSTcG0QdLGnOg3ZyzP18XAoxlI",
+      "firstName": "Candice",
+      "lastName": "Bryant, GSEC, Pharm.D.",
+      "position": "Technology Operations",
+      "publicIdentifier": "candicebryantpharmd",
+      "linkedinUrl": "https://www.linkedin.com/in/candicebryantpharmd"
     },
     {
-      "id": "ACoAAGW1mfcBVaHE-X7UudJBy-mACW73leZL5sQ",
-      "firstName": "Dj",
-      "lastName": "Sapkal",
-      "position": "mechanical draughtsman hvac at Deloitte",
-      "publicIdentifier": "dj-sapkal-1875783b7",
-      "linkedinUrl": "https://www.linkedin.com/in/dj-sapkal-1875783b7"
+      "id": "ACoAAAgRV-sBWU7G7qqHAsQV8CsGF6BViTNmX74",
+      "firstName": "Deepak",
+      "lastName": "Kini",
+      "position": "Entrepreneurial Pharmacist providing custom solutions",
+      "publicIdentifier": "deepak-kini-08b3b639",
+      "linkedinUrl": "https://www.linkedin.com/in/deepak-kini-08b3b639"
     },
     {
-      "id": "ACoAAGXl8ocBGZGyLhKMJEvX-F8vf7Nw1jLs818",
-      "firstName": "Rajendra",
-      "lastName": "Mishra",
-      "position": "DevOps Engineer | Building Reliable, Secure & Scalable Cloud Solutions | CI/CD | Docker | Kubernetes | Reduced Deployment Time by 70%",
-      "publicIdentifier": "rajendra-mishra-85b6453b8",
-      "linkedinUrl": "https://www.linkedin.com/in/rajendra-mishra-85b6453b8"
+      "id": "ACoAABIyLHkBGbe_0rzBrwHK2wjgWjsQl9X6W0Q",
+      "firstName": "Belete",
+      "lastName": "Mohammed, PharmD, RPh",
+      "position": "Clinical Pharmacist at U.S. Department of Veterans Affairs",
+      "publicIdentifier": "belete-mohammed-pharmd-rph-6752a186",
+      "linkedinUrl": "https://www.linkedin.com/in/belete-mohammed-pharmd-rph-6752a186"
     },
     {
-      "id": "ACoAAGTVjGwBMdAukn2j7SYyRwujVHgyad2UxxY",
-      "firstName": "Praveen",
-      "lastName": "Patil",
-      "position": "Recruiter at Deloitte",
-      "publicIdentifier": "praveen-patil-8906763b2",
-      "linkedinUrl": "https://www.linkedin.com/in/praveen-patil-8906763b2"
+      "id": "ACoAAALMioEBv3jDzeo8wXux--iMi0Y8_c-UqZA",
+      "firstName": "Leah",
+      "lastName": "Park, PharmD, MS",
+      "position": "Senior Manager, US HEOR at AstraZeneca",
+      "publicIdentifier": "leahepark1",
+      "linkedinUrl": "https://www.linkedin.com/in/leahepark1"
     },
     {
-      "id": "ACoAAGWAVt8BIaWEFxdX7WB9WbB5SSX3LZ2ChgU",
-      "firstName": "Ram Pratap",
-      "lastName": "Dubey",
-      "position": "Senior Software Engineer at Deloitte india ",
-      "publicIdentifier": "ram-pratap-dubey-1673743b6",
-      "linkedinUrl": "https://www.linkedin.com/in/ram-pratap-dubey-1673743b6"
+      "id": "ACoAAAdnMK8B_hB2bF_6t8Qw7f-1Fgu0nGKeV88",
+      "firstName": "CAPT Mathilda",
+      "lastName": "Fienkeng, PharmD, MS.",
+      "position": "Director, Division of Medical Policy Development, Office of Medical Policy, FDA",
+      "publicIdentifier": "capt-mathilda-fienkeng-pharmd-ms",
+      "linkedinUrl": "https://www.linkedin.com/in/capt-mathilda-fienkeng-pharmd-ms"
     }
   ],
   "originalQuery": {
-    "url": "https://www.linkedin.com/in/andreipaciurca"
+    "query": "https://www.linkedin.com/in/andreipaciurca/"
   }
 }]
