@@ -4,7 +4,7 @@
     "publicIdentifier": "andreipaciurca",
     "linkedinUrl": "https://www.linkedin.com/in/andreipaciurca",
     "firstName": "Andrei-Alexandru",
-    "lastName": "Paciurc\u0103",
+    "lastName": "Paciurcă",
     "headline": "Senior Software Engineer | Backend & Data Engineering | Java, AWS, Kafka, Spark | Distributed Systems",
     "openToWork": false,
     "hiring": false,
@@ -12,16 +12,16 @@
     "influencer": false,
     "memorialized": false,
     "location": {
-      "linkedinText": "Ia\u015fi, Romania",
+      "linkedinText": "Iaşi, Romania",
       "countryCode": "RO",
       "parsed": {
-        "text": "Ia\u015fi, Romania",
+        "text": "Iaşi, Romania",
         "countryCode": "RO",
         "regionCode": null,
         "country": "Romania",
         "countryFull": "Romania",
-        "state": "Ia\u0219i County",
-        "city": "Ia\u015fi"
+        "state": "Iași County",
+        "city": "Iaşi"
       }
     },
     "objectUrn": "586111190",
@@ -30,7 +30,7 @@
     "connectionsCount": 866,
     "followerCount": 874,
     "verified": false,
-    "about": "Building systems that handle complexity, scale, and real-world constraints.\nSenior Software Engineer with experience across very different domains, from embedded systems in the automotive industry (C/C++) to cloud-native distributed systems processing high volumes of data.\nCurrent work focuses on data-intensive systems that process millions of events using AWS, Kafka, and Spark-based pipelines. Strong emphasis on reliable data flows, complex business logic, and performance under real production load.\nVersatility is a key strength. Experience spans low-level programming, backend systems, and large-scale data platforms, enabling a full end-to-end understanding of complex systems and better technical decisions.\nCore strengths:\n\u2022 Debugging low-level performance issues  \n\u2022 Designing distributed systems and data pipelines  \n\u2022 Working across multiple languages and technologies  \n\u2022 Adapting quickly to new domains and business logic  \nFocus remains on delivering solutions that are practical, scalable, and reliable in production environments.\nAlways more to learn, more to build, and more problems to solve.",
+    "about": "Building systems that handle complexity, scale, and real-world constraints.\nSenior Software Engineer with experience across very different domains, from embedded systems in the automotive industry (C/C++) to cloud-native distributed systems processing high volumes of data.\nCurrent work focuses on data-intensive systems that process millions of events using AWS, Kafka, and Spark-based pipelines. Strong emphasis on reliable data flows, complex business logic, and performance under real production load.\nVersatility is a key strength. Experience spans low-level programming, backend systems, and large-scale data platforms, enabling a full end-to-end understanding of complex systems and better technical decisions.\nCore strengths:\n• Debugging low-level performance issues  \n• Designing distributed systems and data pipelines  \n• Working across multiple languages and technologies  \n• Adapting quickly to new domains and business logic  \nFocus remains on delivering solutions that are practical, scalable, and reliable in production environments.\nAlways more to learn, more to build, and more problems to solve.",
     "currentPosition": [
       {
         "companyId": "1038",
@@ -180,7 +180,7 @@
       },
       {
         "position": "Embedded C Junior Software Developer",
-        "location": "Ia\u015fi, Romania",
+        "location": "Iaşi, Romania",
         "employmentType": "Full-time",
         "workplaceType": "Hybrid",
         "companyName": "Vitesco Technologies",
@@ -225,7 +225,7 @@
       },
       {
         "position": "C++ Intern Software Developer",
-        "location": "Ia\u015fi, Romania",
+        "location": "Iaşi, Romania",
         "employmentType": "Internship",
         "workplaceType": "Hybrid",
         "companyName": "Continental",
@@ -273,7 +273,7 @@
     ],
     "education": [
       {
-        "schoolName": "Faculty of Automatic Control and Computer Engineering, Ia\u0219i",
+        "schoolName": "Faculty of Automatic Control and Computer Engineering, Iași",
         "schoolLinkedinUrl": "https://www.linkedin.com/search/results/all/?keywords=Faculty+of+Automatic+Control+and+Computer+Engineering%2C+Ia%C8%99i",
         "schoolId": null,
         "degree": "Bachelor of Applied Science - BASc",
@@ -293,7 +293,7 @@
         "schoolLogo": null
       },
       {
-        "schoolName": "Colegiul Na\u021bional \u201eGrigore Moisil\u201d One\u0219ti",
+        "schoolName": "Colegiul Național „Grigore Moisil” Onești",
         "schoolLinkedinUrl": "https://www.linkedin.com/search/results/all/?keywords=Colegiul+Na%C8%9Bional+%E2%80%9EGrigore+Moisil%E2%80%9D+One%C8%99ti",
         "schoolId": null,
         "degree": "Assistant Programmer",
@@ -344,7 +344,7 @@
       },
       {
         "title": "AWS Certified Cloud Practitioner",
-        "issuedAt": "Issued Oct 2022 \u00b7 Expired Oct 2025",
+        "issuedAt": "Issued Oct 2022 · Expired Oct 2025",
         "link": "https://www.credly.com/badges/0a4da4b9-db08-4194-a0f2-91ec8d1fe7a1/linked_in_profile",
         "issuedBy": "Amazon Web Services (AWS)",
         "issuedByLink": "https://www.linkedin.com/company/2382910/",
