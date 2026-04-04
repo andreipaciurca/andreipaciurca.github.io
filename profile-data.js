@@ -9,7 +9,7 @@ export const profileData = {
   "driversLicense": "Category B",
   "role": "Senior Software Engineer | Backend & Data Engineering | Java, AWS, Kafka, Spark | Distributed Systems",
   "statusLine": "ACTIVE CANDIDATE · OPEN TO WORK",
-  "summary": "Building systems that handle complexity, scale, and real-world constraints.\nSenior Software Engineer with experience across very different domains, from embedded systems in the automotive industry (C/C++) to cloud-native distributed systems processin",
+  "summary": "I build production systems that stay reliable under scale, complexity, and real business pressure. My work spans Java backend engineering, cloud data platforms, and low-level software foundations.",
   "activityMessages": [
     "Analyzing production constraints and engineering trade-offs...",
     "Compiling a concise impact report for distributed data pipelines...",
@@ -38,96 +38,42 @@ export const profileData = {
       "id": "backend",
       "label": "Backend Engineering",
       "items": [
-        {
-          "iconClass": "fa-brands fa-java",
-          "label": "Java"
-        },
-        {
-          "iconClass": "fa-solid fa-code",
-          "label": "Scala"
-        },
-        {
-          "iconClass": "fa-brands fa-python",
-          "label": "Python"
-        },
-        {
-          "iconClass": "fa-solid fa-leaf",
-          "label": "Spring Boot"
-        },
-        {
-          "iconClass": "fa-solid fa-microchip",
-          "label": "Micronaut"
-        },
-        {
-          "iconClass": "fa-solid fa-database",
-          "label": "SQL"
-        }
+        { "iconClass": "fa-brands fa-java",    "label": "Java" },
+        { "iconClass": "fa-solid fa-code",      "label": "Scala" },
+        { "iconClass": "fa-brands fa-python",   "label": "Python" },
+        { "iconClass": "fa-solid fa-leaf",      "label": "Spring Boot" },
+        { "iconClass": "fa-solid fa-microchip", "label": "Micronaut" },
+        { "iconClass": "fa-solid fa-database",  "label": "SQL" }
       ]
     },
     {
       "id": "data",
       "label": "Data and Streaming",
       "items": [
-        {
-          "iconClass": "fa-solid fa-shuffle",
-          "label": "Kafka"
-        },
-        {
-          "iconClass": "fa-solid fa-bolt",
-          "label": "Spark"
-        },
-        {
-          "iconClass": "fa-solid fa-diagram-project",
-          "label": "Data Pipelines"
-        },
-        {
-          "iconClass": "fa-solid fa-network-wired",
-          "label": "Distributed Systems"
-        }
+        { "iconClass": "fa-solid fa-shuffle",         "label": "Kafka" },
+        { "iconClass": "fa-solid fa-bolt",            "label": "Spark" },
+        { "iconClass": "fa-solid fa-diagram-project", "label": "Data Pipelines" },
+        { "iconClass": "fa-solid fa-network-wired",   "label": "Distributed Systems" }
       ]
     },
     {
       "id": "cloud",
       "label": "Cloud and Infrastructure",
       "items": [
-        {
-          "iconClass": "fa-brands fa-aws",
-          "label": "AWS"
-        },
-        {
-          "iconClass": "fa-solid fa-layer-group",
-          "label": "Terraform"
-        },
-        {
-          "iconClass": "fa-brands fa-docker",
-          "label": "Docker"
-        },
-        {
-          "iconClass": "fa-solid fa-dharmachakra",
-          "label": "Kubernetes"
-        }
+        { "iconClass": "fa-brands fa-aws",         "label": "AWS" },
+        { "iconClass": "fa-solid fa-layer-group",  "label": "Terraform" },
+        { "iconClass": "fa-brands fa-docker",      "label": "Docker" },
+        { "iconClass": "fa-solid fa-dharmachakra", "label": "Kubernetes" }
       ]
     },
     {
       "id": "delivery",
       "label": "Delivery and Engineering Process",
       "items": [
-        {
-          "iconClass": "fa-solid fa-rotate",
-          "label": "CI/CD"
-        },
-        {
-          "iconClass": "fa-brands fa-git-alt",
-          "label": "Git"
-        },
-        {
-          "iconClass": "fa-solid fa-chalkboard-user",
-          "label": "Mentoring"
-        },
-        {
-          "iconClass": "fa-solid fa-shield-halved",
-          "label": "Production Reliability"
-        }
+        { "iconClass": "fa-solid fa-rotate",          "label": "CI/CD" },
+        { "iconClass": "fa-brands fa-git-alt",        "label": "Git" },
+        { "iconClass": "fa-solid fa-chalkboard-user", "label": "Mentoring" },
+        { "iconClass": "fa-solid fa-shield-halved",   "label": "Production Reliability" }
       ]
     }
   ],
@@ -138,7 +84,9 @@ export const profileData = {
       "period": "May 2024 - Present",
       "location": "Iaşi, Romania",
       "bullets": [
-        "Specializations:\n- Core Backend & Data Engineer: Java, Scala, Python\n- Distributed Systems & Event-Driven Architectures\n- Cloud & Data Pipelines: AWS, Kafka, Spark\n- Infrastructure as Code: Terraform\n"
+        "Engineered distributed data pipelines processing millions of daily events for a major Norwegian banking platform using Kafka, AWS Glue, and Spark.",
+        "Built reusable AWS and Terraform infrastructure and Python data pipelines for an enterprise automotive analytics platform in Germany.",
+        "Own system design, production debugging, performance tuning, and technical mentoring across cross-functional teams."
       ]
     },
     {
@@ -147,7 +95,9 @@ export const profileData = {
       "period": "Aug 2022 - May 2024",
       "location": "Iaşi, Romania",
       "bullets": [
-        "Specializations:\n- Core Backend Developer: Java, Scala, Python\n- Worked with Various Versions of Git\n\nExperience:\n\nProject 1: HomeOffice, UK Government (Year: 2022-2023)\nAs a Continuous Improvement De"
+        "Built the NHS e-commerce platform from scratch using Java 17 and Micronaut — end-to-end delivery of production-grade microservices for UK public healthcare.",
+        "Extended the UK Home Office platform in a multicultural Agile team, working in Scala, Python, Groovy, and Bash.",
+        "Operated across two high-profile UK government engagements, adapting quickly between different stacks and delivery processes."
       ]
     },
     {
@@ -156,7 +106,9 @@ export const profileData = {
       "period": "Jul 2021 - Jul 2022",
       "location": "Iaşi, Romania",
       "bullets": [
-        "- Embedded C programming\n- Ability to analyze embedded software solutions\n- Good microcontrollers understanding (single and multi core)\n- Working with Embedded Real-Time Operating Systems (based on RT"
+        "Developed safety-critical automotive ECU software in embedded C under ISO 26262 functional safety requirements.",
+        "Implemented software on multicore microcontrollers using AUTOSAR architecture and MISRA C 2012 coding standards.",
+        "Validated software quality through Tessy and PTU unit testing frameworks following ASPICE process standards."
       ]
     },
     {
@@ -165,7 +117,8 @@ export const profileData = {
       "period": "Jul 2020 - Jul 2021",
       "location": "Iaşi, Romania",
       "bullets": [
-        "During this period I've managed to:\n- define the SW and HW requirements based on mentor's input\n- buid an IoT project using RaspBerry Pi Zero W and Flask framework from Python throughout the entire pe"
+        "Designed and built an end-to-end IoT system using Raspberry Pi Zero W and Python Flask as a full Summer Practice project.",
+        "Developed a C/C++ HTTP server, extended a Chrome extension in jQuery, and wrote unit tests with Google Test Framework."
       ]
     }
   ],

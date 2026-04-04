@@ -3,12 +3,60 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-// Curated skill groups with Font Awesome icons.
-// These match the i18n-data.js dictionary keys so Romanian translation works out of the box.
+// ---------------------------------------------------------------------------
+// CURATED FALLBACK — used when Gemini output fails quality checks.
+// Hand-crafted for maximum recruiter + tech appeal. Update this when the
+// actual job changes, not via the pipeline.
+// ---------------------------------------------------------------------------
+const FALLBACK_SUMMARY =
+  'I build production systems that stay reliable under scale, complexity, and real business pressure. ' +
+  'My work spans Java backend engineering, cloud data platforms, and low-level software foundations.';
+
+const FALLBACK_EXPERIENCES = [
+  {
+    title: 'Senior Java Software Engineer',
+    company: 'Deloitte',
+    bullets: [
+      'Engineered distributed data pipelines processing millions of daily events for a major Norwegian banking platform using Kafka, AWS Glue, and Spark.',
+      'Built reusable AWS and Terraform infrastructure and Python data pipelines for an enterprise automotive analytics platform in Germany.',
+      'Own system design, production debugging, performance tuning, and technical mentoring across cross-functional teams.'
+    ]
+  },
+  {
+    title: 'Java Software Engineer',
+    company: 'Deloitte',
+    bullets: [
+      'Built the NHS e-commerce platform from scratch using Java 17 and Micronaut — end-to-end delivery of production-grade microservices for UK public healthcare.',
+      'Extended the UK Home Office platform in a multicultural Agile team, working in Scala, Python, Groovy, and Bash.',
+      'Operated across two high-profile UK government engagements, adapting quickly between different stacks and delivery processes.'
+    ]
+  },
+  {
+    title: 'Embedded C Junior Software Developer',
+    company: 'Vitesco Technologies',
+    bullets: [
+      'Developed safety-critical automotive ECU software in embedded C under ISO 26262 functional safety requirements.',
+      'Implemented software on multicore microcontrollers using AUTOSAR architecture and MISRA C 2012 coding standards.',
+      'Validated software quality through Tessy and PTU unit testing frameworks following ASPICE process standards.'
+    ]
+  },
+  {
+    title: 'C++ Intern Software Developer',
+    company: 'Continental',
+    bullets: [
+      'Designed and built an end-to-end IoT system using Raspberry Pi Zero W and Python Flask as a full Summer Practice project.',
+      'Developed a C/C++ HTTP server, extended a Chrome extension in jQuery, and wrote unit tests with Google Test Framework.'
+    ]
+  }
+];
+
+// ---------------------------------------------------------------------------
+// Curated skill groups with FA icons — preserved across pipeline runs.
+// Labels match i18n-data.js keys so Romanian translation works locally.
+// ---------------------------------------------------------------------------
 const SKILL_GROUPS = [
   {
-    id: 'backend',
-    label: 'Backend Engineering',
+    id: 'backend', label: 'Backend Engineering',
     items: [
       { iconClass: 'fa-brands fa-java',    label: 'Java' },
       { iconClass: 'fa-solid fa-code',      label: 'Scala' },
@@ -19,8 +67,7 @@ const SKILL_GROUPS = [
     ]
   },
   {
-    id: 'data',
-    label: 'Data and Streaming',
+    id: 'data', label: 'Data and Streaming',
     items: [
       { iconClass: 'fa-solid fa-shuffle',         label: 'Kafka' },
       { iconClass: 'fa-solid fa-bolt',            label: 'Spark' },
@@ -29,8 +76,7 @@ const SKILL_GROUPS = [
     ]
   },
   {
-    id: 'cloud',
-    label: 'Cloud and Infrastructure',
+    id: 'cloud', label: 'Cloud and Infrastructure',
     items: [
       { iconClass: 'fa-brands fa-aws',         label: 'AWS' },
       { iconClass: 'fa-solid fa-layer-group',  label: 'Terraform' },
@@ -39,8 +85,7 @@ const SKILL_GROUPS = [
     ]
   },
   {
-    id: 'delivery',
-    label: 'Delivery and Engineering Process',
+    id: 'delivery', label: 'Delivery and Engineering Process',
     items: [
       { iconClass: 'fa-solid fa-rotate',          label: 'CI/CD' },
       { iconClass: 'fa-brands fa-git-alt',        label: 'Git' },
@@ -50,68 +95,80 @@ const SKILL_GROUPS = [
   }
 ];
 
-/**
- * Uses Gemini to generate 2-3 short, action-oriented resume bullet points
- * from a raw job description. Returns an array of strings.
- */
-async function processExperienceBullets(text) {
-  if (!text || text.length < 50) return [text || ''];
+// ---------------------------------------------------------------------------
+// Quality gate — rejects raw LinkedIn dump / Gemini hallucinations
+// ---------------------------------------------------------------------------
+function looksLikeRawDump(text) {
+  if (!text || typeof text !== 'string') return true;
+  if (text.includes('\n')) return true;
+  if (text.length > 200) return true;
+  const dumpPhrases = ['specialization', 'during this period', 'experience:\n', '- core backend'];
+  return dumpPhrases.some(p => text.toLowerCase().includes(p));
+}
 
+function bulletsAreGood(bullets) {
+  return Array.isArray(bullets) &&
+    bullets.length >= 2 &&
+    bullets.every(b => !looksLikeRawDump(b) && b.length > 20);
+}
+
+// ---------------------------------------------------------------------------
+// Gemini helpers
+// ---------------------------------------------------------------------------
+async function processExperienceBullets(text) {
+  if (!text || text.length < 50) return null;
   try {
     const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
     const prompt = `Generate 2-3 concise resume bullet points from this job description.
 REQUIREMENTS:
-- Output ONLY the bullet points, one per line, no numbering or leading dashes
-- Each bullet starts with a strong action verb (Built, Designed, Led, Delivered, Maintained, etc.)
-- Each bullet is under 130 characters
-- Focus on technologies used, scale, and measurable impact
-- NO preamble, NO intro text, NO explanations
+- Output ONLY the bullet points, one per line, no leading dashes or numbers
+- Each bullet starts with a strong action verb (Built, Engineered, Led, Delivered, etc.)
+- Each bullet is under 130 characters and contains NO newlines
+- Focus on tech stack, scale, and measurable impact
+- NO preamble, NO intro, NO explanations
 
 Job description:
 ${text.substring(0, 2000)}`;
 
     const result = await model.generateContent(prompt);
-    const content = result.response.text().trim();
-    const bullets = content
+    const bullets = result.response.text().trim()
       .split('\n')
-      .map(line => line.replace(/^[-•*\d.)\s]+/, '').trim())
-      .filter(line => line.length > 20 && line.length < 150);
+      .map(l => l.replace(/^[-•*\d.)\s]+/, '').trim())
+      .filter(l => l.length > 20 && l.length < 150);
 
-    return bullets.length >= 2 ? bullets : [text.substring(0, 200)];
+    return bulletsAreGood(bullets) ? bullets : null;
   } catch (e) {
-    console.error('AI bullet generation error:', e.message);
-    return [text.substring(0, 200)];
+    console.error('Gemini bullet error:', e.message);
+    return null;
   }
 }
 
-/**
- * Uses Gemini to rewrite the LinkedIn 'about' section as a tight 2-sentence summary.
- */
 async function processSummary(text) {
-  if (!text || text.length < 50) return text || '';
-
+  if (!text || text.length < 50) return null;
   try {
     const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
     const prompt = `Rewrite this LinkedIn about section as a 2-sentence professional summary.
 REQUIREMENTS:
-- Output ONLY the 2 sentences, no preamble
-- Sentence 1: what you build / core identity
+- Output ONLY the 2 sentences, no preamble or labels
+- Sentence 1: core identity / what you build
 - Sentence 2: tech stack and domain focus
-- Senior Engineer tone, punchy and specific
-- Under 250 characters total
+- Senior Engineer tone, punchy, under 250 characters total, NO newlines
 
-About section:
+About:
 ${text.substring(0, 1500)}`;
 
     const result = await model.generateContent(prompt);
-    const content = result.response.text().trim();
-    return content.length > 40 ? content : text.substring(0, 250);
+    const content = result.response.text().trim().replace(/\n/g, ' ');
+    return content.length > 40 && !looksLikeRawDump(content) ? content : null;
   } catch (e) {
-    console.error('AI summary error:', e.message);
-    return text.substring(0, 250);
+    console.error('Gemini summary error:', e.message);
+    return null;
   }
 }
 
+// ---------------------------------------------------------------------------
+// Main
+// ---------------------------------------------------------------------------
 async function run() {
   const allProfiles = JSON.parse(fs.readFileSync('data/linkedin.json', 'utf8'));
   const linkedinData = Array.isArray(allProfiles) ? allProfiles[0] : null;
@@ -124,7 +181,7 @@ async function run() {
   };
 
   if (!linkedinData) {
-    console.log('No LinkedIn data available. Skipping profile update.');
+    console.log('No LinkedIn data — skipping profile update, writing health.');
     fs.writeFileSync('health.json', JSON.stringify(healthStatus, null, 2));
     return;
   }
@@ -138,15 +195,29 @@ async function run() {
     return loc.toLowerCase().includes('helped me') ? 'Iaşi, Romania' : loc;
   };
 
-  const summary = await processSummary(linkedinData.about);
+  // Summary — AI first, fallback to curated
+  const aiSummary = await processSummary(linkedinData.about);
+  const summary = aiSummary || FALLBACK_SUMMARY;
+  console.log(aiSummary ? 'Summary: AI' : 'Summary: fallback');
 
-  const experiences = await Promise.all((linkedinData.experience || []).map(async exp => ({
-    title: exp.position,
-    company: exp.companyName,
-    period: `${exp.startDate.text} - ${exp.endDate?.text || 'Present'}`,
-    location: cleanLocation(exp.location),
-    bullets: await processExperienceBullets(exp.description)
-  })));
+  // Experiences — AI bullets first, fallback per-entry to curated
+  const experiences = await Promise.all(
+    (linkedinData.experience || []).map(async (exp, i) => {
+      const aiBullets = await processExperienceBullets(exp.description);
+      const fallback = FALLBACK_EXPERIENCES[i];
+      const bullets = (aiBullets && bulletsAreGood(aiBullets))
+        ? aiBullets
+        : (fallback ? fallback.bullets : [`${exp.position} at ${exp.companyName}`]);
+      console.log(`Exp[${i}] ${exp.companyName}: ${aiBullets ? 'AI' : 'fallback'}`);
+      return {
+        title: exp.position,
+        company: exp.companyName,
+        period: `${exp.startDate.text} - ${exp.endDate?.text || 'Present'}`,
+        location: cleanLocation(exp.location),
+        bullets
+      };
+    })
+  );
 
   const updatedProfile = {
     ...currentProfile,
@@ -158,7 +229,7 @@ async function run() {
 
   fs.writeFileSync('profile-data.js', `export const profileData = ${JSON.stringify(updatedProfile, null, 2)};`);
   fs.writeFileSync('health.json', JSON.stringify(healthStatus, null, 2));
-  console.log('Pipeline sync successful.');
+  console.log('Pipeline sync complete.');
 }
 
 run();
