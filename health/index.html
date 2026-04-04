@@ -3,17 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>System Health</title>
-    <style>body { font-family: monospace; background: #000; color: #0f0; padding: 20px; }</style>
+    <style>
+        body { background: #000; color: #0f0; font-family: 'Courier New', monospace; padding: 20px; }
+        .blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
 </head>
 <body>
-    <h1>System Health Dashboard</h1>
-    <div id="status">Checking connectivity...</div>
+    <div id="terminal"></div>
     <script>
-        async function check() {
-            const res = await fetch('health.json').then(r => r.json());
-            document.getElementById('status').innerHTML = `<pre>${JSON.stringify(res, null, 2)}</pre>`;
+        const el = document.getElementById('terminal');
+        async function type(text) {
+            for (let char of text) { el.innerHTML += char; await new Promise(r => setTimeout(r, 30)); }
+            el.innerHTML += '<br>';
         }
-        check();
+        async function run() {
+            await type("> Initializing System Health Check...");
+            try {
+                const res = await fetch('../health.json').then(r => r.json());
+                await type(`> Status: ${res.status === 'ok' ? '✅ ONLINE' : '❌ FAILED'}`);
+                await type(`> Gemini API: ${res.gemini ? '✅ CONNECTED' : '❌ NOT CONFIGURED'}`);
+                await type(`> Apify API: ${res.apify ? '✅ CONNECTED' : '❌ NOT CONFIGURED'}`);
+                await type(`> Last Update: ${res.timestamp}`);
+            } catch (e) {
+                await type("> ERROR: Could not reach health.json");
+            }
+            el.innerHTML += '<span class="blink">_</span>';
+        }
+        run();
     </script>
 </body>
 </html>

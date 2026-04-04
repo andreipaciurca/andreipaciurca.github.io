@@ -4,15 +4,26 @@
     <meta charset="UTF-8">
     <title>404 - Terminal Error</title>
     <style>
-        body { background: #000; color: #0f0; font-family: monospace; padding: 20px; }
+        body { background: #000; color: #0f0; font-family: 'Courier New', monospace; padding: 20px; }
         .blink { animation: blink 1s step-end infinite; }
         @keyframes blink { 50% { opacity: 0; } }
     </style>
 </head>
 <body>
-    <p>> ERROR: 404 - PATH NOT FOUND</p>
-    <p>> systemctl status 404</p>
-    <p>> Redirecting to root in 3 seconds... <span class="blink">_</span></p>
-    <script>setTimeout(() => window.location.href = '/', 3000);</script>
+    <div id="terminal"></div>
+    <script>
+        const el = document.getElementById('terminal');
+        async function type(text) {
+            for (let char of text) { el.innerHTML += char; await new Promise(r => setTimeout(r, 30)); }
+            el.innerHTML += '<br>';
+        }
+        async function run() {
+            await type("> ERROR: 404 - PATH NOT FOUND");
+            await type("> systemctl status 404");
+            await type("> Redirecting to root in 3 seconds... <span class='blink'>_</span>");
+            setTimeout(() => window.location.href = '/', 3000);
+        }
+        run();
+    </script>
 </body>
 </html>
