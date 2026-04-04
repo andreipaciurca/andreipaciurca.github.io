@@ -110,9 +110,10 @@ describe('Source File Integrity', () => {
     expect(src).not.toContain('encodeeURIComponent');
   });
 
-  test('update-resume.js does not reference a deprecated preview model', () => {
+  test('update-resume.js uses dynamic model resolution with a stable fallback', () => {
     const src = fs.readFileSync('scripts/update-resume.js', 'utf8');
-    expect(src).not.toContain('preview');
+    expect(src).toContain('resolveLatestFlashModel');
+    expect(src).toContain('gemini-2.0-flash');
   });
 
   test('profile-data.js exports a valid JS module', () => {

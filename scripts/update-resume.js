@@ -3,6 +3,26 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
+// Resolves the latest experimental/preview Flash model available on the account.
+// Falls back to the stable gemini-2.0-flash if nothing experimental is found.
+async function resolveLatestFlashModel() {
+  try {
+    const { models } = await genAI.listModels();
+    const flashExp = models
+      .map(m => m.name.replace('models/', ''))
+      .filter(n => n.includes('flash') && (n.includes('exp') || n.includes('preview')))
+      .sort()
+      .pop();
+    if (flashExp) {
+      console.log(`Using model: ${flashExp}`);
+      return flashExp;
+    }
+  } catch (e) {
+    console.warn('Could not list models, using stable flash:', e.message);
+  }
+  return 'gemini-2.0-flash';
+}
+
 // ---------------------------------------------------------------------------
 // CURATED FALLBACK — used when Gemini output fails quality checks.
 // Hand-crafted for maximum recruiter + tech appeal. Update this when the
@@ -115,10 +135,10 @@ function bulletsAreGood(bullets) {
 // ---------------------------------------------------------------------------
 // Gemini helpers
 // ---------------------------------------------------------------------------
-async function processExperienceBullets(text) {
+async function processExperienceBullets(text, modelName) {
   if (!text || text.length < 50) return null;
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+    const model = genAI.getGenerativeModel({ model: modelName });
     const prompt = `Generate 2-3 concise resume bullet points from this job description.
 REQUIREMENTS:
 - Output ONLY the bullet points, one per line, no leading dashes or numbers
@@ -143,10 +163,10 @@ ${text.substring(0, 2000)}`;
   }
 }
 
-async function processSummary(text) {
+async function processSummary(text, modelName) {
   if (!text || text.length < 50) return null;
   try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+    const model = genAI.getGenerativeModel({ model: modelName });
     const prompt = `Rewrite this LinkedIn about section as a 2-sentence professional summary.
 REQUIREMENTS:
 - Output ONLY the 2 sentences, no preamble or labels
@@ -195,15 +215,17 @@ async function run() {
     return loc.toLowerCase().includes('helped me') ? 'Iaşi, Romania' : loc;
   };
 
+  const modelName = await resolveLatestFlashModel();
+
   // Summary — AI first, fallback to curated
-  const aiSummary = await processSummary(linkedinData.about);
+  const aiSummary = await processSummary(linkedinData.about, modelName);
   const summary = aiSummary || FALLBACK_SUMMARY;
   console.log(aiSummary ? 'Summary: AI' : 'Summary: fallback');
 
   // Experiences — AI bullets first, fallback per-entry to curated
   const experiences = await Promise.all(
     (linkedinData.experience || []).map(async (exp, i) => {
-      const aiBullets = await processExperienceBullets(exp.description);
+      const aiBullets = await processExperienceBullets(exp.description, modelName);
       const fallback = FALLBACK_EXPERIENCES[i];
       const bullets = (aiBullets && bulletsAreGood(aiBullets))
         ? aiBullets
