@@ -89,7 +89,7 @@ export const profileData = {
       "title": "Senior Java Software Engineer",
       "company": "Deloitte",
       "period": "May 2024 - Present",
-      "location": "  helped me get this job",
+      "location": "Iaşi, Romania",
       "bullets": [
         "Specializations:",
         "- Core Backend & Data Engineer: Java, Scala, Python",
@@ -100,7 +100,7 @@ export const profileData = {
       "title": "Java Software Engineer",
       "company": "Deloitte",
       "period": "Aug 2022 - May 2024",
-      "location": "  helped me get this job",
+      "location": "Iaşi, Romania",
       "bullets": [
         "Specializations:",
         "- Core Backend Developer: Java, Scala, Python",
