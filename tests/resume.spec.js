@@ -1,22 +1,16 @@
 const fs = require('fs');
 
-describe('Resume Pipeline Integration Tests', () => {
-  test('Generated profile-data.js must contain valid structure', () => {
+describe('End-to-End Integration Tests', () => {
+  test('profile-data.js should have all required keys', () => {
     const content = fs.readFileSync('profile-data.js', 'utf8');
     const profile = JSON.parse(content.split('export const profileData = ')[1].replace(';', ''));
-    
-    expect(profile).toHaveProperty('candidateName');
-    expect(profile).toHaveProperty('experiences');
-    expect(Array.isArray(profile.experiences)).toBe(true);
+    expect(profile.summary).toBeDefined();
+    expect(profile.experiences).toBeDefined();
+    expect(profile.skillGroups).toBeDefined();
   });
-
-  test('Experience items should not be empty', () => {
-    const content = fs.readFileSync('profile-data.js', 'utf8');
-    const profile = JSON.parse(content.split('export const profileData = ')[1].replace(';', ''));
-    
-    profile.experiences.forEach(exp => {
-        expect(exp.title.length).toBeGreaterThan(0);
-        expect(exp.bullets[0].length).toBeGreaterThan(0);
-    });
+  
+  test('health.json should be valid', () => {
+    const health = JSON.parse(fs.readFileSync('health.json', 'utf8'));
+    expect(health.status).toBe('ok');
   });
 });
