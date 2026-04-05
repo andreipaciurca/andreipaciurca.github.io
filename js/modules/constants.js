@@ -79,9 +79,14 @@ export const RESUME_FLAGS = [
         short: '-p',
         description: 'Show profile photo',
         action: () => {
-            // We can't easily return an image in text, but we can return the URL 
-            // or a message that it's being displayed (if we implement visual output)
-            return `Profile Photo: ${window.location.origin}/${profileData.profilePictureUrl}`;
+            const asciiPhoto = `       .---.
+      /     \\
+      | () () |
+       \\  ^  /
+        |||||
+        |||||
+`;
+            return `${asciiPhoto}\nOriginal photo present at: ${window.location.origin}/${profileData.profilePictureUrl}`;
         }
     },
     {

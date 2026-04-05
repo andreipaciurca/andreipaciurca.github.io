@@ -92,7 +92,9 @@ test.describe('Terminal and AI Feed', () => {
     await page.keyboard.press('Enter');
 
     const history = page.locator('#terminalHistory');
-    await expect(history).toContainText(/Profile Photo:.*assets\/profile-photo.jpg/);
+    // The photo output now includes ASCII art and the URL
+    await expect(history).toContainText('assets/profile-photo.jpg');
+    await expect(history).toContainText('.---.'); // Part of ASCII art
   });
 
   test('Terminal linkedin command outputs opening message', async ({ page }) => {

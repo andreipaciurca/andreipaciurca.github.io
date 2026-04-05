@@ -189,6 +189,11 @@ export function startActivityLoop(messages) {
         // Measure without visual impact
         container.style.visibility = 'hidden';
         container.style.display = 'block'; // Ensure it's measurable
+        // Lock height to the current computed height before measurement if possible
+        // to prevent immediate resizing during the loop below
+        const currentH = container.offsetHeight;
+        if (currentH > 0)
+            container.style.minHeight = `${currentH}px`;
         // Force layout flush before measurement
         void container.offsetHeight;
         let maxW = 0;
@@ -233,39 +238,27 @@ export function setExperienceCardExpanded(cardElement, shouldExpand) {
         return;
     const expandLabel = toggleButton.getAttribute('data-expand-label') ?? '';
     const collapseLabel = toggleButton.getAttribute('data-collapse-label') ?? '';
-    const updateState = () => {
-        const isExpanding = shouldExpand;
-        cardElement.classList.toggle('open', isExpanding);
-        toggleButton.setAttribute('aria-expanded', String(isExpanding));
-        toggleLabel.textContent = isExpanding ? collapseLabel : expandLabel;
-        // Explicitly set max-height for CSS transition
-        // In testing environment, transitions might be disabled or skipped, 
-        // but we still want the height to be correct for DOM state checks.
-        if (isExpanding) {
-            contentElement.style.maxHeight = `${contentElement.scrollHeight}px`;
-        }
-        else {
-            contentElement.style.maxHeight = '0';
-        }
-    };
-    if (document.startViewTransition && !document.querySelector('.view-transitioning')) {
-        // Check if we are in a testing environment - skip transitions for E2E speed/stability
-        const isTesting = navigator.userAgent.toLowerCase().includes('playwright') ||
-            window.__playwright_test__ ||
-            navigator.webdriver;
-        if (isTesting) {
-            updateState();
-            return;
-        }
-        // Add a temporary marker to prevent overlapping transitions
-        document.documentElement.classList.add('view-transitioning');
-        const transition = document.startViewTransition(() => updateState());
-        transition.finished.finally(() => {
-            document.documentElement.classList.remove('view-transitioning');
-        });
+    const isExpanding = shouldExpand;
+    cardElement.classList.toggle('open', isExpanding);
+    toggleButton.setAttribute('aria-expanded', String(isExpanding));
+    toggleLabel.textContent = isExpanding ? collapseLabel : expandLabel;
+    // Explicitly set max-height for CSS transition
+    if (isExpanding) {
+        // Use scrollHeight for actual content size, but ensures it's measurable
+        const fullHeight = contentElement.scrollHeight;
+        contentElement.style.maxHeight = fullHeight > 0 ? `${fullHeight}px` : '2000px';
     }
     else {
-        updateState();
+        contentElement.style.maxHeight = '0';
+    }
+    // If view transitions are supported and we're not in a test, use them
+    if (document.startViewTransition &&
+        !document.querySelector('.view-transitioning') &&
+        !navigator.userAgent.toLowerCase().includes('playwright')) {
+        document.documentElement.classList.add('view-transitioning');
+        document.startViewTransition(() => { }).finished.finally(() => {
+            document.documentElement.classList.remove('view-transitioning');
+        });
     }
 }
 /**

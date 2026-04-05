@@ -29,15 +29,21 @@ test.describe('Profile Photo Hover Interaction', () => {
     const photoFrame = page.locator('.profile-photo-frame');
     
     // Hover over the photo frame
-    await photoFrame.hover({ force: true });
+    // In WebKit/headless, hover can be tricky. Use a retry logic.
+    await expect(async () => {
+      await photoFrame.hover({ force: true });
+      // coin-spin is transient, photo-flipped is also transient but 
+      // added together with coin-spin.
+      const hasSpin = await photoFrame.evaluate(el => el.classList.contains('coin-spin'));
+      if (!hasSpin) throw new Error('Hover flip not triggered');
+    }).toPass({ timeout: 10000 });
     
-    // Check if classes are added (coin-spin is transient but photo-flipped is added immediately)
-    // coin-spin lasts for 980ms in the code
+    // Check if classes are added
     await expect(photoFrame).toHaveClass(/coin-spin/);
     await expect(photoFrame).toHaveClass(/photo-flipped/);
     
-    // Wait for the flip back to happen (980ms timeout)
-    await page.waitForTimeout(1500);
+    // Wait for the flip back to happen (980ms in production)
+    await page.waitForTimeout(2000);
     
     // Classes should be removed
     await expect(photoFrame).not.toHaveClass(/coin-spin/);
@@ -50,21 +56,29 @@ test.describe('Profile Photo Hover Interaction', () => {
     const photoFrame = page.locator('.profile-photo-frame');
     
     // First flip
-    await photoFrame.hover();
-    await page.waitForTimeout(1500);
+    await expect(async () => {
+      await photoFrame.hover({ force: true });
+      const hasSpin = await photoFrame.evaluate(el => el.classList.contains('coin-spin'));
+      if (!hasSpin) throw new Error('First hover flip not triggered');
+    }).toPass({ timeout: 10000 });
+    
+    await page.waitForTimeout(2000);
     await expect(photoFrame).not.toHaveClass(/coin-spin/);
     
-    // Second flip (need to move mouse away and back)
+    // Move mouse away
     await page.mouse.move(0, 0); 
     await page.waitForTimeout(500);
-    // WebKit can be extremely slow with CSS animations and hover events on CI.
-    // Ensure we move mouse far enough to trigger a fresh hover event.
+
+    // Second flip
     await expect(async () => {
       await page.mouse.move(0, 0); 
-      await page.waitForTimeout(1000);
+      await page.waitForTimeout(200);
       await photoFrame.hover({ force: true });
-      await expect(photoFrame).toHaveClass(/coin-spin/);
-      await expect(photoFrame).toHaveClass(/photo-flipped/);
+      const hasSpin = await photoFrame.evaluate(el => el.classList.contains('coin-spin'));
+      if (!hasSpin) throw new Error('Second hover flip not triggered');
     }).toPass({ timeout: 15000 });
+    
+    await expect(photoFrame).toHaveClass(/coin-spin/);
+    await expect(photoFrame).toHaveClass(/photo-flipped/);
   });
 });

@@ -39,6 +39,8 @@ function showTopBarCommand() {
     function typeWelcome() {
         let charIndex = 0;
         function nextChar() {
+            if (dom.terminalCommandText.dataset.typing === 'command')
+                return;
             if (charIndex < welcomeText.length) {
                 dom.terminalCommandText.textContent += welcomeText[charIndex];
                 charIndex++;
@@ -51,6 +53,7 @@ function showTopBarCommand() {
         nextChar();
     }
     function typeCommand() {
+        dom.terminalCommandText.dataset.typing = 'command';
         dom.terminalCommandText.textContent = '';
         let charIndex = 0;
         function nextChar() {
@@ -62,6 +65,8 @@ function showTopBarCommand() {
         }
         nextChar();
     }
+    dom.terminalCommandText.dataset.typing = 'welcome';
+    dom.terminalCommandText.textContent = ''; // Reset before starting
     typeWelcome();
 }
 /**

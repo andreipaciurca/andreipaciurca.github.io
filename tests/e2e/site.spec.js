@@ -121,17 +121,26 @@ test.describe('Theme Toggle', () => {
       const hasClass = await body.evaluate(el => el.classList.contains('light-mode'));
       if (!hasClass) throw new Error('light-mode class not found');
     }).toPass({ timeout: 15000 });
-    
-    await expect(body).toHaveClass(/light-mode/);
   });
 
   test('clicking theme toggle twice returns to dark mode', async ({ page }) => {
     test.slow();
     await page.goto('/');
     await waitForBootstrap(page);
-    await page.locator('#themeToggleButton').click();
-    await page.locator('#themeToggleButton').click();
-    await expect(page.locator('body')).not.toHaveClass(/light-mode/);
+    const body = page.locator('body');
+    const toggle = page.locator('#themeToggleButton');
+    
+    await toggle.click({ force: true });
+    await expect(async () => {
+      const hasClass = await body.evaluate(el => el.classList.contains('light-mode'));
+      if (!hasClass) throw new Error('light-mode class not found after first click');
+    }).toPass({ timeout: 15000 });
+    
+    await toggle.click({ force: true });
+    await expect(async () => {
+      const hasClass = await body.evaluate(el => el.classList.contains('light-mode'));
+      if (hasClass) throw new Error('light-mode class still present after second click');
+    }).toPass({ timeout: 15000 });
   });
 });
 
@@ -204,13 +213,16 @@ test.describe('Experience Cards', () => {
     // Ensure the card is ready and clickable
     await expect(toggle).toBeVisible();
     
-    // WebKit can be weird with clicks, try direct dispatch if regular click fails
-    await toggle.evaluate(el => el.click());
+    // Use evaluate for click to be most direct in slow environments
+    await toggle.click({ force: true });
     
     // WebKit can be slow with transitions, use a robust check
     await expect(async () => {
       const isOpen = await firstCard.evaluate(el => el.classList.contains('open'));
       if (!isOpen) throw new Error('Card not expanded (class "open" missing)');
+      
+      const isExpanded = await toggle.evaluate(el => el.getAttribute('aria-expanded') === 'true');
+      if (!isExpanded) throw new Error('Aria-expanded not true');
     }).toPass({ timeout: 15000 });
   });
 
@@ -221,7 +233,7 @@ test.describe('Experience Cards', () => {
     
     // Open the card first
     await expect(toggle).toBeVisible();
-    await toggle.evaluate(el => el.click());
+    await toggle.click({ force: true });
     
     // Use robust check for initial state
     await expect(async () => {
@@ -230,15 +242,15 @@ test.describe('Experience Cards', () => {
     }).toPass({ timeout: 15000 });
     
     // Close the card
-    await toggle.evaluate(el => el.click());
-    
-    // Wait for a small amount of time to let the click settle in WebKit
-    await page.waitForTimeout(1000);
+    await toggle.click({ force: true });
     
     // Use robust check for final state
     await expect(async () => {
       const isOpen = await firstCard.evaluate(el => el.classList.contains('open'));
       if (isOpen) throw new Error('Card still expanded');
+      
+      const isExpanded = await toggle.evaluate(el => el.getAttribute('aria-expanded') === 'false');
+      if (!isExpanded) throw new Error('Aria-expanded not false');
     }).toPass({ timeout: 15000 });
   });
 
