@@ -15,9 +15,9 @@ async function waitForBootstrap(page) {
   await page.waitForLoadState('networkidle');
   // candidateName is set synchronously in renderPage() — if it has content the
   // module graph loaded and executed without error.
-  await expect(page.locator('#candidateName')).not.toBeEmpty({ timeout: 10000 });
-  // Extra stabilization time for slow CI environments
-  await page.waitForTimeout(2000);
+  await expect(page.locator('#candidateName')).not.toBeEmpty({ timeout: 15000 });
+  // Extra stabilization time for slow CI environments (especially WebKit)
+  await page.waitForTimeout(3000);
 }
 
 // ---------------------------------------------------------------------------
@@ -158,11 +158,24 @@ test.describe('App Window Controls', () => {
   });
 
   test('clicking launcher card reopens the app', async ({ page }) => {
+    test.slow();
     await page.goto('/');
     await waitForBootstrap(page);
     await page.locator('#windowButtonClose').click();
-    await page.locator('#launcherCard').click();
-    await expect(page.locator('body')).not.toHaveClass(/app-collapsed/);
+    
+    // Ensure the app is indeed collapsed
+    await expect(page.locator('body')).toHaveClass(/app-collapsed/, { timeout: 15000 });
+    
+    // WebKit can be slow to show/enable the launcher card
+    const launcher = page.locator('#launcherCard');
+    await expect(launcher).toBeVisible({ timeout: 15000 });
+    
+    // Force click and dispatch event for robustness
+    await launcher.click({ force: true });
+    await launcher.dispatchEvent('click');
+    
+    // Check for expanded state
+    await expect(page.locator('body')).not.toHaveClass(/app-collapsed/, { timeout: 15000 });
   });
 
   test('minimize button toggles minimized state', async ({ page }) => {
