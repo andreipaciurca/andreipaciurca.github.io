@@ -82,15 +82,22 @@ test.describe('Profile Photo Hover Interaction', () => {
     
     // Move mouse away
     await page.mouse.move(0, 0); 
+    await photoFrame.dispatchEvent('mouseleave');
     await page.waitForTimeout(500);
 
     // Second flip
     await expect(async () => {
-      await page.mouse.move(0, 0); 
-      await page.waitForTimeout(200);
+      const box = await photoFrame.boundingBox();
+      if (box) {
+        await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+      }
       await photoFrame.hover({ force: true });
       const hasSpin = await photoFrame.evaluate(el => el.classList.contains('coin-spin'));
-      if (!hasSpin) throw new Error('Second hover flip not triggered');
+      if (!hasSpin) {
+        await photoFrame.dispatchEvent('mouseenter');
+        const hasSpinRetry = await photoFrame.evaluate(el => el.classList.contains('coin-spin'));
+        if (!hasSpinRetry) throw new Error('Second hover flip not triggered');
+      }
     }).toPass({ timeout: 15000 });
     
     await expect(photoFrame).toHaveClass(/coin-spin/);

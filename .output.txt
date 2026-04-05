@@ -1,102 +1,102 @@
 Command finished with exit code 0.
 Command output:
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:14.8919688Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:14] "GET /js/modules/terminal.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:14.8920992Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:14] "GET /js/modules/renderer.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:14.8922462Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:14] "GET /js/modules/ui.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:14.8935584Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:14] "GET /assets/profile-photo.webp HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:14.9560017Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:14] "GET /js/modules/constants.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.0202348Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /assets/favicon.png HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.3451287Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET / HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.3901463Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /assets/style.min.css HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.3908308Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /js/main.min.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.4014899Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /js/modules/config.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.4018884Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /js/modules/state.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.4029668Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /js/modules/dom.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.4043381Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /profile-data.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.4050866Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /js/modules/utils.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.4065893Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /js/modules/renderer.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.4067604Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /js/modules/print.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.4091427Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /js/modules/terminal.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.4099742Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /assets/profile-photo.webp HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.4116582Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /js/modules/ui.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.4327147Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /js/modules/constants.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.5002484Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /assets/favicon.png HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.8881797Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET / HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.9198545Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /assets/style.min.css HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.9206152Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /js/main.min.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.9406272Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /js/modules/config.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.9419418Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /js/modules/state.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.9424066Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /js/modules/dom.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.9443488Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /assets/profile-photo.webp HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.9453367Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /profile-data.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.9465107Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /js/modules/utils.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.9514017Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /js/modules/print.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.9515680Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /js/modules/renderer.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.9535634Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /js/modules/terminal.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.9539076Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /js/modules/ui.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:15.9692917Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:15] "GET /js/modules/constants.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:16.0517203Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:16] "GET /assets/favicon.png HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:16.4207956Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:16] "GET / HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:16.4638086Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:16] "GET /assets/style.min.css HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:16.4646109Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:16] "GET /js/main.min.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:16.4755049Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:16] "GET /js/modules/config.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:16.4768210Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:16] "GET /js/modules/state.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:16.4777383Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:16] "GET /js/modules/dom.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:16.4788629Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:16] "GET /profile-data.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:16.4794296Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:16] "GET /js/modules/utils.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:16.4812801Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:16] "GET /js/modules/print.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:16.4819760Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:16] "GET /js/modules/renderer.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:16.4835604Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:16] "GET /js/modules/ui.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:16.4840792Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:16] "GET /js/modules/terminal.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:16.5034894Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:16] "GET /js/modules/constants.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:16.5231743Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:16] "GET /assets/profile-photo.webp HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:16.6309547Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:16] "GET /assets/favicon.png HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.3652042Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET / HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.4048309Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /assets/style.min.css HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.4120082Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /js/main.min.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.4215397Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /js/modules/config.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.4220781Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /js/modules/state.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.4251695Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /js/modules/dom.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.4272338Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /profile-data.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.4284857Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /js/modules/utils.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.4287220Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /js/modules/print.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.4339194Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /js/modules/renderer.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.4344008Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /js/modules/terminal.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.4371389Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /js/modules/ui.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.4427322Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /assets/profile-photo.webp HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.4518427Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /js/modules/constants.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.5214448Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /assets/favicon.png HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.6896625Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET / HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.7283880Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /js/main.min.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.7308847Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /assets/style.min.css HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.7379390Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /js/modules/config.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.7436776Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /js/modules/dom.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.7441077Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /js/modules/utils.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.7451327Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /js/modules/state.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.7454134Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /js/modules/print.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.7456569Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /profile-data.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.7469986Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /js/modules/renderer.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.7489327Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /js/modules/terminal.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.7500889Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /js/modules/ui.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.7639111Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /js/modules/constants.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.7717625Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /assets/profile-photo.webp HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:17.8477078Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:17] "GET /assets/favicon.png HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:18.1264630Z ·····×···×···±··································································
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:18.4195810Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:18] "GET / HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:18.4685057Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:18] "GET /js/main.min.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:18.4687343Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:18] "GET /assets/style.min.css HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:18.4874988Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:18] "GET /js/modules/config.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:18.4900836Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:18] "GET /assets/profile-photo.webp HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:18.4924419Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:18] "GET /js/modules/state.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:18.4936451Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:18] "GET /js/modules/dom.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:18.4940853Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:18] "GET /profile-data.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:18.4956812Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:18] "GET /js/modules/utils.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:18.5138994Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:18] "GET /js/modules/renderer.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:18.5180489Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:18] "GET /js/modules/print.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:18.5182184Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:18] "GET /js/modules/ui.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:18.5189051Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:18] "GET /js/modules/terminal.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:18.5591947Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:18] "GET /js/modules/constants.js HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:18.6210582Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:18] "GET /assets/favicon.png HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:18.9446405Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:18] "GET / HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:18.9762653Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:18] "GET /assets/style.min.css HTTP/1.1" 200 -
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:09:18.9792415Z [WebServer] 127.0.0.1 - - [05/Apr/2026 16:09:18] "GET /js/main.min.js HTTP/1.1" 200 -
+Build & Test	Run E2E Tests (Playwright)	      49 |       }
+Build & Test	Run E2E Tests (Playwright)	    > 50 |     }).toPass({ timeout: 15000 });
+Build & Test	Run E2E Tests (Playwright)	         |        ^
+Build & Test	Run E2E Tests (Playwright)	      51 |     
+Build & Test	Run E2E Tests (Playwright)	      52 |     // Check if classes are added
+Build & Test	Run E2E Tests (Playwright)	      53 |     await expect(photoFrame).toHaveClass(/coin-spin/);
+Build & Test	Run E2E Tests (Playwright)	        at /home/runner/work/andreipaciurca.github.io/andreipaciurca.github.io/tests/e2e/profile-hover.spec.js:50:8
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:22:17.3481447Z ##[error]  2) [webkit] › tests/e2e/profile-hover.spec.js:64:7 › Profile Photo Hover Interaction › Profile photo should flip on second hover after cooldown 
+Build & Test	Run E2E Tests (Playwright)	    Error: Second hover flip not triggered
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	    Call Log:
+Build & Test	Run E2E Tests (Playwright)	    - Timeout 15000ms exceeded while waiting on the predicate
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	      92 |       const hasSpin = await photoFrame.evaluate(el => el.classList.contains('coin-spin'));
+Build & Test	Run E2E Tests (Playwright)	      93 |       if (!hasSpin) throw new Error('Second hover flip not triggered');
+Build & Test	Run E2E Tests (Playwright)	    > 94 |     }).toPass({ timeout: 15000 });
+Build & Test	Run E2E Tests (Playwright)	         |        ^
+Build & Test	Run E2E Tests (Playwright)	      95 |     
+Build & Test	Run E2E Tests (Playwright)	      96 |     await expect(photoFrame).toHaveClass(/coin-spin/);
+Build & Test	Run E2E Tests (Playwright)	      97 |     await expect(photoFrame).toHaveClass(/photo-flipped/);
+Build & Test	Run E2E Tests (Playwright)	        at /home/runner/work/andreipaciurca.github.io/andreipaciurca.github.io/tests/e2e/profile-hover.spec.js:94:8
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:22:17.3490288Z ##[error]  2) [webkit] › tests/e2e/profile-hover.spec.js:64:7 › Profile Photo Hover Interaction › Profile photo should flip on second hover after cooldown 
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+Build & Test	Run E2E Tests (Playwright)	    Error: Second hover flip not triggered
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	    Call Log:
+Build & Test	Run E2E Tests (Playwright)	    - Timeout 15000ms exceeded while waiting on the predicate
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	      92 |       const hasSpin = await photoFrame.evaluate(el => el.classList.contains('coin-spin'));
+Build & Test	Run E2E Tests (Playwright)	      93 |       if (!hasSpin) throw new Error('Second hover flip not triggered');
+Build & Test	Run E2E Tests (Playwright)	    > 94 |     }).toPass({ timeout: 15000 });
+Build & Test	Run E2E Tests (Playwright)	         |        ^
+Build & Test	Run E2E Tests (Playwright)	      95 |     
+Build & Test	Run E2E Tests (Playwright)	      96 |     await expect(photoFrame).toHaveClass(/coin-spin/);
+Build & Test	Run E2E Tests (Playwright)	      97 |     await expect(photoFrame).toHaveClass(/photo-flipped/);
+Build & Test	Run E2E Tests (Playwright)	        at /home/runner/work/andreipaciurca.github.io/andreipaciurca.github.io/tests/e2e/profile-hover.spec.js:94:8
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:22:17.3499786Z ##[error]  2) [webkit] › tests/e2e/profile-hover.spec.js:64:7 › Profile Photo Hover Interaction › Profile photo should flip on second hover after cooldown 
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+Build & Test	Run E2E Tests (Playwright)	    Error: Second hover flip not triggered
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	    Call Log:
+Build & Test	Run E2E Tests (Playwright)	    - Timeout 15000ms exceeded while waiting on the predicate
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	      92 |       const hasSpin = await photoFrame.evaluate(el => el.classList.contains('coin-spin'));
+Build & Test	Run E2E Tests (Playwright)	      93 |       if (!hasSpin) throw new Error('Second hover flip not triggered');
+Build & Test	Run E2E Tests (Playwright)	    > 94 |     }).toPass({ timeout: 15000 });
+Build & Test	Run E2E Tests (Playwright)	         |        ^
+Build & Test	Run E2E Tests (Playwright)	      95 |     
+Build & Test	Run E2E Tests (Playwright)	      96 |     await expect(photoFrame).toHaveClass(/coin-spin/);
+Build & Test	Run E2E Tests (Playwright)	      97 |     await expect(photoFrame).toHaveClass(/photo-flipped/);
+Build & Test	Run E2E Tests (Playwright)	        at /home/runner/work/andreipaciurca.github.io/andreipaciurca.github.io/tests/e2e/profile-hover.spec.js:94:8
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:22:17.3507101Z ##[notice]  2 failed
+Build & Test	Run E2E Tests (Playwright)	    [webkit] › tests/e2e/profile-hover.spec.js:26:7 › Profile Photo Hover Interaction › Profile photo should flip on hover 
+Build & Test	Run E2E Tests (Playwright)	    [webkit] › tests/e2e/profile-hover.spec.js:64:7 › Profile Photo Hover Interaction › Profile photo should flip on second hover after cooldown 
+Build & Test	Run E2E Tests (Playwright)	  160 passed (6.0m)
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:22:17.4387815Z ##[error]Process completed with exit code 1.
+Build & Test	Upload Playwright report	﻿2026-04-05T16:22:17.4466436Z ##[group]Run actions/upload-artifact@v4
+Build & Test	Upload Playwright report	2026-04-05T16:22:17.4466731Z with:
+Build & Test	Upload Playwright report	2026-04-05T16:22:17.4466906Z   name: playwright-report
+Build & Test	Upload Playwright report	2026-04-05T16:22:17.4467135Z   path: playwright-report/
+Build & Test	Upload Playwright report	2026-04-05T16:22:17.4467348Z   retention-days: 30
+Build & Test	Upload Playwright report	2026-04-05T16:22:17.4467547Z   if-no-files-found: warn
+Build & Test	Upload Playwright report	2026-04-05T16:22:17.4467774Z   compression-level: 6
+Build & Test	Upload Playwright report	2026-04-05T16:22:17.4467969Z   overwrite: false
+Build & Test	Upload Playwright report	2026-04-05T16:22:17.4468155Z   include-hidden-files: false
+Build & Test	Upload Playwright report	2026-04-05T16:22:17.4468365Z env:
+Build & Test	Upload Playwright report	2026-04-05T16:22:17.4468543Z   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+Build & Test	Upload Playwright report	2026-04-05T16:22:17.4468794Z ##[endgroup]
+Build & Test	Upload Playwright report	2026-04-05T16:22:17.6131806Z (node:14558) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+Build & Test	Upload Playwright report	2026-04-05T16:22:17.6133275Z (Use `node --trace-deprecation ...` to show where the warning was created)
+Build & Test	Upload Playwright report	2026-04-05T16:22:17.6243383Z With the provided path, there will be 22 files uploaded
+Build & Test	Upload Playwright report	2026-04-05T16:22:17.6246763Z Artifact name is valid!
+Build & Test	Upload Playwright report	2026-04-05T16:22:17.6247251Z Root directory input is valid!
+Build & Test	Upload Playwright report	2026-04-05T16:22:17.7213121Z Beginning upload of artifact content to blob storage
+Build & Test	Upload Playwright report	2026-04-05T16:22:17.8658563Z (node:14558) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+Build & Test	Upload Playwright report	2026-04-05T16:22:18.1087372Z Uploaded bytes 2371481
+Build & Test	Upload Playwright report	2026-04-05T16:22:18.1396416Z Finished uploading artifact content to blob storage!
+Build & Test	Upload Playwright report	2026-04-05T16:22:18.1397805Z SHA256 digest of uploaded artifact zip is ce1f7de6c8d8402561d0ed00b1c34f338378e45516d3f001a7e0d1702e833b0f
+Build & Test	Upload Playwright report	2026-04-05T16:22:18.1399309Z Finalizing artifact upload
+Build & Test	Upload Playwright report	2026-04-05T16:22:18.2364193Z Artifact playwright-report.zip successfully finalized. Artifact ID 6278444878
+Build & Test	Upload Playwright report	2026-04-05T16:22:18.2365745Z Artifact playwright-report has been successfully uploaded! Final size is 2371481 bytes. Artifact ID is 6278444878
+Build & Test	Upload Playwright report	2026-04-05T16:22:18.2372137Z Artifact download URL: https://github.com/andreipaciurca/andreipaciurca.github.io/actions/runs/24005407302/artifacts/6278444878
+Build & Test	Post Checkout repository	﻿2026-04-05T16:22:18.2547551Z Post job cleanup.
+Build & Test	Post Checkout repository	2026-04-05T16:22:18.3350602Z [command]/usr/bin/git version
+Build & Test	Post Checkout repository	2026-04-05T16:22:18.3388029Z git version 2.53.0
+Build & Test	Post Checkout repository	2026-04-05T16:22:18.3426763Z Temporarily overriding HOME='/home/runner/work/_temp/7b3c1995-7a2f-4ba6-a261-a32a6773feaf' before making global git config changes
+Build & Test	Post Checkout repository	2026-04-05T16:22:18.3428636Z Adding repository directory to the temporary git global config as a safe directory
+Build & Test	Post Checkout repository	2026-04-05T16:22:18.3433426Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/andreipaciurca.github.io/andreipaciurca.github.io
+Build & Test	Post Checkout repository	2026-04-05T16:22:18.3467735Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Build & Test	Post Checkout repository	2026-04-05T16:22:18.3499304Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Build & Test	Post Checkout repository	2026-04-05T16:22:18.3714533Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Build & Test	Post Checkout repository	2026-04-05T16:22:18.3736138Z http.https://github.com/.extraheader
+Build & Test	Post Checkout repository	2026-04-05T16:22:18.3746454Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+Build & Test	Post Checkout repository	2026-04-05T16:22:18.3778382Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Build & Test	Post Checkout repository	2026-04-05T16:22:18.3993837Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Build & Test	Post Checkout repository	2026-04-05T16:22:18.4024637Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Build & Test	Complete job	﻿2026-04-05T16:22:18.4365516Z Cleaning up orphan processes
+Build & Test	Complete job	2026-04-05T16:22:18.4696601Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
