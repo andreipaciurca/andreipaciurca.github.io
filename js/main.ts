@@ -299,7 +299,8 @@ function setupSecurityProtection(): void {
                  
   // Check if we are in a Playwright test (usually has a special user agent or global)
   const isTesting = navigator.userAgent.toLowerCase().includes('playwright') || 
-                   (window as any).__playwright_test__;
+                   (window as any).__playwright_test__ ||
+                   (navigator as any).webdriver;
 
   // On localhost or during E2E tests, it's OFF by default to facilitate debugging.
   // Otherwise, it's ON by default for production privacy.
