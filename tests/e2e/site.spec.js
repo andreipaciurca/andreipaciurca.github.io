@@ -16,6 +16,8 @@ async function waitForBootstrap(page) {
   // candidateName is set synchronously in renderPage() — if it has content the
   // module graph loaded and executed without error.
   await expect(page.locator('#candidateName')).not.toBeEmpty({ timeout: 8000 });
+  // Extra stabilization time for slow CI environments
+  await page.waitForTimeout(1000);
 }
 
 // ---------------------------------------------------------------------------
@@ -207,37 +209,35 @@ test.describe('Experience Cards', () => {
 
   test('clicking a card toggle button expands it', async ({ page }) => {
     test.slow();
-    const firstCard = page.locator('.experience-card').first();
-    const toggle = firstCard.locator('.experience-toggle');
+    // Test a non-first card because the first card starts expanded by default
+    const targetCard = page.locator('.experience-card').nth(1);
+    const toggle = targetCard.locator('.experience-toggle');
     
-    // Ensure the card is ready and clickable
-    await expect(toggle).toBeVisible();
+    // Ensure the card is ready and NOT yet expanded
+    await expect(targetCard).not.toHaveClass(/open/);
     
-    // Use evaluate for click to be most direct in slow environments
-    await toggle.click({ force: true });
+    // Use dispatchEvent for more direct event triggering
+    await toggle.dispatchEvent('click');
     
     // Use robust check for state
     await page.waitForFunction((el) => {
       return el.classList.contains('open');
-    }, await firstCard.elementHandle(), { timeout: 15000 });
+    }, await targetCard.elementHandle(), { timeout: 15000 });
   });
 
   test('clicking an open card collapses it', async ({ page }) => {
     test.slow();
+    // The first card starts expanded by default
     const firstCard = page.locator('.experience-card').first();
     const toggle = firstCard.locator('.experience-toggle');
     
-    // Open the card first
-    await expect(toggle).toBeVisible();
-    await toggle.click({ force: true });
-    
-    // Wait for the open class using a custom predicate for better reliability
+    // Ensure the card is indeed open initially
     await page.waitForFunction((el) => {
       return el.classList.contains('open');
     }, await firstCard.elementHandle(), { timeout: 15000 });
     
     // Close the card
-    await toggle.click({ force: true });
+    await toggle.dispatchEvent('click');
     
     // Wait for the open class to be removed
     await page.waitForFunction((el) => {

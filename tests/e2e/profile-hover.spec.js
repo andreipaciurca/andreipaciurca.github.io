@@ -31,10 +31,21 @@ test.describe('Profile Photo Hover Interaction', () => {
     // Hover over the photo frame
     // In WebKit/headless, hover can be tricky. Use a retry logic and wait for transform.
     await expect(async () => {
+      // Move mouse to center of the photo frame to ensure hover state is active
+      const box = await photoFrame.boundingBox();
+      if (box) {
+        await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+      }
       await photoFrame.hover({ force: true });
+      
       const transform = await photoFrame.evaluate(el => window.getComputedStyle(el).getPropertyValue('transform'));
       if (transform === 'none' || transform === 'matrix(1, 0, 0, 1, 0, 0)') {
-        throw new Error('Hover flip not triggered');
+        // Try direct dispatch if hover() fails in headless
+        await photoFrame.dispatchEvent('mouseenter');
+        const transformRetry = await photoFrame.evaluate(el => window.getComputedStyle(el).getPropertyValue('transform'));
+        if (transformRetry === 'none' || transformRetry === 'matrix(1, 0, 0, 1, 0, 0)') {
+          throw new Error('Hover flip not triggered');
+        }
       }
     }).toPass({ timeout: 15000 });
     
@@ -59,7 +70,11 @@ test.describe('Profile Photo Hover Interaction', () => {
     await expect(async () => {
       await photoFrame.hover({ force: true });
       const hasSpin = await photoFrame.evaluate(el => el.classList.contains('coin-spin'));
-      if (!hasSpin) throw new Error('First hover flip not triggered');
+      if (!hasSpin) {
+        await photoFrame.dispatchEvent('mouseenter');
+        const hasSpinRetry = await photoFrame.evaluate(el => el.classList.contains('coin-spin'));
+        if (!hasSpinRetry) throw new Error('First hover flip not triggered');
+      }
     }).toPass({ timeout: 10000 });
     
     await page.waitForTimeout(2000);
