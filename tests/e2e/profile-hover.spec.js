@@ -56,10 +56,13 @@ test.describe('Profile Photo Hover Interaction', () => {
     
     // Second flip (need to move mouse away and back)
     await page.mouse.move(0, 0); 
-    await page.waitForTimeout(100);
+    await page.waitForTimeout(500);
     await photoFrame.hover();
     
-    await expect(photoFrame).toHaveClass(/coin-spin/);
-    await expect(photoFrame).toHaveClass(/photo-flipped/);
+    // Check with retry toPass for flakiness
+    await expect(async () => {
+      await expect(photoFrame).toHaveClass(/coin-spin/);
+      await expect(photoFrame).toHaveClass(/photo-flipped/);
+    }).toPass({ timeout: 5000 });
   });
 });

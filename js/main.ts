@@ -298,7 +298,7 @@ function setupSecurityProtection(): void {
                  window.location.hostname === '127.0.0.1';
                  
   // Check if we are in a Playwright test (usually has a special user agent or global)
-  const isTesting = navigator.userAgent.includes('Playwright') || 
+  const isTesting = navigator.userAgent.toLowerCase().includes('playwright') || 
                    (window as any).__playwright_test__;
 
   // On localhost or during E2E tests, it's OFF by default to facilitate debugging.

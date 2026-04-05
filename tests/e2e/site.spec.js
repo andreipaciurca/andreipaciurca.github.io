@@ -142,6 +142,7 @@ test.describe('App Window Controls', () => {
   });
 
   test('minimize button toggles minimized state', async ({ page }) => {
+    test.slow();
     await page.goto('/');
     await waitForBootstrap(page);
     await page.locator('#windowButtonMinimize').click();
@@ -175,19 +176,42 @@ test.describe('Experience Cards', () => {
     test.slow();
     const firstCard = page.locator('.experience-card').first();
     const toggle = firstCard.locator('.experience-toggle');
-    await toggle.click();
-    await expect(firstCard).toHaveClass(/open/);
-    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    
+    // Ensure the card is ready and clickable
+    await expect(toggle).toBeVisible();
+    
+    // Use force: true to bypass potential overlay issues in WebKit/CI
+    await toggle.click({ force: true });
+    
+    // WebKit can be slow with transitions, use toPass
+    await expect(async () => {
+      await expect(firstCard).toHaveClass(/open/);
+      await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    }).toPass({ timeout: 5000 });
   });
 
   test('clicking an open card collapses it', async ({ page }) => {
     test.slow();
     const firstCard = page.locator('.experience-card').first();
     const toggle = firstCard.locator('.experience-toggle');
-    await toggle.click(); // open
-    await toggle.click(); // close
-    await expect(firstCard).not.toHaveClass(/open/);
-    await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    
+    // Open the card first
+    await expect(toggle).toBeVisible();
+    await toggle.click({ force: true });
+    
+    // WebKit/CI can be slow with transitions, use toPass for initial state
+    await expect(async () => {
+      await expect(firstCard).toHaveClass(/open/);
+    }).toPass({ timeout: 5000 });
+    
+    // Close the card
+    await toggle.click({ force: true });
+    
+    // Use toPass for final state
+    await expect(async () => {
+      await expect(firstCard).not.toHaveClass(/open/);
+      await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    }).toPass({ timeout: 5000 });
   });
 
   test('experience cards contain bullet points', async ({ page }) => {

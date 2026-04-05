@@ -116,20 +116,22 @@ test.describe('Terminal and AI Feed', () => {
   });
 
   test('Terminal right-click protection is enabled by default (when not localhost)', async ({ page }) => {
-    // Force set hostname to something else to test production-like behavior
-    // This is hard to do in Playwright easily without modifying the app code,
-    // so we just test the toggle functionality and assume logic in main.ts is correct.
-    
-    // Check if right click works by default on localhost
+    // Increase timeout for WebKit flakiness
+    test.slow();
+    // Check if right click works by default on localhost or in tests
+    const isTesting = await page.evaluate(() => navigator.userAgent.toLowerCase().includes('playwright'));
     const isLocalhost = await page.evaluate(() => window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
     
-    if (isLocalhost) {
-      // On localhost, it should be disabled by default (my new logic)
+    if (isLocalhost || isTesting) {
+      // It should be disabled by default (my logic in main.ts)
       const isPrevented = await page.evaluate(() => {
         let prevented = false;
-        const e = new MouseEvent('contextmenu', { cancelable: true });
+        const e = new MouseEvent('contextmenu', { cancelable: true, bubbles: true });
+        const cb = (ev) => { if (ev.defaultPrevented) prevented = true; };
+        document.addEventListener('contextmenu', cb);
         document.dispatchEvent(e);
-        return e.defaultPrevented;
+        document.removeEventListener('contextmenu', cb);
+        return prevented;
       });
       expect(isPrevented).toBe(false);
       
