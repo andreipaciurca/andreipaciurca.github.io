@@ -4,8 +4,8 @@ test.describe('Profile Photo Hover Interaction', () => {
   test.beforeEach(async ({ page }) => {
     // Inject CI flags to skip flakiness-prone animations/logic
     await page.addInitScript(() => {
-      (window as any).CI = true;
-      (window as any).__playwright_test__ = true;
+      window.CI = true;
+      window.__playwright_test__ = true;
     });
     await page.goto('/');
     // Give some time for initial render

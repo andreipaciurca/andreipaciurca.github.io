@@ -3,8 +3,8 @@ const { test, expect } = require('@playwright/test');
 async function waitForBootstrap(page) {
   // Inject CI flags to skip flakiness-prone animations/logic
   await page.addInitScript(() => {
-    (window as any).CI = true;
-    (window as any).__playwright_test__ = true;
+    window.CI = true;
+    window.__playwright_test__ = true;
   });
   await page.waitForLoadState('networkidle');
   await expect(page.locator('#candidateName')).not.toBeEmpty({ timeout: 10000 });

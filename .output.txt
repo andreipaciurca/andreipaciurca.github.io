@@ -1,0 +1,172 @@
+Command finished with exit code 0.
+Command output:
+Build & Test	Run E2E Tests (Playwright)	﻿2026-04-05T18:51:34.0462486Z ##[group]Run npm run test:e2e
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:34.0462770Z [36;1mnpm run test:e2e[0m
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:34.0489087Z shell: /usr/bin/bash -e {0}
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:34.0489315Z env:
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:34.0489506Z   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:34.0489753Z ##[endgroup]
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:34.1481541Z 
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:34.1482212Z > andreipaciurca-resume@1.0.0 test:e2e
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:34.1482849Z > FORCE_COLOR=0 playwright test
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:34.1483153Z 
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.0884568Z [WebServer] 127.0.0.1 - - [05/Apr/2026 18:51:36] "GET / HTTP/1.1" 200 -
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1598771Z 
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1600594Z SyntaxError: /home/runner/work/andreipaciurca.github.io/andreipaciurca.github.io/tests/e2e/profile-hover.spec.js: Unexpected token, expected "," (7:14)
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1601720Z 
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1602096Z    5 |     // Inject CI flags to skip flakiness-prone animations/logic
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1602798Z    6 |     await page.addInitScript(() => {
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1603403Z >  7 |       (window as any).CI = true;
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1603828Z      |               ^
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1604285Z    8 |       (window as any).__playwright_test__ = true;
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1604738Z    9 |     });
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1605083Z   10 |     await page.goto('/');
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1605341Z 
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1605497Z    at profile-hover.spec.js:7
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1605761Z 
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1606327Z    5 |     // Inject CI flags to skip flakiness-prone animations/logic
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1607004Z    6 |     await page.addInitScript(() => {
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1607552Z >  7 |       (window as any).CI = true;
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1607955Z      |              ^
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1608407Z    8 |       (window as any).__playwright_test__ = true;
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1608868Z    9 |     });
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1609219Z   10 |     await page.goto('/');
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1634792Z ##[error]SyntaxError: /home/runner/work/andreipaciurca.github.io/andreipaciurca.github.io/tests/e2e/profile-hover.spec.js: Unexpected token, expected "," (7:14)
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	   5 |     // Inject CI flags to skip flakiness-prone animations/logic
+Build & Test	Run E2E Tests (Playwright)	   6 |     await page.addInitScript(() => {
+Build & Test	Run E2E Tests (Playwright)	>  7 |       (window as any).CI = true;
+Build & Test	Run E2E Tests (Playwright)	     |               ^
+Build & Test	Run E2E Tests (Playwright)	   8 |       (window as any).__playwright_test__ = true;
+Build & Test	Run E2E Tests (Playwright)	   9 |     });
+Build & Test	Run E2E Tests (Playwright)	  10 |     await page.goto('/');
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	   at profile-hover.spec.js:7
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	   5 |     // Inject CI flags to skip flakiness-prone animations/logic
+Build & Test	Run E2E Tests (Playwright)	   6 |     await page.addInitScript(() => {
+Build & Test	Run E2E Tests (Playwright)	>  7 |       (window as any).CI = true;
+Build & Test	Run E2E Tests (Playwright)	     |              ^
+Build & Test	Run E2E Tests (Playwright)	   8 |       (window as any).__playwright_test__ = true;
+Build & Test	Run E2E Tests (Playwright)	   9 |     });
+Build & Test	Run E2E Tests (Playwright)	  10 |     await page.goto('/');
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1644378Z 
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1645138Z SyntaxError: /home/runner/work/andreipaciurca.github.io/andreipaciurca.github.io/tests/e2e/regression-2026.spec.js: Unexpected token, expected "," (7:14)
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1645747Z 
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1646316Z    5 |     // Inject CI flags to skip flakiness-prone animations/logic
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1646921Z    6 |     await page.addInitScript(() => {
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1647256Z >  7 |       (window as any).CI = true;
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1647489Z      |               ^
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1647755Z    8 |       (window as any).__playwright_test__ = true;
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1648024Z    9 |     });
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1648228Z   10 |     await page.goto('/');
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1648391Z 
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1648499Z    at regression-2026.spec.js:7
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1648649Z 
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1648854Z    5 |     // Inject CI flags to skip flakiness-prone animations/logic
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1649222Z    6 |     await page.addInitScript(() => {
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1649525Z >  7 |       (window as any).CI = true;
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1649756Z      |              ^
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1650006Z    8 |       (window as any).__playwright_test__ = true;
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1650269Z    9 |     });
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1650992Z   10 |     await page.goto('/');
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1655924Z ##[error]SyntaxError: /home/runner/work/andreipaciurca.github.io/andreipaciurca.github.io/tests/e2e/regression-2026.spec.js: Unexpected token, expected "," (7:14)
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	   5 |     // Inject CI flags to skip flakiness-prone animations/logic
+Build & Test	Run E2E Tests (Playwright)	   6 |     await page.addInitScript(() => {
+Build & Test	Run E2E Tests (Playwright)	>  7 |       (window as any).CI = true;
+Build & Test	Run E2E Tests (Playwright)	     |               ^
+Build & Test	Run E2E Tests (Playwright)	   8 |       (window as any).__playwright_test__ = true;
+Build & Test	Run E2E Tests (Playwright)	   9 |     });
+Build & Test	Run E2E Tests (Playwright)	  10 |     await page.goto('/');
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	   at regression-2026.spec.js:7
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	   5 |     // Inject CI flags to skip flakiness-prone animations/logic
+Build & Test	Run E2E Tests (Playwright)	   6 |     await page.addInitScript(() => {
+Build & Test	Run E2E Tests (Playwright)	>  7 |       (window as any).CI = true;
+Build & Test	Run E2E Tests (Playwright)	     |              ^
+Build & Test	Run E2E Tests (Playwright)	   8 |       (window as any).__playwright_test__ = true;
+Build & Test	Run E2E Tests (Playwright)	   9 |     });
+Build & Test	Run E2E Tests (Playwright)	  10 |     await page.goto('/');
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1659124Z 
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1659767Z SyntaxError: /home/runner/work/andreipaciurca.github.io/andreipaciurca.github.io/tests/e2e/site.spec.js: Unexpected token, expected "," (17:12)
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1660329Z 
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1660528Z   15 |   // Inject CI flags to skip flakiness-prone animations/logic
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1660905Z   16 |   await page.addInitScript(() => {
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1661222Z > 17 |     (window as any).CI = true;
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1661457Z      |             ^
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1661715Z   18 |     (window as any).__playwright_test__ = true;
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1661989Z   19 |   });
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1662244Z   20 |   await page.waitForLoadState('networkidle');
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1662467Z 
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1662548Z    at site.spec.js:17
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1662677Z 
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1662872Z   15 |   // Inject CI flags to skip flakiness-prone animations/logic
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1663239Z   16 |   await page.addInitScript(() => {
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1663532Z > 17 |     (window as any).CI = true;
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1663759Z      |            ^
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1664002Z   18 |     (window as any).__playwright_test__ = true;
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1664266Z   19 |   });
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1664510Z   20 |   await page.waitForLoadState('networkidle');
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1669905Z ##[error]SyntaxError: /home/runner/work/andreipaciurca.github.io/andreipaciurca.github.io/tests/e2e/site.spec.js: Unexpected token, expected "," (17:12)
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	  15 |   // Inject CI flags to skip flakiness-prone animations/logic
+Build & Test	Run E2E Tests (Playwright)	  16 |   await page.addInitScript(() => {
+Build & Test	Run E2E Tests (Playwright)	> 17 |     (window as any).CI = true;
+Build & Test	Run E2E Tests (Playwright)	     |             ^
+Build & Test	Run E2E Tests (Playwright)	  18 |     (window as any).__playwright_test__ = true;
+Build & Test	Run E2E Tests (Playwright)	  19 |   });
+Build & Test	Run E2E Tests (Playwright)	  20 |   await page.waitForLoadState('networkidle');
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	   at site.spec.js:17
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	  15 |   // Inject CI flags to skip flakiness-prone animations/logic
+Build & Test	Run E2E Tests (Playwright)	  16 |   await page.addInitScript(() => {
+Build & Test	Run E2E Tests (Playwright)	> 17 |     (window as any).CI = true;
+Build & Test	Run E2E Tests (Playwright)	     |            ^
+Build & Test	Run E2E Tests (Playwright)	  18 |     (window as any).__playwright_test__ = true;
+Build & Test	Run E2E Tests (Playwright)	  19 |   });
+Build & Test	Run E2E Tests (Playwright)	  20 |   await page.waitForLoadState('networkidle');
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1672497Z 
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1673140Z SyntaxError: /home/runner/work/andreipaciurca.github.io/andreipaciurca.github.io/tests/e2e/terminal.spec.js: Unexpected token, expected "," (6:12)
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1673720Z 
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1673917Z   4 |   // Inject CI flags to skip flakiness-prone animations/logic
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1674288Z   5 |   await page.addInitScript(() => {
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1674610Z > 6 |     (window as any).CI = true;
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1674836Z     |             ^
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1675090Z   7 |     (window as any).__playwright_test__ = true;
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1675350Z   8 |   });
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1675592Z   9 |   await page.waitForLoadState('networkidle');
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1675792Z 
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1675890Z    at terminal.spec.js:6
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1676300Z 
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1676649Z   4 |   // Inject CI flags to skip flakiness-prone animations/logic
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1677292Z   5 |   await page.addInitScript(() => {
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1677616Z > 6 |     (window as any).CI = true;
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1677843Z     |            ^
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1678093Z   7 |     (window as any).__playwright_test__ = true;
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1678540Z   8 |   });
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1678905Z   9 |   await page.waitForLoadState('networkidle');
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1683486Z ##[error]SyntaxError: /home/runner/work/andreipaciurca.github.io/andreipaciurca.github.io/tests/e2e/terminal.spec.js: Unexpected token, expected "," (6:12)
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	  4 |   // Inject CI flags to skip flakiness-prone animations/logic
+Build & Test	Run E2E Tests (Playwright)	  5 |   await page.addInitScript(() => {
+Build & Test	Run E2E Tests (Playwright)	> 6 |     (window as any).CI = true;
+Build & Test	Run E2E Tests (Playwright)	    |             ^
+Build & Test	Run E2E Tests (Playwright)	  7 |     (window as any).__playwright_test__ = true;
+Build & Test	Run E2E Tests (Playwright)	  8 |   });
+Build & Test	Run E2E Tests (Playwright)	  9 |   await page.waitForLoadState('networkidle');
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	   at terminal.spec.js:6
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	  4 |   // Inject CI flags to skip flakiness-prone animations/logic
+Build & Test	Run E2E Tests (Playwright)	  5 |   await page.addInitScript(() => {
+Build & Test	Run E2E Tests (Playwright)	> 6 |     (window as any).CI = true;
+Build & Test	Run E2E Tests (Playwright)	    |            ^
+Build & Test	Run E2E Tests (Playwright)	  7 |     (window as any).__playwright_test__ = true;
+Build & Test	Run E2E Tests (Playwright)	  8 |   });
+Build & Test	Run E2E Tests (Playwright)	  9 |   await page.waitForLoadState('networkidle');
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1686334Z 
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.1686345Z 
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T18:51:36.2080345Z ##[error]Process completed with exit code 1.
