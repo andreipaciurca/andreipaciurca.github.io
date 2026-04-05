@@ -16,7 +16,7 @@
   "scripts": {
     "build": "tsc && npm run minify",
     "minify": "npm run minify:js && npm run minify:css",
-    "minify:js": "terser js/main.js -o js/main.min.js --compress --mangle && for file in js/modules/*.js; do if [ \"${file%.js}.js\" = \"$file\" ]; then terser \"$file\" -o \"${file%.js}.min.js\" --compress --mangle; fi; done",
+    "minify:js": "terser js/main.js -o js/main.min.js --compress --mangle && for file in js/modules/*.js; do if [ \"${file%.js}.js\" = \"$file\" ] && [ \"${file%.min.js}.min.js\" != \"$file\" ]; then terser \"$file\" -o \"${file%.js}.min.js\" --compress --mangle; fi; done",
     "minify:css": "cleancss -o assets/style.min.css assets/style.css",
     "optimize-images": "node scripts/optimize-images.js",
     "typecheck": "tsc --noEmit",
