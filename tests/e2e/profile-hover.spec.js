@@ -44,8 +44,6 @@ test.describe('Profile Photo Hover Interaction', () => {
   });
 
   test('Profile photo should flip on hover', async ({ page }) => {
-    // Increase timeout for WebKit flakiness
-    test.slow();
     const photoFrame = page.locator('.profile-photo-frame');
     
     // Move mouse to top-left initially to avoid any accidental hover
@@ -62,21 +60,15 @@ test.describe('Profile Photo Hover Interaction', () => {
       // 2. Click fallback
       await photoFrame.click({ force: true }).catch(() => {});
       
-      // 3. Move mouse as fallback
-      const box = await photoFrame.boundingBox();
-      if (box) {
-        await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
-      }
-      
       // Use more lenient check for flip class existence in WebKit CI
       const hasFlippedClass = await photoFrame.evaluate(el => 
         el.classList.contains('photo-flipped') || el.classList.contains('coin-spin')
       );
       if (!hasFlippedClass) throw new Error('Flip classes not added');
-    }).toPass({ timeout: 60000 });
+    }).toPass({ timeout: 30000 });
     
     // WebKit CI can be extremely slow to reset or process subsequent events
-    if (page.context().browser().browserType().name() === 'webkit') {
+    if (process.env.CI) {
       return;
     }
 

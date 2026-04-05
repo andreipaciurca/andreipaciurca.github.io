@@ -14,8 +14,8 @@ const { defineConfig, devices } = require('@playwright/test');
 
 module.exports = defineConfig({
   testDir: './tests/e2e',
-  timeout: 120000,
-  expect: { timeout: 15000 },
+  timeout: 60000,
+  expect: { timeout: 10000 },
   fullyParallel: true,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 2 : undefined,

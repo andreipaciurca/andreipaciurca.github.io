@@ -13,8 +13,6 @@ test.describe('2026 Regression Tests', () => {
   });
 
   test('Security protection should be ON by default', async ({ page }) => {
-    // Increase timeout for WebKit flakiness
-    test.slow();
     // On localhost or during tests, we expect it to be OFF by default based on main.ts logic
     const isLocalhost = await page.evaluate(() => window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
     const isTesting = await page.evaluate(() => navigator.userAgent.toLowerCase().includes('playwright'));
@@ -43,8 +41,6 @@ test.describe('2026 Regression Tests', () => {
   });
 
   test('AI Feed should be stable across browsers', async ({ page }) => {
-    test.slow();
-    
     // In CI environments, we skip precise bounding box stability checks for infinite animations
     // as they are highly prone to flakiness and hangs in resource-constrained runners.
     if (process.env.CI) {
@@ -57,17 +53,16 @@ test.describe('2026 Regression Tests', () => {
 
     const aiFeed = page.locator('.activity-typing-area');
     await expect(aiFeed).toBeVisible();
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
     const initialBox = await aiFeed.boundingBox();
     expect(initialBox).not.toBeNull();
-    await page.waitForTimeout(10000);
+    await page.waitForTimeout(5000);
     const laterBox = await aiFeed.boundingBox();
     expect(Math.abs(initialBox.height - laterBox.height)).toBeLessThan(25.0);
     expect(Math.abs(initialBox.width - laterBox.width)).toBeLessThan(25.0);
   });
 
   test('Top bar title should match production sequence', async ({ page }) => {
-    test.slow();
     const titleContainer = page.locator('#terminalCommandText');
     
     // In WebKit CI, animations and even simple script execution can be extremely delayed.
@@ -79,7 +74,7 @@ test.describe('2026 Regression Tests', () => {
           return el && el.textContent && el.textContent.trim().length > 0;
         });
         if (!hasContent) throw new Error('Content not yet present');
-      }).toPass({ timeout: 45000 });
+      }).toPass({ timeout: 30000 });
       return;
     }
 
@@ -89,6 +84,6 @@ test.describe('2026 Regression Tests', () => {
       if (!text.toLowerCase().includes('code session')) {
         throw new Error(`Final title command not reached. Current text: "${text}"`);
       }
-    }).toPass({ timeout: 30000 });
+    }).toPass({ timeout: 20000 });
   });
 });

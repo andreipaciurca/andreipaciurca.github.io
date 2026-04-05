@@ -6,8 +6,7 @@ async function waitForBootstrap(page) {
     window.CI = true;
     window.__playwright_test__ = true;
   });
-  await page.waitForLoadState('networkidle');
-  await expect(page.locator('#candidateName')).not.toBeEmpty({ timeout: 10000 });
+  await expect(page.locator('#candidateName')).not.toBeEmpty({ timeout: 15000 });
 }
 
 test.describe('Terminal and AI Feed', () => {
@@ -190,15 +189,9 @@ test.describe('Terminal and AI Feed', () => {
 
 test.describe('Responsive Layout', () => {
   test('sidebar is hidden when app is minimized', async ({ page }) => {
-    test.slow();
-    await page.goto('/');
-    await waitForBootstrap(page);
-    
     const minimizeBtn = page.locator('#windowButtonMinimize');
     await expect(async () => {
       await minimizeBtn.click({ force: true }).catch(() => {});
-      await minimizeBtn.dispatchEvent('mousedown');
-      await minimizeBtn.dispatchEvent('mouseup');
       await minimizeBtn.dispatchEvent('click');
       const isMinimized = await page.evaluate(() => document.body.classList.contains('app-minimized'));
       if (!isMinimized) throw new Error('App not minimized');
