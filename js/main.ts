@@ -63,6 +63,13 @@ function showTopBarCommand(): void {
   
   if (dom.terminalCommandText.textContent === commandText) return;
   
+  // Skip animation in CI/test environments for stability
+  const isCI = (window as any).CI || (window as any).__playwright_test__ || (navigator as any).webdriver;
+  if (isCI) {
+    dom.terminalCommandText.textContent = commandText;
+    return;
+  }
+
   dom.terminalCommandText.textContent = '';
   
   function typeWelcome() {

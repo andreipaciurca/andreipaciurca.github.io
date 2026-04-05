@@ -319,7 +319,11 @@ export function setExperienceCardExpanded(cardElement: Element, shouldExpand: bo
   if (document.startViewTransition && 
       !document.querySelector('.view-transitioning') &&
       !navigator.userAgent.toLowerCase().includes('playwright') &&
-      !navigator.webdriver) {
+      !navigator.webdriver &&
+      !(window as any).CI && 
+      !(window as any).__playwright_test__ &&
+      !(window as any).Deno && // For some server-side/test envs
+      !((window as any).process && (window as any).process.env && (window as any).process.env.NODE_ENV === 'test')) {
     document.documentElement.classList.add('view-transitioning');
     document.startViewTransition(() => {}).finished.finally(() => {
       document.documentElement.classList.remove('view-transitioning');
