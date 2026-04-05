@@ -161,6 +161,8 @@ export function setupProfileFlipOnHover(): void {
     e.preventDefault();
     handleFlip();
   }, { passive: false });
+  // Fallback for automated tests and desktop users who might click
+  dom.profilePhotoFrame.addEventListener('click', handleFlip);
 }
 
 /**

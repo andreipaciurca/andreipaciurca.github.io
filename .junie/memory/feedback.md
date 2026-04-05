@@ -62,3 +62,11 @@
     "NEW INSTRUCTION": "WHEN user provides a Playwright report path THEN parse report, list failures, and propose targeted fixes."
 }
 
+[2026-04-05 20:47] - Updated by Junie
+{
+    "TYPE": "negative",
+    "CATEGORY": "E2E tests failing",
+    "EXPECTATION": "Use the provided local Playwright report path to analyze failures and return a concrete fix plan so the suite passes.",
+    "NEW INSTRUCTION": "WHEN user provides a Playwright report path THEN parse report, list failures, and propose targeted fixes."
+}
+

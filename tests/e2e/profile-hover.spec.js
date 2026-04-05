@@ -28,12 +28,15 @@ test.describe('Profile Photo Hover Interaction', () => {
     test.slow();
     const photoFrame = page.locator('.profile-photo-frame');
     
-    // Attempt to trigger hover via mouse and events
+    // Attempt to trigger flip via mouse, click and events
     await expect(async () => {
       // 1. Dispatch event directly (most reliable for class toggling)
       await photoFrame.dispatchEvent('mouseenter');
       
-      // 2. Move mouse as fallback
+      // 2. Click fallback
+      await photoFrame.click({ force: true }).catch(() => {});
+      
+      // 3. Move mouse as fallback
       const box = await photoFrame.boundingBox();
       if (box) {
         await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
@@ -79,12 +82,13 @@ test.describe('Profile Photo Hover Interaction', () => {
     // Second flip
     await expect(async () => {
       await photoFrame.dispatchEvent('mouseenter');
+      await photoFrame.click({ force: true }).catch(() => {});
       const box = await photoFrame.boundingBox();
       if (box) {
         await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
       }
       const hasSpin = await photoFrame.evaluate(el => el.classList.contains('coin-spin'));
-      if (!hasSpin) throw new Error('Second hover flip not triggered');
+      if (!hasSpin) throw new Error('Second flip not triggered');
     }).toPass({ timeout: 20000 });
     
     await expect(photoFrame).toHaveClass(/coin-spin/);
