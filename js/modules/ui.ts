@@ -307,10 +307,10 @@ export function setExperienceCardExpanded(cardElement: Element, shouldExpand: bo
     const fullHeight = contentElement.scrollHeight;
     contentElement.style.maxHeight = fullHeight > 0 ? `${fullHeight}px` : '2000px';
     // Force layout reflow to ensure class addition is picked up immediately
-    void cardElement.offsetHeight;
+    void (cardElement as HTMLElement).offsetHeight;
   } else {
     contentElement.style.maxHeight = '0';
-    void cardElement.offsetHeight;
+    void (cardElement as HTMLElement).offsetHeight;
   }
 
   // If view transitions are supported and we're not in a test, use them
