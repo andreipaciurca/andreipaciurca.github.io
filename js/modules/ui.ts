@@ -314,7 +314,8 @@ export function setExperienceCardExpanded(cardElement: Element, shouldExpand: bo
   // If view transitions are supported and we're not in a test, use them
   if (document.startViewTransition && 
       !document.querySelector('.view-transitioning') &&
-      !navigator.userAgent.toLowerCase().includes('playwright')) {
+      !navigator.userAgent.toLowerCase().includes('playwright') &&
+      !navigator.webdriver) {
     document.documentElement.classList.add('view-transitioning');
     document.startViewTransition(() => {}).finished.finally(() => {
       document.documentElement.classList.remove('view-transitioning');
