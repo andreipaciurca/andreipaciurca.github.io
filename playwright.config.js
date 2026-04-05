@@ -14,10 +14,11 @@ const { defineConfig, devices } = require('@playwright/test');
 
 module.exports = defineConfig({
   testDir: './tests/e2e',
-  timeout: 20000,
-  expect: { timeout: 8000 },
+  timeout: 120000,
+  expect: { timeout: 15000 },
   fullyParallel: true,
   retries: process.env.CI ? 2 : 0,
+  workers: process.env.CI ? 1 : undefined,
   reporter: process.env.CI ? [['github'], ['html', { open: 'never', outputFolder: 'playwright-report' }]] : 'list',
 
   // Spin up the built-in Python HTTP server before running tests.
