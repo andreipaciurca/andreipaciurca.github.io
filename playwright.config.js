@@ -18,7 +18,7 @@ module.exports = defineConfig({
   expect: { timeout: 15000 },
   fullyParallel: true,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 2 : undefined,
   reporter: process.env.CI ? [['github'], ['html', { open: 'never', outputFolder: 'playwright-report' }]] : 'list',
 
   // Spin up the built-in Python HTTP server before running tests.
