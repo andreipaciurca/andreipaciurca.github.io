@@ -7,6 +7,7 @@ export interface UiText {
   heroPaneTitle: string;
   profilePaneTitle: string;
   activityPaneTitle: string;
+  terminalPaneTitle: string;
   experiencePaneTitle: string;
   skillsPaneTitle: string;
   educationPaneTitle: string;
@@ -31,6 +32,7 @@ export const uiText: UiText = {
   heroPaneTitle: 'session:identity',
   profilePaneTitle: 'session:profile',
   activityPaneTitle: 'session:ai-feed',
+  terminalPaneTitle: 'session:terminal',
   experiencePaneTitle: 'session:experience',
   skillsPaneTitle: 'session:skills',
   educationPaneTitle: 'session:education',

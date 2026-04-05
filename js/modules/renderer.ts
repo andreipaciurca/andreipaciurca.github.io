@@ -9,6 +9,14 @@ import { escapeHtml } from './utils.js';
 
 type Translate = (text: string) => string;
 
+/**
+ * Renders the work experience section.
+ * @param experiences Array of experience entries.
+ * @param translate Translator function.
+ * @param expandLabel Text for expand button.
+ * @param collapseLabel Text for collapse button.
+ * @returns HTML string for the experience list.
+ */
 export function renderExperienceList(
   experiences: Experience[],
   translate: Translate,
@@ -48,6 +56,12 @@ export function renderExperienceList(
     .join('');
 }
 
+/**
+ * Renders the skills section, grouped by category.
+ * @param skillGroups Array of skill groups.
+ * @param translate Translator function.
+ * @returns HTML string for the skills groups.
+ */
 export function renderSkillsGroups(skillGroups: SkillGroup[], translate: Translate): string {
   return skillGroups
     .map(function mapGroup(group, index) {
@@ -73,6 +87,12 @@ export function renderSkillsGroups(skillGroups: SkillGroup[], translate: Transla
     .join('');
 }
 
+/**
+ * Renders the education history.
+ * @param education Array of education entries.
+ * @param translate Translator function.
+ * @returns HTML string for the education list.
+ */
 export function renderEducationList(education: EducationEntry[], translate: Translate): string {
   return education
     .map(function mapEntry(entry) {
@@ -93,6 +113,12 @@ export function renderEducationList(education: EducationEntry[], translate: Tran
     .join('');
 }
 
+/**
+ * Renders the professional certifications.
+ * @param certifications Array of certifications.
+ * @param translate Translator function.
+ * @returns HTML string for the certifications list.
+ */
 export function renderCertificationsList(
   certifications: Certification[],
   translate: Translate,

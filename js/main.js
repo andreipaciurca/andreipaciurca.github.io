@@ -1,8 +1,7 @@
 /**
  * @module Main
- * @description Application entry point. Bootstraps the UI and wires all event
- * listeners. All user interactions (theme, print, window controls, keyboard
- * shortcuts, visibility changes) are handled here.
+ * @description Application entry point. Bootstraps the UI, initializes modules,
+ * and manages global event listeners for theme, print, and window controls.
  */
 import { uiText } from './modules/config.js';
 import { state, clearActiveAsyncWork, trackTimeout } from './modules/state.js';
@@ -11,27 +10,72 @@ import { profileData } from '../profile-data.js';
 import { calculateAgeYears, formatYearMonth, toSafeMailtoUrl, toSafeTelUrl, toSafeExternalUrl, extractPublicPath, } from './modules/utils.js';
 import { optimizePrintResumeLayout } from './modules/print.js';
 import { renderExperienceList, renderSkillsGroups, renderEducationList, renderCertificationsList, } from './modules/renderer.js';
-import { renderProfileImage, startProfileFlipLoop, startActivityLoop, typeTextInDuration, bindExperienceToggleEvents, setAllExperienceCardsExpanded, areAllExperienceCardsExpanded, } from './modules/ui.js';
+import { initializeTerminal } from './modules/terminal.js';
+import { renderProfileImage, setupProfileFlipOnHover, startActivityLoop, typeTextInDuration, bindExperienceToggleEvents, setAllExperienceCardsExpanded, areAllExperienceCardsExpanded, } from './modules/ui.js';
+/**
+ * Configures the initial state and attributes for window control buttons.
+ */
 function setupTopBarButtons() {
-    dom.windowButtonClose.textContent = profileData.topBar.buttonLabels.close;
-    dom.windowButtonMinimize.textContent = profileData.topBar.buttonLabels.minimize;
-    dom.windowButtonMaximize.textContent = profileData.topBar.buttonLabels.maximize;
-    dom.windowButtonClose.setAttribute('data-symbol', profileData.topBar.buttonLabels.close);
-    dom.windowButtonMinimize.setAttribute('data-symbol', profileData.topBar.buttonLabels.minimize);
-    dom.windowButtonMaximize.setAttribute('data-symbol', profileData.topBar.buttonLabels.maximize);
-    dom.terminalCommandCursor.textContent = profileData.topBar.commandCursor || '|';
+    dom.windowButtonClose.textContent = '';
+    dom.windowButtonMinimize.textContent = '';
+    dom.windowButtonMaximize.textContent = '';
+    dom.windowButtonClose.setAttribute('data-symbol', 'x');
+    dom.windowButtonMinimize.setAttribute('data-symbol', '-');
+    dom.windowButtonMaximize.setAttribute('data-symbol', '+');
+    dom.terminalCommandCursor.textContent = '|';
     dom.launcherIcon.className = profileData.topBar.launcherIconClass;
     dom.launcherSpeech.textContent = '';
 }
+/**
+ * Triggers the terminal top-bar typing sequence.
+ * Sequentially displays a welcome message followed by the session command.
+ */
 function showTopBarCommand() {
-    dom.terminalCommandText.textContent = `$ ${profileData.topBar.firstVisitMessage}`;
-    trackTimeout(function switchToCommand() {
-        typeTextInDuration(dom.terminalCommandText, profileData.topBar.commandMessage, 800);
-    }, 1000);
+    const welcomeText = '$ Welcome to my 127.0.0.1';
+    const commandText = '$ code session --agent=viewer --profile=andrei';
+    if (dom.terminalCommandText.textContent === commandText)
+        return;
+    dom.terminalCommandText.textContent = '';
+    function typeWelcome() {
+        let charIndex = 0;
+        function nextChar() {
+            if (charIndex < welcomeText.length) {
+                dom.terminalCommandText.textContent += welcomeText[charIndex];
+                charIndex++;
+                trackTimeout(nextChar, 40);
+            }
+            else {
+                trackTimeout(typeCommand, 1500);
+            }
+        }
+        nextChar();
+    }
+    function typeCommand() {
+        dom.terminalCommandText.textContent = '';
+        let charIndex = 0;
+        function nextChar() {
+            if (charIndex < commandText.length) {
+                dom.terminalCommandText.textContent += commandText[charIndex];
+                charIndex++;
+                trackTimeout(nextChar, 45);
+            }
+        }
+        nextChar();
+    }
+    typeWelcome();
 }
+/**
+ * Animates a text bubble for the launcher icon.
+ * @param text The message to display.
+ */
 function runLauncherSpeechBubble(text) {
     typeTextInDuration(dom.launcherSpeech, text, 900);
 }
+/**
+ * Safely updates an anchor's href and accessibility attributes.
+ * @param anchorElement The element to update.
+ * @param safeUrl The validated URL.
+ */
 function setAnchorHref(anchorElement, safeUrl) {
     if (!anchorElement)
         return;
@@ -45,12 +89,16 @@ function setAnchorHref(anchorElement, safeUrl) {
     anchorElement.setAttribute('aria-disabled', 'false');
     anchorElement.removeAttribute('tabindex');
 }
+/**
+ * Main render function. Orchestrates data binding and HTML generation.
+ */
 function renderPage() {
     clearActiveAsyncWork();
     showTopBarCommand();
     dom.heroPaneTitle.textContent = uiText.heroPaneTitle;
     dom.profilePaneTitle.textContent = uiText.profilePaneTitle;
     dom.activityPaneTitle.textContent = uiText.activityPaneTitle;
+    dom.terminalPaneTitle.textContent = uiText.terminalPaneTitle;
     dom.experiencePaneTitle.textContent = uiText.experiencePaneTitle;
     dom.skillsPaneTitle.textContent = uiText.skillsPaneTitle;
     dom.educationPaneTitle.textContent = uiText.educationPaneTitle;
@@ -91,7 +139,7 @@ function renderPage() {
     state.launcherSpeechText = profileData.topBar.launcherSpeechText;
     state.activityMessages = profileData.activityMessages.slice();
     startActivityLoop(state.activityMessages);
-    startProfileFlipLoop();
+    setupProfileFlipOnHover();
     dom.experienceList.innerHTML = renderExperienceList(profileData.experiences, function identity(s) { return s; }, uiText.expandLabel, uiText.collapseLabel);
     bindExperienceToggleEvents();
     dom.skillsGroupList.innerHTML = renderSkillsGroups(profileData.skillGroups, function identity(s) { return s; });
@@ -147,6 +195,16 @@ function handleGlobalShortcuts(event) {
     if (isTypingTarget(event.target))
         return;
     const pressedKey = String(event.key ?? '').toLowerCase();
+    // Disable View Source shortcuts
+    if ((event.ctrlKey || event.metaKey) && (pressedKey === 'u' || pressedKey === 's')) {
+        event.preventDefault();
+        return;
+    }
+    // Disable DevTools shortcuts
+    if (event.key === 'F12' || ((event.ctrlKey || event.metaKey) && event.shiftKey && (pressedKey === 'i' || pressedKey === 'j' || pressedKey === 'c'))) {
+        event.preventDefault();
+        return;
+    }
     if ((event.metaKey || event.ctrlKey) && pressedKey === 'p') {
         event.preventDefault();
         handlePrintResume();
@@ -170,7 +228,27 @@ function handleVisibilityChange() {
     }
     showTopBarCommand();
     startActivityLoop(state.activityMessages);
-    startProfileFlipLoop();
+}
+function setupSecurityProtection() {
+    const preventContextMenu = (e) => e.preventDefault();
+    window.toggleSecurityProtection = (enable) => {
+        if (enable) {
+            document.addEventListener('contextmenu', preventContextMenu);
+        }
+        else {
+            document.removeEventListener('contextmenu', preventContextMenu);
+        }
+    };
+    // Determine if we should be protected by default
+    const isLocal = window.location.hostname === 'localhost' ||
+        window.location.hostname === '127.0.0.1';
+    // Check if we are in a Playwright test (usually has a special user agent or global)
+    const isTesting = navigator.userAgent.includes('Playwright') ||
+        window.__playwright_test__;
+    // On localhost or during E2E tests, it's OFF by default to facilitate debugging.
+    // Otherwise, it's ON by default for production privacy.
+    const shouldBeProtected = !isLocal && !isTesting;
+    window.toggleSecurityProtection(shouldBeProtected);
 }
 function initializeStaticUi() {
     renderProfileImage();
@@ -212,6 +290,8 @@ function initializeEventListeners() {
 function initializePage() {
     initializeStaticUi();
     initializeEventListeners();
+    initializeTerminal();
+    setupSecurityProtection();
     renderPage();
 }
 if (document.readyState === 'loading') {

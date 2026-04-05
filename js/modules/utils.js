@@ -3,6 +3,11 @@
  * @description Pure utility functions — no side effects, no DOM access.
  * All functions are typed to prevent implicit `any` at call sites.
  */
+/**
+ * Escapes special characters for safe inclusion in HTML.
+ * @param rawValue The value to escape.
+ * @returns An HTML-safe string.
+ */
 export function escapeHtml(rawValue) {
     return String(rawValue)
         .replace(/&/g, '&amp;')
@@ -11,6 +16,11 @@ export function escapeHtml(rawValue) {
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#039;');
 }
+/**
+ * Calculates current age in years from an ISO date string.
+ * @param birthDateIso The ISO birth date string.
+ * @returns The age in years.
+ */
 export function calculateAgeYears(birthDateIso) {
     const birthDate = new Date(birthDateIso);
     const today = new Date();
@@ -22,9 +32,19 @@ export function calculateAgeYears(birthDateIso) {
     }
     return age;
 }
+/**
+ * Removes the protocol (http/https) from a URL string.
+ * @param url The full URL.
+ * @returns The URL without protocol.
+ */
 export function extractPublicPath(url) {
     return String(url ?? '').replace(/^https?:\/\//i, '');
 }
+/**
+ * Formats a Date object as YYYY-MM.
+ * @param date The date to format.
+ * @returns A string in YYYY-MM format.
+ */
 export function formatYearMonth(date) {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');

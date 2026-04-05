@@ -13,8 +13,14 @@ function el(id) {
     return document.getElementById(id);
 }
 export const dom = {
+    terminalCommandForm: el('terminalCommandForm'),
+    terminalInput: el('terminalInput'),
+    terminalHistory: el('terminalHistory'),
     terminalCommandText: el('terminalCommandText'),
     terminalCommandCursor: el('terminalCommandCursor'),
+    terminalOutputOverlay: el('terminalOutputOverlay'),
+    terminalOutputBody: el('terminalOutputBody'),
+    closeTerminalOutput: el('closeTerminalOutput'),
     windowButtonClose: el('windowButtonClose'),
     windowButtonMinimize: el('windowButtonMinimize'),
     windowButtonMaximize: el('windowButtonMaximize'),
@@ -27,6 +33,7 @@ export const dom = {
     heroPaneTitle: el('heroPaneTitle'),
     profilePaneTitle: el('profilePaneTitle'),
     activityPaneTitle: el('activityPaneTitle'),
+    terminalPaneTitle: el('terminalPaneTitle'),
     experiencePaneTitle: el('experiencePaneTitle'),
     skillsPaneTitle: el('skillsPaneTitle'),
     educationPaneTitle: el('educationPaneTitle'),

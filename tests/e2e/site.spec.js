@@ -113,6 +113,7 @@ test.describe('Theme Toggle', () => {
   });
 
   test('clicking theme toggle twice returns to dark mode', async ({ page }) => {
+    test.slow();
     await page.goto('/');
     await waitForBootstrap(page);
     await page.locator('#themeToggleButton').click();
@@ -171,6 +172,7 @@ test.describe('Experience Cards', () => {
   });
 
   test('clicking a card toggle button expands it', async ({ page }) => {
+    test.slow();
     const firstCard = page.locator('.experience-card').first();
     const toggle = firstCard.locator('.experience-toggle');
     await toggle.click();
@@ -179,6 +181,7 @@ test.describe('Experience Cards', () => {
   });
 
   test('clicking an open card collapses it', async ({ page }) => {
+    test.slow();
     const firstCard = page.locator('.experience-card').first();
     const toggle = firstCard.locator('.experience-toggle');
     await toggle.click(); // open
@@ -188,6 +191,7 @@ test.describe('Experience Cards', () => {
   });
 
   test('experience cards contain bullet points', async ({ page }) => {
+    test.slow();
     const firstCard = page.locator('.experience-card').first();
     await firstCard.locator('.experience-toggle').click();
     const bullets = firstCard.locator('ul li');

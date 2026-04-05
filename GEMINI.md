@@ -31,6 +31,12 @@ Invoked once per pipeline run for two purposes:
 
 When either AI call fails the quality gate or throws an exception, the curated fallback is used for that specific entry. The pipeline never writes raw LinkedIn text to `profile-data.js`.
 
+## Verification
+
+The 2026-ready features (Terminal, AI Feed) are verified through Playwright E2E tests to ensure the simulated intelligence and layout stability match the design spec. Playwright tests must be executed against all three browser profiles: **Chromium**, **WebKit (Safari)**, and **Firefox**. Run `npm run test:e2e` to verify both the AI data pipeline integrity and the UI behavior across all major browser engines.
+
+All Pull Requests are automatically verified by the CI pipeline (`.github/workflows/ci.yml`), which enforces these tests.
+
 ## Authentication
 
 The API key is passed via the `X-goog-api-key` header (not as a `?key=` query parameter). Ensure the key has **no HTTP referrer restrictions** in Google Cloud Console — the pipeline runs server-side and cannot supply a browser referrer.

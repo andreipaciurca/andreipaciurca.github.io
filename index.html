@@ -38,28 +38,32 @@
       }
     }
   </script>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="assets/style.css">
-  <script type="module" src="js/main.js"></script>
+  <link rel="stylesheet" href="assets/style.min.css">
+  <script type="module" src="js/main.min.js"></script>
 </head>
 <body>
   <div class="terminal-shell">
     <header class="terminal-topbar ui-only">
       <div class="window-controls">
-        <button type="button" class="window-button" id="windowButtonClose" aria-label="Close"></button>
-        <button type="button" class="window-button" id="windowButtonMinimize" aria-label="Minimize"></button>
-        <button type="button" class="window-button" id="windowButtonMaximize" aria-label="Maximize"></button>
+        <button type="button" class="window-button" id="windowButtonClose" data-symbol="x" aria-label="Close"></button>
+        <button type="button" class="window-button" id="windowButtonMinimize" data-symbol="-" aria-label="Minimize"></button>
+        <button type="button" class="window-button" id="windowButtonMaximize" data-symbol="+" aria-label="Maximize"></button>
         <button type="button" class="window-button theme-toggle" id="themeToggleButton" aria-label="Toggle theme">
           <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
         </button>
       </div>
-      <p class="terminal-command">
-        <span id="terminalCommandText" aria-live="polite"></span>
-        <span class="terminal-command-cursor" id="terminalCommandCursor"></span>
-      </p>
+      <div class="terminal-command-placeholder">
+        <span id="terminalCommandText" class="terminal-title-container"></span>
+        <span class="terminal-command-cursor" id="terminalCommandCursor">|</span>
+      </div>
     </header>
 
     <main class="workspace-root ui-only">
@@ -72,7 +76,10 @@
             <div class="identity-row">
               <div class="profile-photo-frame" id="profilePhotoFrame">
                 <div class="photo-face photo-face-front">
-                  <img id="profilePhoto" alt="Profile photo">
+                  <picture>
+                    <source srcset="assets/profile-photo.webp" type="image/webp">
+                    <img id="profilePhoto" alt="Profile photo" width="200" height="200" fetchpriority="high">
+                  </picture>
                   <span id="profileInitials"></span>
                 </div>
                 <pre class="photo-face photo-face-back" id="profileAsciiArt" aria-hidden="true"></pre>
@@ -153,12 +160,27 @@
               <div class="pane-bar compact">
                 <p class="pane-title" id="activityPaneTitle"></p>
               </div>
-              <div class="pane-body compact">
-                <p class="typing-line" aria-live="polite">
+              <div class="pane-body compact activity-feed-body">
+                <div class="activity-typing-area">
                   <span class="prompt">$</span>
                   <span id="activityTypingText"></span>
-                  <span class="typing-cursor"></span>
-                </p>
+                  <span class="terminal-command-cursor">|</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="nested-pane">
+              <div class="pane-bar compact">
+                <p class="pane-title" id="terminalPaneTitle"></p>
+              </div>
+              <div class="pane-body compact terminal-activity-body">
+                <div id="terminalHistory" class="terminal-history">
+                </div>
+                <form class="terminal-command" id="terminalCommandForm">
+                  <label for="terminalInput" class="sr-only">Terminal Command</label>
+                  <span class="prompt">$</span>
+                  <input type="text" id="terminalInput" class="terminal-input" placeholder="Type 'help'..." autocomplete="off">
+                </form>
               </div>
             </section>
           </aside>
@@ -206,6 +228,18 @@
         </aside>
       </section>
     </main>
+
+    <section class="terminal-output-overlay ui-only" id="terminalOutputOverlay" hidden>
+      <div class="terminal-output-content">
+        <header class="output-header">
+          <span class="output-title">Terminal Output</span>
+          <button type="button" class="close-output" id="closeTerminalOutput" aria-label="Close output">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </header>
+        <pre class="output-body" id="terminalOutputBody"></pre>
+      </div>
+    </section>
 
     <section class="print-only print-resume" id="printResumeRoot" aria-label="Printable resume">
       <header class="print-header">

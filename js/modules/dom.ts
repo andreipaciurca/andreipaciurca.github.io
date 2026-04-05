@@ -15,8 +15,14 @@ function el<T extends HTMLElement = HTMLElement>(id: string): T {
 }
 
 export const dom = {
-  terminalCommandText:        el('terminalCommandText'),
+  terminalCommandForm:        el<HTMLFormElement>('terminalCommandForm'),
+  terminalInput:              el<HTMLInputElement>('terminalInput'),
+  terminalHistory:            el('terminalHistory'),
+  terminalCommandText:         el('terminalCommandText'),
   terminalCommandCursor:      el('terminalCommandCursor'),
+  terminalOutputOverlay:      el('terminalOutputOverlay'),
+  terminalOutputBody:         el('terminalOutputBody'),
+  closeTerminalOutput:        el<HTMLButtonElement>('closeTerminalOutput'),
   windowButtonClose:          el<HTMLButtonElement>('windowButtonClose'),
   windowButtonMinimize:       el<HTMLButtonElement>('windowButtonMinimize'),
   windowButtonMaximize:       el<HTMLButtonElement>('windowButtonMaximize'),
@@ -29,6 +35,7 @@ export const dom = {
   heroPaneTitle:              el('heroPaneTitle'),
   profilePaneTitle:           el('profilePaneTitle'),
   activityPaneTitle:          el('activityPaneTitle'),
+  terminalPaneTitle:          el('terminalPaneTitle'),
   experiencePaneTitle:        el('experiencePaneTitle'),
   skillsPaneTitle:            el('skillsPaneTitle'),
   educationPaneTitle:         el('educationPaneTitle'),

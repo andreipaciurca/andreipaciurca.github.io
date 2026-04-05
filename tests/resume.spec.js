@@ -241,7 +241,7 @@ describe('Source File Integrity — index.html', () => {
 
   test('index.html loads main.js as a module', () => {
     expect(indexHtml).toContain('type="module"');
-    expect(indexHtml).toContain('js/main.js');
+    expect(indexHtml).toMatch(/js\/main(\.min)?\.js/);
   });
 
   test('index.html has resume pointer elements', () => {
@@ -376,7 +376,7 @@ describe('TypeScript Setup', () => {
 
   test('package.json has build and typecheck scripts', () => {
     const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
-    expect(pkg.scripts.build).toBe('tsc');
+    expect(pkg.scripts.build).toContain('tsc');
     expect(pkg.scripts.typecheck).toBe('tsc --noEmit');
   });
 

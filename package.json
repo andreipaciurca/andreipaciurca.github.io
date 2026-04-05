@@ -6,16 +6,23 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.49.1",
+    "clean-css-cli": "^5.6.3",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "sharp": "^0.34.5",
+    "terser": "^5.46.1",
     "typescript": "^6.0.2"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && npm run minify",
+    "minify": "npm run minify:js && npm run minify:css",
+    "minify:js": "terser js/main.js -o js/main.min.js --compress --mangle && for file in js/modules/*.js; do if [ \"${file%.js}.js\" = \"$file\" ]; then terser \"$file\" -o \"${file%.js}.min.js\" --compress --mangle; fi; done",
+    "minify:css": "cleancss -o assets/style.min.css assets/style.css",
+    "optimize-images": "node scripts/optimize-images.js",
     "typecheck": "tsc --noEmit",
     "test": "jest",
-    "test:e2e": "playwright test",
+    "test:e2e": "FORCE_COLOR=0 playwright test",
     "test:e2e:install": "playwright install",
-    "test:all": "jest && playwright test"
+    "test:all": "jest && FORCE_COLOR=0 playwright test"
   }
 }

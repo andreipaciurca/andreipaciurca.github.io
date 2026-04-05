@@ -1,6 +1,9 @@
 # Architecture Overview
 
 - **Core Engine**: Modular TypeScript (compiled to ES Modules) in `js/`. No framework, no bundler. TypeScript source (`.ts`) and compiled output (`.js`) are both committed — GitHub Pages serves the `.js` files directly.
+- **CI/CD Pipeline**:
+  - **Verification**: GitHub Actions (`.github/workflows/ci.yml`) runs Build, Jest unit tests, and Playwright E2E tests (Chromium, WebKit, Firefox) on every pull request and push to master.
+  - **Dependency Updates**: Dependabot (`.github/dependabot.yml`) automatically checks for outdated npm packages and GitHub Actions daily, grouping updates to minimize PR noise.
 - **Data Pipeline**:
   - Trigger: GitHub Actions (`push` to master, monthly cron, or manual dispatch).
   - Fetcher: Apify `harvestapi~linkedin-profile-scraper` → `data/linkedin.json`.
@@ -52,13 +55,22 @@ npm run typecheck   # type-check without emitting files
 
 ## Testing
 
+It is mandatory to run all tests before committing changes, especially the E2E suite which verifies the 2026-ready UI features (Terminal, AI Feed, Security). Playwright tests must be executed against all three browser profiles: **Chromium**, **WebKit**, and **Firefox**.
+
 ```bash
+# First time only: Install Playwright browsers (all profiles)
+npm run test:e2e:install
+
+# Run all tests (Unit + E2E on all 3 browsers)
+npm run test:all
+
+# Run individual suites
 npm test              # Jest unit tests (56 tests, 6 suites)
-npm run test:e2e      # Playwright E2E (Chromium, WebKit, Firefox)
-npm run test:all      # both suites
+npm run test:e2e      # Playwright E2E — Chromium, WebKit, Firefox
 ```
 
 Unit test suites: profile data structure, content quality, skills integrity, health endpoint schema, source file integrity, and TypeScript setup.
+E2E test suites: Site layout, Terminal & AI Feed commands/typing, Security (right-click toggle), and Responsive design.
 
 ## Important Constraints
 

@@ -1,30 +1,35 @@
-# andreipaciurca.github.io
+# Andrei Paciurca — Interactive Resume 2026
 
-[![CI](https://github.com/andreipaciurca/andreipaciurca.github.io/actions/workflows/update-resume.yml/badge.svg)](https://github.com/andreipaciurca/andreipaciurca.github.io/actions/workflows/update-resume.yml)
+[![CI](https://github.com/andreipaciurca/andreipaciurca.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/andreipaciurca/andreipaciurca.github.io/actions/workflows/ci.yml)
+[![Auto-Update](https://github.com/andreipaciurca/andreipaciurca.github.io/actions/workflows/update-resume.yml/badge.svg)](https://github.com/andreipaciurca/andreipaciurca.github.io/actions/workflows/update-resume.yml)
 [![Tests](https://img.shields.io/badge/tests-56%20passing-brightgreen)](https://github.com/andreipaciurca/andreipaciurca.github.io/actions)
 [![Health](https://img.shields.io/website?url=https%3A%2F%2Fandreipaciurca.github.io%2Fhealth.json&label=health)](https://andreipaciurca.github.io/health/)
 [![Live Site](https://img.shields.io/badge/live-andreipaciurca.github.io-blue)](https://andreipaciurca.github.io)
 [![License: MIT](https://img.shields.io/badge/license-MIT-yellow)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-6.x-3178c6)](https://www.typescriptlang.org/)
 
-**Live:** [andreipaciurca.github.io](https://andreipaciurca.github.io)
+**Live Preview:** [andreipaciurca.github.io](https://andreipaciurca.github.io)
 
-A terminal-styled, ATS-optimized resume site with a fully automated LinkedIn → Gemini AI → GitHub Pages data pipeline. Written in TypeScript, compiled to native ES Modules — no framework, no bundler.
+## Overview
 
-## Features
+A cutting-edge, terminal-styled, and ATS-optimized resume platform featuring a fully automated LinkedIn → Gemini AI → GitHub Pages data pipeline. Engineered with modern TypeScript and compiled to native ES Modules, it achieves a perfect balance between high-performance "no-framework" architecture and sophisticated AI-driven personalization.
 
-- **Automated pipeline** — GitHub Actions fetches LinkedIn data via Apify, summarizes it with Google Gemini Flash (latest), and redeploys on every push or monthly cron.
-- **Curated fallback content** — hand-crafted experience bullets and summary are used when AI output fails quality checks, so the site never shows raw data.
-- **Terminal UI** — modular TypeScript with a CLI aesthetic, 3D profile photo flip (Braille ASCII art), and typewriter animations.
-- **ATS-optimized print layout** — dedicated print layout with automatic overflow detection and a heuristic quality score (0–100); Harvard style, single-column, Arial font.
-- **Dark / Light mode** — CSS variable–driven theming, no JS involved for the color switch.
-- **Type-safe codebase** — full TypeScript strict mode, shared interfaces in `js/modules/types.ts`, declaration file for the auto-generated data module.
+## Key Features
+
+- **2026-Ready Interface** — Advanced terminal-themed UI with Glassmorphism, fluid animations (View Transitions API), and an interactive command-line interface.
+- **AI-Driven Personalization** — Automated pipeline that harvests LinkedIn data via Apify, processes it using Google Gemini Flash (latest), and dynamically updates the profile.
+- **Continuous Integration** — Automated Build, Unit (Jest), and multi-browser E2E testing (Playwright: Chromium, WebKit, Firefox) on every pull request.
+- **Enterprise-Grade Security** — Automated dependency tracking via Dependabot and built-in protection against unauthorized data extraction.
+- **ATS-Optimized Print System** — Specialized print layout with heuristic scoring and automatic overflow management to ensure perfect Harvard-style PDF generation.
+- **Performance Optimized** — 100/100 Lighthouse-ready with WebP image delivery, resource minification, and critical path optimization.
 
 ## Architecture
 
 ```
 .github/workflows/
+  ci.yml                  # Automated CI: Build, Unit, E2E (on all PRs)
   update-resume.yml       # Triggers: push to master, monthly cron, manual dispatch
+.github/dependabot.yml    # Automated dependency and security updates
 
 assets/
   style.css               # All site styles — theme variables, layout, print rules
@@ -141,10 +146,18 @@ npm run build
 
 ## Testing
 
+It is mandatory to run all tests before committing changes, especially the E2E suite which verifies the 2026-ready UI features (Terminal, AI Feed, Security). Playwright tests must be executed against all three browser profiles: **Chromium**, **WebKit**, and **Firefox**.
+
 ```bash
+# First time only: Install Playwright browsers (all profiles)
+npm run test:e2e:install
+
+# Run all tests (Unit + E2E on all 3 browsers)
+npm run test:all
+
+# Run individual suites
 npm test              # Jest unit tests (56 tests, 6 suites)
 npm run test:e2e      # Playwright E2E — Chromium, WebKit, Firefox
-npm run test:all      # both suites
 ```
 
 Unit test suites:
@@ -154,6 +167,13 @@ Unit test suites:
 - **Health Endpoint** — schema, freshness (< 90 days old)
 - **Source File Integrity** — DOM IDs, pipeline patterns, CSS, workflow
 - **TypeScript Setup** — tsconfig, compiled output, interface exports, scripts
+
+E2E test suites:
+- **Site Layout** — basic navigation and content visibility
+- **Terminal & AI Feed** — command processing, flags (-h, -s, -r), and typing animations
+- **Security & Privacy** — right-click suppression toggle (--right on/off)
+- **Responsive Design** — mobile and desktop layout transitions
+- **Profile Interaction** — hover-triggered photo flip (manual only, no auto-rotation)
 
 ## Health
 
