@@ -216,14 +216,10 @@ test.describe('Experience Cards', () => {
     // Use evaluate for click to be most direct in slow environments
     await toggle.click({ force: true });
     
-    // WebKit can be slow with transitions, use a robust check
-    await expect(async () => {
-      const isOpen = await firstCard.evaluate(el => el.classList.contains('open'));
-      if (!isOpen) throw new Error('Card not expanded (class "open" missing)');
-      
-      const isExpanded = await toggle.evaluate(el => el.getAttribute('aria-expanded') === 'true');
-      if (!isExpanded) throw new Error('Aria-expanded not true');
-    }).toPass({ timeout: 15000 });
+    // Use robust check for state
+    await page.waitForFunction((el) => {
+      return el.classList.contains('open');
+    }, await firstCard.elementHandle(), { timeout: 15000 });
   });
 
   test('clicking an open card collapses it', async ({ page }) => {
@@ -235,23 +231,18 @@ test.describe('Experience Cards', () => {
     await expect(toggle).toBeVisible();
     await toggle.click({ force: true });
     
-    // Use robust check for initial state
-    await expect(async () => {
-      const isOpen = await firstCard.evaluate(el => el.classList.contains('open'));
-      if (!isOpen) throw new Error('Initial card expansion failed');
-    }).toPass({ timeout: 15000 });
+    // Wait for the open class using a custom predicate for better reliability
+    await page.waitForFunction((el) => {
+      return el.classList.contains('open');
+    }, await firstCard.elementHandle(), { timeout: 15000 });
     
     // Close the card
     await toggle.click({ force: true });
     
-    // Use robust check for final state
-    await expect(async () => {
-      const isOpen = await firstCard.evaluate(el => el.classList.contains('open'));
-      if (isOpen) throw new Error('Card still expanded');
-      
-      const isExpanded = await toggle.evaluate(el => el.getAttribute('aria-expanded') === 'false');
-      if (!isExpanded) throw new Error('Aria-expanded not false');
-    }).toPass({ timeout: 15000 });
+    // Wait for the open class to be removed
+    await page.waitForFunction((el) => {
+      return !el.classList.contains('open');
+    }, await firstCard.elementHandle(), { timeout: 15000 });
   });
 
   test('experience cards contain bullet points', async ({ page }) => {

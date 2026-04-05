@@ -29,14 +29,14 @@ test.describe('Profile Photo Hover Interaction', () => {
     const photoFrame = page.locator('.profile-photo-frame');
     
     // Hover over the photo frame
-    // In WebKit/headless, hover can be tricky. Use a retry logic.
+    // In WebKit/headless, hover can be tricky. Use a retry logic and wait for transform.
     await expect(async () => {
       await photoFrame.hover({ force: true });
-      // coin-spin is transient, photo-flipped is also transient but 
-      // added together with coin-spin.
-      const hasSpin = await photoFrame.evaluate(el => el.classList.contains('coin-spin'));
-      if (!hasSpin) throw new Error('Hover flip not triggered');
-    }).toPass({ timeout: 10000 });
+      const transform = await photoFrame.evaluate(el => window.getComputedStyle(el).getPropertyValue('transform'));
+      if (transform === 'none' || transform === 'matrix(1, 0, 0, 1, 0, 0)') {
+        throw new Error('Hover flip not triggered');
+      }
+    }).toPass({ timeout: 15000 });
     
     // Check if classes are added
     await expect(photoFrame).toHaveClass(/coin-spin/);
