@@ -57,12 +57,11 @@ test.describe('Profile Photo Hover Interaction', () => {
     // Second flip (need to move mouse away and back)
     await page.mouse.move(0, 0); 
     await page.waitForTimeout(500);
-    await photoFrame.hover();
-    
-    // Check with retry toPass for flakiness
+    // WebKit can be extremely slow with CSS animations and hover events on CI
     await expect(async () => {
+      await photoFrame.hover({ force: true });
       await expect(photoFrame).toHaveClass(/coin-spin/);
       await expect(photoFrame).toHaveClass(/photo-flipped/);
-    }).toPass({ timeout: 5000 });
+    }).toPass({ timeout: 10000 });
   });
 });

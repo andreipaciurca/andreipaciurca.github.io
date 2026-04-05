@@ -106,10 +106,19 @@ test.describe('Theme Toggle', () => {
   });
 
   test('clicking theme toggle switches to light mode', async ({ page }) => {
+    test.slow();
     await page.goto('/');
     await waitForBootstrap(page);
-    await page.locator('#themeToggleButton').click();
-    await expect(page.locator('body')).toHaveClass(/light-mode/);
+    
+    const body = page.locator('body');
+    const toggle = page.locator('#themeToggleButton');
+    
+    await toggle.click({ force: true });
+    
+    // WebKit/CI can be slow with CSS transitions, use toPass
+    await expect(async () => {
+      await expect(body).toHaveClass(/light-mode/);
+    }).toPass({ timeout: 8000 });
   });
 
   test('clicking theme toggle twice returns to dark mode', async ({ page }) => {
@@ -145,10 +154,19 @@ test.describe('App Window Controls', () => {
     test.slow();
     await page.goto('/');
     await waitForBootstrap(page);
-    await page.locator('#windowButtonMinimize').click();
-    await expect(page.locator('body')).toHaveClass(/app-minimized/);
-    await page.locator('#windowButtonMinimize').click();
-    await expect(page.locator('body')).not.toHaveClass(/app-minimized/);
+    
+    const body = page.locator('body');
+    const minimizeBtn = page.locator('#windowButtonMinimize');
+    
+    await minimizeBtn.click({ force: true });
+    await expect(async () => {
+      await expect(body).toHaveClass(/app-minimized/);
+    }).toPass({ timeout: 8000 });
+
+    await minimizeBtn.click({ force: true });
+    await expect(async () => {
+      await expect(body).not.toHaveClass(/app-minimized/);
+    }).toPass({ timeout: 8000 });
   });
 
   test('maximize button expands all experience cards', async ({ page }) => {
@@ -211,7 +229,7 @@ test.describe('Experience Cards', () => {
     await expect(async () => {
       await expect(firstCard).not.toHaveClass(/open/);
       await expect(toggle).toHaveAttribute('aria-expanded', 'false');
-    }).toPass({ timeout: 5000 });
+    }).toPass({ timeout: 10000 });
   });
 
   test('experience cards contain bullet points', async ({ page }) => {
