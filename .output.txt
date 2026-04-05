@@ -1,5 +1,8 @@
 Command finished with exit code 0.
 Command output:
+Build & Test	Run E2E Tests (Playwright)	    - Timeout 15000ms exceeded while waiting on the predicate
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	      48 |         }
 Build & Test	Run E2E Tests (Playwright)	      49 |       }
 Build & Test	Run E2E Tests (Playwright)	    > 50 |     }).toPass({ timeout: 15000 });
 Build & Test	Run E2E Tests (Playwright)	         |        ^
@@ -7,96 +10,93 @@ Build & Test	Run E2E Tests (Playwright)	      51 |
 Build & Test	Run E2E Tests (Playwright)	      52 |     // Check if classes are added
 Build & Test	Run E2E Tests (Playwright)	      53 |     await expect(photoFrame).toHaveClass(/coin-spin/);
 Build & Test	Run E2E Tests (Playwright)	        at /home/runner/work/andreipaciurca.github.io/andreipaciurca.github.io/tests/e2e/profile-hover.spec.js:50:8
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:22:17.3481447Z ##[error]  2) [webkit] › tests/e2e/profile-hover.spec.js:64:7 › Profile Photo Hover Interaction › Profile photo should flip on second hover after cooldown 
-Build & Test	Run E2E Tests (Playwright)	    Error: Second hover flip not triggered
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:33:32.7234046Z ##[error]  2) [webkit] › tests/e2e/site.spec.js:160:3 › App Window Controls › clicking launcher card reopens the app 
+Build & Test	Run E2E Tests (Playwright)	    Test timeout of 20000ms exceeded.
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:33:32.7240683Z ##[error]  2) [webkit] › tests/e2e/site.spec.js:160:3 › App Window Controls › clicking launcher card reopens the app 
+Build & Test	Run E2E Tests (Playwright)	    Error: locator.click: Test timeout of 20000ms exceeded.
+Build & Test	Run E2E Tests (Playwright)	    Call log:
+Build & Test	Run E2E Tests (Playwright)	      - waiting for locator('#launcherCard')
+Build & Test	Run E2E Tests (Playwright)	        - locator resolved to <div tabindex="0" role="button" id="launcherCard" class="launcher-card" aria-label="Open app">…</div>
+Build & Test	Run E2E Tests (Playwright)	      - attempting click action
+Build & Test	Run E2E Tests (Playwright)	        - waiting for element to be visible, enabled and stable
 Build & Test	Run E2E Tests (Playwright)	
-Build & Test	Run E2E Tests (Playwright)	    Call Log:
-Build & Test	Run E2E Tests (Playwright)	    - Timeout 15000ms exceeded while waiting on the predicate
 Build & Test	Run E2E Tests (Playwright)	
-Build & Test	Run E2E Tests (Playwright)	      92 |       const hasSpin = await photoFrame.evaluate(el => el.classList.contains('coin-spin'));
-Build & Test	Run E2E Tests (Playwright)	      93 |       if (!hasSpin) throw new Error('Second hover flip not triggered');
-Build & Test	Run E2E Tests (Playwright)	    > 94 |     }).toPass({ timeout: 15000 });
-Build & Test	Run E2E Tests (Playwright)	         |        ^
-Build & Test	Run E2E Tests (Playwright)	      95 |     
-Build & Test	Run E2E Tests (Playwright)	      96 |     await expect(photoFrame).toHaveClass(/coin-spin/);
-Build & Test	Run E2E Tests (Playwright)	      97 |     await expect(photoFrame).toHaveClass(/photo-flipped/);
-Build & Test	Run E2E Tests (Playwright)	        at /home/runner/work/andreipaciurca.github.io/andreipaciurca.github.io/tests/e2e/profile-hover.spec.js:94:8
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:22:17.3490288Z ##[error]  2) [webkit] › tests/e2e/profile-hover.spec.js:64:7 › Profile Photo Hover Interaction › Profile photo should flip on second hover after cooldown 
+Build & Test	Run E2E Tests (Playwright)	      162 |     await waitForBootstrap(page);
+Build & Test	Run E2E Tests (Playwright)	      163 |     await page.locator('#windowButtonClose').click();
+Build & Test	Run E2E Tests (Playwright)	    > 164 |     await page.locator('#launcherCard').click();
+Build & Test	Run E2E Tests (Playwright)	          |                                         ^
+Build & Test	Run E2E Tests (Playwright)	      165 |     await expect(page.locator('body')).not.toHaveClass(/app-collapsed/);
+Build & Test	Run E2E Tests (Playwright)	      166 |   });
+Build & Test	Run E2E Tests (Playwright)	      167 |
+Build & Test	Run E2E Tests (Playwright)	        at /home/runner/work/andreipaciurca.github.io/andreipaciurca.github.io/tests/e2e/site.spec.js:164:41
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:33:32.7245969Z ##[error]  2) [webkit] › tests/e2e/site.spec.js:160:3 › App Window Controls › clicking launcher card reopens the app 
 Build & Test	Run E2E Tests (Playwright)	
 Build & Test	Run E2E Tests (Playwright)	    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
-Build & Test	Run E2E Tests (Playwright)	    Error: Second hover flip not triggered
+Build & Test	Run E2E Tests (Playwright)	    Test timeout of 20000ms exceeded.
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:33:32.7253617Z ##[error]  2) [webkit] › tests/e2e/site.spec.js:160:3 › App Window Controls › clicking launcher card reopens the app 
 Build & Test	Run E2E Tests (Playwright)	
-Build & Test	Run E2E Tests (Playwright)	    Call Log:
-Build & Test	Run E2E Tests (Playwright)	    - Timeout 15000ms exceeded while waiting on the predicate
+Build & Test	Run E2E Tests (Playwright)	    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+Build & Test	Run E2E Tests (Playwright)	    Error: locator.click: Test timeout of 20000ms exceeded.
+Build & Test	Run E2E Tests (Playwright)	    Call log:
+Build & Test	Run E2E Tests (Playwright)	      - waiting for locator('#launcherCard')
+Build & Test	Run E2E Tests (Playwright)	        - locator resolved to <div tabindex="0" role="button" id="launcherCard" class="launcher-card" aria-label="Open app">…</div>
+Build & Test	Run E2E Tests (Playwright)	      - attempting click action
+Build & Test	Run E2E Tests (Playwright)	        - waiting for element to be visible, enabled and stable
 Build & Test	Run E2E Tests (Playwright)	
-Build & Test	Run E2E Tests (Playwright)	      92 |       const hasSpin = await photoFrame.evaluate(el => el.classList.contains('coin-spin'));
-Build & Test	Run E2E Tests (Playwright)	      93 |       if (!hasSpin) throw new Error('Second hover flip not triggered');
-Build & Test	Run E2E Tests (Playwright)	    > 94 |     }).toPass({ timeout: 15000 });
-Build & Test	Run E2E Tests (Playwright)	         |        ^
-Build & Test	Run E2E Tests (Playwright)	      95 |     
-Build & Test	Run E2E Tests (Playwright)	      96 |     await expect(photoFrame).toHaveClass(/coin-spin/);
-Build & Test	Run E2E Tests (Playwright)	      97 |     await expect(photoFrame).toHaveClass(/photo-flipped/);
-Build & Test	Run E2E Tests (Playwright)	        at /home/runner/work/andreipaciurca.github.io/andreipaciurca.github.io/tests/e2e/profile-hover.spec.js:94:8
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:22:17.3499786Z ##[error]  2) [webkit] › tests/e2e/profile-hover.spec.js:64:7 › Profile Photo Hover Interaction › Profile photo should flip on second hover after cooldown 
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	      162 |     await waitForBootstrap(page);
+Build & Test	Run E2E Tests (Playwright)	      163 |     await page.locator('#windowButtonClose').click();
+Build & Test	Run E2E Tests (Playwright)	    > 164 |     await page.locator('#launcherCard').click();
+Build & Test	Run E2E Tests (Playwright)	          |                                         ^
+Build & Test	Run E2E Tests (Playwright)	      165 |     await expect(page.locator('body')).not.toHaveClass(/app-collapsed/);
+Build & Test	Run E2E Tests (Playwright)	      166 |   });
+Build & Test	Run E2E Tests (Playwright)	      167 |
+Build & Test	Run E2E Tests (Playwright)	        at /home/runner/work/andreipaciurca.github.io/andreipaciurca.github.io/tests/e2e/site.spec.js:164:41
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:33:32.7258633Z ##[error]  2) [webkit] › tests/e2e/site.spec.js:160:3 › App Window Controls › clicking launcher card reopens the app 
 Build & Test	Run E2E Tests (Playwright)	
 Build & Test	Run E2E Tests (Playwright)	    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
-Build & Test	Run E2E Tests (Playwright)	    Error: Second hover flip not triggered
+Build & Test	Run E2E Tests (Playwright)	    Test timeout of 20000ms exceeded.
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:33:32.7266212Z ##[error]  2) [webkit] › tests/e2e/site.spec.js:160:3 › App Window Controls › clicking launcher card reopens the app 
 Build & Test	Run E2E Tests (Playwright)	
-Build & Test	Run E2E Tests (Playwright)	    Call Log:
-Build & Test	Run E2E Tests (Playwright)	    - Timeout 15000ms exceeded while waiting on the predicate
+Build & Test	Run E2E Tests (Playwright)	    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+Build & Test	Run E2E Tests (Playwright)	    Error: locator.click: Test timeout of 20000ms exceeded.
+Build & Test	Run E2E Tests (Playwright)	    Call log:
+Build & Test	Run E2E Tests (Playwright)	      - waiting for locator('#launcherCard')
+Build & Test	Run E2E Tests (Playwright)	        - locator resolved to <div tabindex="0" role="button" id="launcherCard" class="launcher-card" aria-label="Open app">…</div>
+Build & Test	Run E2E Tests (Playwright)	      - attempting click action
+Build & Test	Run E2E Tests (Playwright)	        - waiting for element to be visible, enabled and stable
 Build & Test	Run E2E Tests (Playwright)	
-Build & Test	Run E2E Tests (Playwright)	      92 |       const hasSpin = await photoFrame.evaluate(el => el.classList.contains('coin-spin'));
-Build & Test	Run E2E Tests (Playwright)	      93 |       if (!hasSpin) throw new Error('Second hover flip not triggered');
-Build & Test	Run E2E Tests (Playwright)	    > 94 |     }).toPass({ timeout: 15000 });
-Build & Test	Run E2E Tests (Playwright)	         |        ^
-Build & Test	Run E2E Tests (Playwright)	      95 |     
-Build & Test	Run E2E Tests (Playwright)	      96 |     await expect(photoFrame).toHaveClass(/coin-spin/);
-Build & Test	Run E2E Tests (Playwright)	      97 |     await expect(photoFrame).toHaveClass(/photo-flipped/);
-Build & Test	Run E2E Tests (Playwright)	        at /home/runner/work/andreipaciurca.github.io/andreipaciurca.github.io/tests/e2e/profile-hover.spec.js:94:8
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:22:17.3507101Z ##[notice]  2 failed
+Build & Test	Run E2E Tests (Playwright)	
+Build & Test	Run E2E Tests (Playwright)	      162 |     await waitForBootstrap(page);
+Build & Test	Run E2E Tests (Playwright)	      163 |     await page.locator('#windowButtonClose').click();
+Build & Test	Run E2E Tests (Playwright)	    > 164 |     await page.locator('#launcherCard').click();
+Build & Test	Run E2E Tests (Playwright)	          |                                         ^
+Build & Test	Run E2E Tests (Playwright)	      165 |     await expect(page.locator('body')).not.toHaveClass(/app-collapsed/);
+Build & Test	Run E2E Tests (Playwright)	      166 |   });
+Build & Test	Run E2E Tests (Playwright)	      167 |
+Build & Test	Run E2E Tests (Playwright)	        at /home/runner/work/andreipaciurca.github.io/andreipaciurca.github.io/tests/e2e/site.spec.js:164:41
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:33:32.7273227Z ##[notice]  2 failed
 Build & Test	Run E2E Tests (Playwright)	    [webkit] › tests/e2e/profile-hover.spec.js:26:7 › Profile Photo Hover Interaction › Profile photo should flip on hover 
-Build & Test	Run E2E Tests (Playwright)	    [webkit] › tests/e2e/profile-hover.spec.js:64:7 › Profile Photo Hover Interaction › Profile photo should flip on second hover after cooldown 
-Build & Test	Run E2E Tests (Playwright)	  160 passed (6.0m)
-Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:22:17.4387815Z ##[error]Process completed with exit code 1.
-Build & Test	Upload Playwright report	﻿2026-04-05T16:22:17.4466436Z ##[group]Run actions/upload-artifact@v4
-Build & Test	Upload Playwright report	2026-04-05T16:22:17.4466731Z with:
-Build & Test	Upload Playwright report	2026-04-05T16:22:17.4466906Z   name: playwright-report
-Build & Test	Upload Playwright report	2026-04-05T16:22:17.4467135Z   path: playwright-report/
-Build & Test	Upload Playwright report	2026-04-05T16:22:17.4467348Z   retention-days: 30
-Build & Test	Upload Playwright report	2026-04-05T16:22:17.4467547Z   if-no-files-found: warn
-Build & Test	Upload Playwright report	2026-04-05T16:22:17.4467774Z   compression-level: 6
-Build & Test	Upload Playwright report	2026-04-05T16:22:17.4467969Z   overwrite: false
-Build & Test	Upload Playwright report	2026-04-05T16:22:17.4468155Z   include-hidden-files: false
-Build & Test	Upload Playwright report	2026-04-05T16:22:17.4468365Z env:
-Build & Test	Upload Playwright report	2026-04-05T16:22:17.4468543Z   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-Build & Test	Upload Playwright report	2026-04-05T16:22:17.4468794Z ##[endgroup]
-Build & Test	Upload Playwright report	2026-04-05T16:22:17.6131806Z (node:14558) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
-Build & Test	Upload Playwright report	2026-04-05T16:22:17.6133275Z (Use `node --trace-deprecation ...` to show where the warning was created)
-Build & Test	Upload Playwright report	2026-04-05T16:22:17.6243383Z With the provided path, there will be 22 files uploaded
-Build & Test	Upload Playwright report	2026-04-05T16:22:17.6246763Z Artifact name is valid!
-Build & Test	Upload Playwright report	2026-04-05T16:22:17.6247251Z Root directory input is valid!
-Build & Test	Upload Playwright report	2026-04-05T16:22:17.7213121Z Beginning upload of artifact content to blob storage
-Build & Test	Upload Playwright report	2026-04-05T16:22:17.8658563Z (node:14558) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
-Build & Test	Upload Playwright report	2026-04-05T16:22:18.1087372Z Uploaded bytes 2371481
-Build & Test	Upload Playwright report	2026-04-05T16:22:18.1396416Z Finished uploading artifact content to blob storage!
-Build & Test	Upload Playwright report	2026-04-05T16:22:18.1397805Z SHA256 digest of uploaded artifact zip is ce1f7de6c8d8402561d0ed00b1c34f338378e45516d3f001a7e0d1702e833b0f
-Build & Test	Upload Playwright report	2026-04-05T16:22:18.1399309Z Finalizing artifact upload
-Build & Test	Upload Playwright report	2026-04-05T16:22:18.2364193Z Artifact playwright-report.zip successfully finalized. Artifact ID 6278444878
-Build & Test	Upload Playwright report	2026-04-05T16:22:18.2365745Z Artifact playwright-report has been successfully uploaded! Final size is 2371481 bytes. Artifact ID is 6278444878
-Build & Test	Upload Playwright report	2026-04-05T16:22:18.2372137Z Artifact download URL: https://github.com/andreipaciurca/andreipaciurca.github.io/actions/runs/24005407302/artifacts/6278444878
-Build & Test	Post Checkout repository	﻿2026-04-05T16:22:18.2547551Z Post job cleanup.
-Build & Test	Post Checkout repository	2026-04-05T16:22:18.3350602Z [command]/usr/bin/git version
-Build & Test	Post Checkout repository	2026-04-05T16:22:18.3388029Z git version 2.53.0
-Build & Test	Post Checkout repository	2026-04-05T16:22:18.3426763Z Temporarily overriding HOME='/home/runner/work/_temp/7b3c1995-7a2f-4ba6-a261-a32a6773feaf' before making global git config changes
-Build & Test	Post Checkout repository	2026-04-05T16:22:18.3428636Z Adding repository directory to the temporary git global config as a safe directory
-Build & Test	Post Checkout repository	2026-04-05T16:22:18.3433426Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/andreipaciurca.github.io/andreipaciurca.github.io
-Build & Test	Post Checkout repository	2026-04-05T16:22:18.3467735Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
-Build & Test	Post Checkout repository	2026-04-05T16:22:18.3499304Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
-Build & Test	Post Checkout repository	2026-04-05T16:22:18.3714533Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
-Build & Test	Post Checkout repository	2026-04-05T16:22:18.3736138Z http.https://github.com/.extraheader
-Build & Test	Post Checkout repository	2026-04-05T16:22:18.3746454Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
-Build & Test	Post Checkout repository	2026-04-05T16:22:18.3778382Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
-Build & Test	Post Checkout repository	2026-04-05T16:22:18.3993837Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
-Build & Test	Post Checkout repository	2026-04-05T16:22:18.4024637Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
-Build & Test	Complete job	﻿2026-04-05T16:22:18.4365516Z Cleaning up orphan processes
-Build & Test	Complete job	2026-04-05T16:22:18.4696601Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Build & Test	Run E2E Tests (Playwright)	    [webkit] › tests/e2e/site.spec.js:160:3 › App Window Controls › clicking launcher card reopens the app 
+Build & Test	Run E2E Tests (Playwright)	  160 passed (5.8m)
+Build & Test	Run E2E Tests (Playwright)	2026-04-05T16:33:32.8095689Z ##[error]Process completed with exit code 1.
+Build & Test	Upload Playwright report	﻿2026-04-05T16:33:32.8173565Z ##[group]Run actions/upload-artifact@v4
+Build & Test	Upload Playwright report	2026-04-05T16:33:32.8173842Z with:
+Build & Test	Upload Playwright report	2026-04-05T16:33:32.8174020Z   name: playwright-report
+Build & Test	Upload Playwright report	2026-04-05T16:33:32.8174242Z   path: playwright-report/
+Build & Test	Upload Playwright report	2026-04-05T16:33:32.8174630Z   retention-days: 30
+Build & Test	Upload Playwright report	2026-04-05T16:33:32.8174824Z   if-no-files-found: warn
+Build & Test	Upload Playwright report	2026-04-05T16:33:32.8175021Z   compression-level: 6
+Build & Test	Upload Playwright report	2026-04-05T16:33:32.8175210Z   overwrite: false
+Build & Test	Upload Playwright report	2026-04-05T16:33:32.8175393Z   include-hidden-files: false
+Build & Test	Upload Playwright report	2026-04-05T16:33:32.8175600Z env:
+Build & Test	Upload Playwright report	2026-04-05T16:33:32.8175777Z   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+Build & Test	Upload Playwright report	2026-04-05T16:33:32.8176022Z ##[endgroup]
+Build & Test	Upload Playwright report	2026-04-05T16:33:32.9960025Z (node:14669) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+Build & Test	Upload Playwright report	2026-04-05T16:33:32.9961795Z (Use `node --trace-deprecation ...` to show where the warning was created)
+Build & Test	Upload Playwright report	2026-04-05T16:33:33.0068456Z With the provided path, there will be 22 files uploaded
+Build & Test	Upload Playwright report	2026-04-05T16:33:33.0073988Z Artifact name is valid!
+Build & Test	Upload Playwright report	2026-04-05T16:33:33.0074751Z Root directory input is valid!
+Build & Test	Upload Playwright report	2026-04-05T16:33:33.1319409Z Beginning upload of artifact content to blob storage
+Build & Test	Upload Playwright report	2026-04-05T16:33:33.2924311Z (node:14669) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+Build & Test	Upload Playwright report	2026-04-05T16:33:33.6584467Z Uploaded bytes 2201748
