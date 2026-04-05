@@ -17,7 +17,7 @@ async function waitForBootstrap(page) {
   // module graph loaded and executed without error.
   await expect(page.locator('#candidateName')).not.toBeEmpty({ timeout: 15000 });
   // Extra stabilization time for slow CI environments (especially WebKit)
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(5000);
 }
 
 // ---------------------------------------------------------------------------
