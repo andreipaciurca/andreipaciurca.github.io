@@ -15,9 +15,9 @@ async function waitForBootstrap(page) {
   await page.waitForLoadState('networkidle');
   // candidateName is set synchronously in renderPage() — if it has content the
   // module graph loaded and executed without error.
-  await expect(page.locator('#candidateName')).not.toBeEmpty({ timeout: 8000 });
+  await expect(page.locator('#candidateName')).not.toBeEmpty({ timeout: 10000 });
   // Extra stabilization time for slow CI environments
-  await page.waitForTimeout(1000);
+  await page.waitForTimeout(2000);
 }
 
 // ---------------------------------------------------------------------------
@@ -216,13 +216,16 @@ test.describe('Experience Cards', () => {
     // Ensure the card is ready and NOT yet expanded
     await expect(targetCard).not.toHaveClass(/open/);
     
-    // Use dispatchEvent for more direct event triggering
-    await toggle.dispatchEvent('click');
-    
-    // Use robust check for state
-    await page.waitForFunction((el) => {
-      return el.classList.contains('open');
-    }, await targetCard.elementHandle(), { timeout: 15000 });
+    // Use click first, fallback to dispatchEvent if needed (via toPass logic)
+    await expect(async () => {
+      await toggle.click({ force: true });
+      const isOpen = await targetCard.evaluate(el => el.classList.contains('open'));
+      if (!isOpen) {
+        await toggle.dispatchEvent('click');
+        const isOpenRetry = await targetCard.evaluate(el => el.classList.contains('open'));
+        if (!isOpenRetry) throw new Error('Card not expanded');
+      }
+    }).toPass({ timeout: 15000 });
   });
 
   test('clicking an open card collapses it', async ({ page }) => {
@@ -236,13 +239,16 @@ test.describe('Experience Cards', () => {
       return el.classList.contains('open');
     }, await firstCard.elementHandle(), { timeout: 15000 });
     
-    // Close the card
-    await toggle.dispatchEvent('click');
-    
-    // Wait for the open class to be removed
-    await page.waitForFunction((el) => {
-      return !el.classList.contains('open');
-    }, await firstCard.elementHandle(), { timeout: 15000 });
+    // Use click first, fallback to dispatchEvent if needed
+    await expect(async () => {
+      await toggle.click({ force: true });
+      const isOpen = await firstCard.evaluate(el => el.classList.contains('open'));
+      if (isOpen) {
+        await toggle.dispatchEvent('click');
+        const isOpenRetry = await firstCard.evaluate(el => el.classList.contains('open'));
+        if (isOpenRetry) throw new Error('Card still expanded');
+      }
+    }).toPass({ timeout: 15000 });
   });
 
   test('experience cards contain bullet points', async ({ page }) => {

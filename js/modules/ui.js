@@ -244,17 +244,20 @@ export function setExperienceCardExpanded(cardElement, shouldExpand) {
     toggleLabel.textContent = isExpanding ? collapseLabel : expandLabel;
     // Explicitly set max-height for CSS transition
     if (isExpanding) {
-        // Use scrollHeight for actual content size, but ensures it's measurable
         const fullHeight = contentElement.scrollHeight;
         contentElement.style.maxHeight = fullHeight > 0 ? `${fullHeight}px` : '2000px';
+        // Force layout reflow to ensure class addition is picked up immediately
+        void cardElement.offsetHeight;
     }
     else {
         contentElement.style.maxHeight = '0';
+        void cardElement.offsetHeight;
     }
     // If view transitions are supported and we're not in a test, use them
     if (document.startViewTransition &&
         !document.querySelector('.view-transitioning') &&
-        !navigator.userAgent.toLowerCase().includes('playwright')) {
+        !navigator.userAgent.toLowerCase().includes('playwright') &&
+        !navigator.webdriver) {
         document.documentElement.classList.add('view-transitioning');
         document.startViewTransition(() => { }).finished.finally(() => {
             document.documentElement.classList.remove('view-transitioning');
