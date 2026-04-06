@@ -190,8 +190,7 @@ test.describe('App Window Controls', () => {
   test('close button collapses app to launcher', async ({ page }) => {
     const closeBtn = page.locator('#windowButtonClose');
     await expect(async () => {
-      await closeBtn.click({ force: true }).catch(() => {});
-      await closeBtn.dispatchEvent('click');
+      await closeBtn.click({ force: true });
       const isCollapsed = await page.evaluate(() => document.body.classList.contains('app-collapsed'));
       if (!isCollapsed) throw new Error('App not collapsed');
     }).toPass({ timeout: 15000 });
@@ -200,16 +199,14 @@ test.describe('App Window Controls', () => {
   test('clicking launcher card reopens the app', async ({ page }) => {
     const closeBtn = page.locator('#windowButtonClose');
     await expect(async () => {
-      await closeBtn.click({ force: true }).catch(() => {});
-      await closeBtn.dispatchEvent('click');
+      await closeBtn.click({ force: true });
       const isCollapsed = await page.evaluate(() => document.body.classList.contains('app-collapsed'));
       if (!isCollapsed) throw new Error('App not collapsed');
     }).toPass({ timeout: 15000 });
     
     const launcher = page.locator('#launcherCard');
     await expect(async () => {
-      await launcher.click({ force: true }).catch(() => {});
-      await launcher.dispatchEvent('click');
+      await launcher.click({ force: true });
       const isCollapsed = await page.evaluate(() => document.body.classList.contains('app-collapsed'));
       if (isCollapsed) throw new Error('App still collapsed');
     }).toPass({ timeout: 15000 });
@@ -221,16 +218,14 @@ test.describe('App Window Controls', () => {
     
     // Toggle minimized on
     await expect(async () => {
-      await minimizeBtn.click({ force: true }).catch(() => {});
-      await minimizeBtn.dispatchEvent('click');
+      await minimizeBtn.click({ force: true });
       const isMinimized = await body.evaluate(el => el.classList.contains('app-minimized'));
       if (!isMinimized) throw new Error('App not minimized');
     }).toPass({ timeout: 15000 });
     
     // Toggle minimized off
     await expect(async () => {
-      await minimizeBtn.click({ force: true }).catch(() => {});
-      await minimizeBtn.dispatchEvent('click');
+      await minimizeBtn.click({ force: true });
       const isMinimized = await body.evaluate(el => el.classList.contains('app-minimized'));
       if (isMinimized) throw new Error('App still minimized');
     }).toPass({ timeout: 15000 });
@@ -239,8 +234,7 @@ test.describe('App Window Controls', () => {
   test('maximize button expands all experience cards', async ({ page }) => {
     const maximizeBtn = page.locator('#windowButtonMaximize');
     await expect(async () => {
-      await maximizeBtn.click({ force: true }).catch(() => {});
-      await maximizeBtn.dispatchEvent('click');
+      await maximizeBtn.click({ force: true });
       
       const cards = page.locator('.experience-card');
       const count = await cards.count();

@@ -33,29 +33,26 @@ test.describe('Terminal and AI Feed', () => {
   });
 
   test('Terminal help command displays help message', async ({ page }) => {
-    test.slow();
     const input = page.locator('#terminalInput');
     await input.focus();
     await page.keyboard.type('help');
     await page.keyboard.press('Enter');
 
     const history = page.locator('#terminalHistory');
-    await expect(history).toContainText('CLI', { timeout: 15000 });
+    await expect(history).toContainText('CLI', { timeout: 10000 });
   });
 
   test('Terminal help flag (-h) works', async ({ page }) => {
-    test.slow();
     const input = page.locator('#terminalInput');
     await input.focus();
     await page.keyboard.type('-h');
     await page.keyboard.press('Enter');
 
     const history = page.locator('#terminalHistory');
-    await expect(history).toContainText('CLI', { timeout: 15000 });
+    await expect(history).toContainText('CLI', { timeout: 10000 });
   });
 
   test('Terminal skills command displays skills', async ({ page }) => {
-    test.slow();
     const input = page.locator('#terminalInput');
     await input.focus();
     await page.keyboard.type('skills');
@@ -63,18 +60,17 @@ test.describe('Terminal and AI Feed', () => {
 
     const history = page.locator('#terminalHistory');
     // We expect some skills to be listed, like "Typescript" or "Node.js"
-    await expect(history).toContainText(/Typescript|Node.js|Frontend|Backend/i, { timeout: 15000 });
+    await expect(history).toContainText(/Typescript|Node.js|Frontend|Backend/i, { timeout: 10000 });
   });
 
   test('Terminal clear command clears history and shows welcome', async ({ page }) => {
-    test.slow();
     const input = page.locator('#terminalInput');
     await input.focus();
     await page.keyboard.type('help');
     await page.keyboard.press('Enter');
     
     const history = page.locator('#terminalHistory');
-    await expect(history).toContainText('CLI', { timeout: 15000 });
+    await expect(history).toContainText('CLI', { timeout: 10000 });
 
     await page.keyboard.type('clear');
     await page.keyboard.press('Enter');
@@ -84,22 +80,20 @@ test.describe('Terminal and AI Feed', () => {
       const text = await history.textContent();
       if (!text.includes('Welcome to my 127.0.0.1')) throw new Error('Welcome message not found after clear');
       if (text.includes('Terminal Resume CLI')) throw new Error('History not cleared');
-    }).toPass({ timeout: 20000 });
+    }).toPass({ timeout: 15000 });
   });
 
   test('Terminal handles unknown commands', async ({ page }) => {
-    test.slow();
     const input = page.locator('#terminalInput');
     await input.focus();
     await page.keyboard.type('foobar');
     await page.keyboard.press('Enter');
 
     const history = page.locator('#terminalHistory');
-    await expect(history).toContainText("Command not found: foobar", { timeout: 15000 });
+    await expect(history).toContainText("Command not found: foobar", { timeout: 10000 });
   });
 
   test('Terminal photo command returns profile photo URL', async ({ page }) => {
-    test.slow();
     const input = page.locator('#terminalInput');
     await input.focus();
     await page.keyboard.type('photo');
@@ -107,30 +101,28 @@ test.describe('Terminal and AI Feed', () => {
 
     const history = page.locator('#terminalHistory');
     // The photo output now includes ASCII art and the URL
-    await expect(history).toContainText('assets/profile-photo.jpg', { timeout: 15000 });
-    await expect(history).toContainText('.---.', { timeout: 15000 }); // Part of ASCII art
+    await expect(history).toContainText('assets/profile-photo.jpg', { timeout: 10000 });
+    await expect(history).toContainText('.---.', { timeout: 10000 }); // Part of ASCII art
   });
 
   test('Terminal linkedin command outputs opening message', async ({ page }) => {
-    test.slow();
     const input = page.locator('#terminalInput');
     await input.focus();
     await page.keyboard.type('--linkedin');
     await page.keyboard.press('Enter');
 
     const history = page.locator('#terminalHistory');
-    await expect(history).toContainText('Opening LinkedIn profile...', { timeout: 15000 });
+    await expect(history).toContainText('Opening LinkedIn profile...', { timeout: 10000 });
   });
 
   test('Terminal ls command lists virtual files including photo.jpg', async ({ page }) => {
-    test.slow();
     const input = page.locator('#terminalInput');
     await input.focus();
     await page.keyboard.type('ls');
     await page.keyboard.press('Enter');
 
     const history = page.locator('#terminalHistory');
-    await expect(history).toContainText('photo.jpg', { timeout: 15000 });
+    await expect(history).toContainText('photo.jpg', { timeout: 10000 });
   });
 
   test('Terminal right-click protection is enabled by default (when not localhost)', async ({ page }) => {
@@ -191,8 +183,7 @@ test.describe('Responsive Layout', () => {
   test('sidebar is hidden when app is minimized', async ({ page }) => {
     const minimizeBtn = page.locator('#windowButtonMinimize');
     await expect(async () => {
-      await minimizeBtn.click({ force: true }).catch(() => {});
-      await minimizeBtn.dispatchEvent('click');
+      await minimizeBtn.click({ force: true });
       const isMinimized = await page.evaluate(() => document.body.classList.contains('app-minimized'));
       if (!isMinimized) throw new Error('App not minimized');
     }).toPass({ timeout: 15000 });
