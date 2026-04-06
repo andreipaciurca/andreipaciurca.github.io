@@ -1,4 +1,12 @@
 import { escapeHtml } from './utils.js';
+/**
+ * Renders the work experience section.
+ * @param experiences Array of experience entries.
+ * @param translate Translator function.
+ * @param expandLabel Text for expand button.
+ * @param collapseLabel Text for collapse button.
+ * @returns HTML string for the experience list.
+ */
 export function renderExperienceList(experiences, translate, expandLabel, collapseLabel) {
     return experiences
         .map(function mapExperience(exp) {
@@ -29,6 +37,12 @@ export function renderExperienceList(experiences, translate, expandLabel, collap
     })
         .join('');
 }
+/**
+ * Renders the skills section, grouped by category.
+ * @param skillGroups Array of skill groups.
+ * @param translate Translator function.
+ * @returns HTML string for the skills groups.
+ */
 export function renderSkillsGroups(skillGroups, translate) {
     return skillGroups
         .map(function mapGroup(group, index) {
@@ -48,6 +62,12 @@ export function renderSkillsGroups(skillGroups, translate) {
     })
         .join('');
 }
+/**
+ * Renders the education history.
+ * @param education Array of education entries.
+ * @param translate Translator function.
+ * @returns HTML string for the education list.
+ */
 export function renderEducationList(education, translate) {
     return education
         .map(function mapEntry(entry) {
@@ -65,6 +85,12 @@ export function renderEducationList(education, translate) {
     })
         .join('');
 }
+/**
+ * Renders the professional certifications.
+ * @param certifications Array of certifications.
+ * @param translate Translator function.
+ * @returns HTML string for the certifications list.
+ */
 export function renderCertificationsList(certifications, translate) {
     return certifications
         .map(function mapCert(cert) {

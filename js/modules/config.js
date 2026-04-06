@@ -6,6 +6,7 @@ export const uiText = {
     heroPaneTitle: 'session:identity',
     profilePaneTitle: 'session:profile',
     activityPaneTitle: 'session:ai-feed',
+    terminalPaneTitle: 'session:terminal',
     experiencePaneTitle: 'session:experience',
     skillsPaneTitle: 'session:skills',
     educationPaneTitle: 'session:education',

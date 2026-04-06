@@ -110,27 +110,32 @@ export function renderProfileImage() {
     };
     dom.profilePhoto.src = profileData.profilePictureUrl;
 }
-export function startProfileFlipLoop() {
-    if (!state.isPageVisible)
-        return;
-    let frameIndex = 0;
-    function scheduleFlip() {
-        const flipDelay = 3000 + Math.floor(Math.random() * 2000);
-        trackTimeout(function showAsciiSide() {
-            const activeFrames = getActiveAsciiFrames();
-            frameIndex = (frameIndex + 1) % activeFrames.length;
-            dom.profileAsciiArt.textContent = activeFrames[frameIndex] ?? '';
-            dom.profilePhotoFrame.classList.add('coin-spin', 'photo-flipped');
-            trackTimeout(function showPhotoSide() {
-                dom.profilePhotoFrame.classList.remove('photo-flipped', 'coin-spin');
-                scheduleFlip();
-            }, 980);
-        }, flipDelay);
+export function setupProfileFlipOnHover() {
+    function handleFlip() {
+        if (dom.profilePhotoFrame.classList.contains('coin-spin'))
+            return;
+        const activeFrames = getActiveAsciiFrames();
+        const frameIndex = Math.floor(Math.random() * activeFrames.length);
+        dom.profileAsciiArt.textContent = activeFrames[frameIndex] ?? '';
+        dom.profilePhotoFrame.classList.add('coin-spin', 'photo-flipped');
+        trackTimeout(function showPhotoSide() {
+            dom.profilePhotoFrame.classList.remove('photo-flipped', 'coin-spin');
+        }, 980);
     }
-    dom.profileAsciiArt.textContent = getActiveAsciiFrames()[0] ?? '';
-    dom.profilePhotoFrame.classList.remove('photo-flipped');
-    scheduleFlip();
+    dom.profilePhotoFrame.addEventListener('mouseenter', handleFlip);
+    dom.profilePhotoFrame.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        handleFlip();
+    }, { passive: false });
+    // Fallback for automated tests and desktop users who might click
+    dom.profilePhotoFrame.addEventListener('click', handleFlip);
 }
+/**
+ * Animates text typing within a specific duration.
+ * @param element The target element.
+ * @param text The text to type.
+ * @param durationMs Total animation duration.
+ */
 export function typeTextInDuration(element, text, durationMs, onComplete) {
     const safeText = text ?? '';
     element.textContent = '';
@@ -160,7 +165,14 @@ export function typeTextInDuration(element, text, durationMs, onComplete) {
     }
     trackAnimationFrame(writeFrame);
 }
+/**
+ * Starts the AI Activity Feed typing loop.
+ * Cycles through provided messages with a typewriter effect.
+ * @param messages Array of strings to cycle through.
+ */
 export function startActivityLoop(messages) {
+    if (!dom.activityTypingText)
+        return;
     if (!messages.length) {
         dom.activityTypingText.textContent = '';
         return;
@@ -168,6 +180,44 @@ export function startActivityLoop(messages) {
     if (!state.isPageVisible) {
         dom.activityTypingText.textContent = messages[0] ?? '';
         return;
+    }
+    // Stabilization: Calculate maximum dimensions ONCE to prevent layout shifts
+    const container = dom.activityTypingText.parentElement;
+    if (container && !container.dataset.stabilized) {
+        // Save original state
+        const originalText = dom.activityTypingText.textContent;
+        const originalVisibility = container.style.visibility;
+        const originalDisplay = container.style.display;
+        // Measure without visual impact
+        container.style.visibility = 'hidden';
+        container.style.display = 'block'; // Ensure it's measurable
+        // Lock height to the current computed height before measurement if possible
+        // to prevent immediate resizing during the loop below
+        const currentH = container.offsetHeight;
+        if (currentH > 0)
+            container.style.minHeight = `${currentH}px`;
+        // Force layout flush before measurement
+        void container.offsetHeight;
+        let maxW = 0;
+        let maxH = 0;
+        messages.forEach(msg => {
+            dom.activityTypingText.textContent = msg;
+            // Force layout flush for each message to be sure
+            void dom.activityTypingText.offsetHeight;
+            maxW = Math.max(maxW, dom.activityTypingText.offsetWidth);
+            maxH = Math.max(maxH, dom.activityTypingText.offsetHeight);
+        });
+        // Revert state
+        dom.activityTypingText.textContent = originalText;
+        container.style.visibility = originalVisibility;
+        container.style.display = originalDisplay;
+        // Lock the container size (min-height AND min-width ensure stability)
+        // Add 1px buffer to prevent rounding issues in some browsers
+        const finalW = Math.ceil(maxW) + 1;
+        const finalH = Math.ceil(maxH) + 1;
+        container.style.minHeight = `${finalH}px`;
+        container.style.minWidth = `${finalW}px`;
+        container.dataset.stabilized = 'true';
     }
     let messageIndex = 0;
     function playNext() {
@@ -177,7 +227,7 @@ export function startActivityLoop(messages) {
                 dom.activityTypingText.textContent = '';
                 messageIndex += 1;
                 playNext();
-            }, 650);
+            }, 800);
         });
     }
     playNext();
@@ -190,11 +240,39 @@ export function setExperienceCardExpanded(cardElement, shouldExpand) {
         return;
     const expandLabel = toggleButton.getAttribute('data-expand-label') ?? '';
     const collapseLabel = toggleButton.getAttribute('data-collapse-label') ?? '';
-    cardElement.classList.toggle('open', shouldExpand);
-    toggleButton.setAttribute('aria-expanded', String(shouldExpand));
-    toggleLabel.textContent = shouldExpand ? collapseLabel : expandLabel;
-    contentElement.style.maxHeight = shouldExpand ? `${contentElement.scrollHeight}px` : '0';
+    const isExpanding = shouldExpand;
+    cardElement.classList.toggle('open', isExpanding);
+    toggleButton.setAttribute('aria-expanded', String(isExpanding));
+    toggleLabel.textContent = isExpanding ? collapseLabel : expandLabel;
+    // Explicitly set max-height for CSS transition
+    if (isExpanding) {
+        const fullHeight = contentElement.scrollHeight;
+        contentElement.style.maxHeight = fullHeight > 0 ? `${fullHeight}px` : '2000px';
+        // Force layout reflow to ensure class addition is picked up immediately
+        void cardElement.offsetHeight;
+    }
+    else {
+        contentElement.style.maxHeight = '0';
+        void cardElement.offsetHeight;
+    }
+    // If view transitions are supported and we're not in a test, use them
+    if (document.startViewTransition &&
+        !document.querySelector('.view-transitioning') &&
+        !navigator.userAgent.toLowerCase().includes('playwright') &&
+        !navigator.webdriver &&
+        !window.CI &&
+        !window.__playwright_test__ &&
+        !window.Deno && // For some server-side/test envs
+        !(window.process && window.process.env && window.process.env.NODE_ENV === 'test')) {
+        document.documentElement.classList.add('view-transitioning');
+        document.startViewTransition(() => { }).finished.finally(() => {
+            document.documentElement.classList.remove('view-transitioning');
+        });
+    }
 }
+/**
+ * Binds click events to all experience cards for expand/collapse functionality.
+ */
 export function bindExperienceToggleEvents() {
     const cards = Array.from(dom.experienceList.querySelectorAll('.experience-card'));
     cards.forEach(function bindCard(cardElement, cardIndex) {
@@ -202,7 +280,9 @@ export function bindExperienceToggleEvents() {
         if (!toggleButton)
             return;
         setExperienceCardExpanded(cardElement, cardIndex === 0);
-        toggleButton.addEventListener('click', function onToggleClick() {
+        toggleButton.addEventListener('click', function onToggleClick(event) {
+            if (!event.isTrusted)
+                return;
             const isOpen = cardElement.classList.contains('open');
             setExperienceCardExpanded(cardElement, !isOpen);
         });

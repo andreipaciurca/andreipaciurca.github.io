@@ -1,6 +1,9 @@
 # Architecture Overview
 
 - **Core Engine**: Modular TypeScript (compiled to ES Modules) in `js/`. No framework, no bundler. TypeScript source (`.ts`) and compiled output (`.js`) are both committed — GitHub Pages serves the `.js` files directly.
+- **CI/CD Pipeline**:
+  - **Verification**: GitHub Actions (`.github/workflows/ci.yml`) runs Build, Jest unit tests, and Playwright E2E tests (Chromium, WebKit, Firefox) on every pull request and push to master.
+  - **Dependency Updates**: Dependabot (`.github/dependabot.yml`) automatically checks for outdated npm packages and GitHub Actions daily, grouping updates to minimize PR noise.
 - **Data Pipeline**:
   - Trigger: GitHub Actions (`push` to master, monthly cron, or manual dispatch).
   - Fetcher: Apify `harvestapi~linkedin-profile-scraper` → `data/linkedin.json`.
@@ -9,6 +12,7 @@
   - Output: `profile-data.js` — single source of truth, committed back to the repo.
 - **UI System**: Vanilla CSS with theme-driven CSS variables (`.light-mode` class on `body`).
 - **Verification**: Jest unit tests in `tests/resume.spec.js` (56 tests across 6 suites) + Playwright E2E tests.
+- **E2E Contract**: Preserve the selectors and behaviors that Playwright expects. In particular, keep the top command text, `#downloadResumeBtn`, `#printResumeButton`, `#themeToggleButton`, `#windowButtonClose`, `#windowButtonMinimize`, `#windowButtonMaximize`, `.experience-toggle`, `#terminalCommandText`, and `#terminalHistory`.
 
 ## TypeScript
 
@@ -52,13 +56,22 @@ npm run typecheck   # type-check without emitting files
 
 ## Testing
 
+Prefer the lightest useful check first. On this machine, avoid repeated full Playwright runs unless the change is genuinely interaction-heavy.
+
 ```bash
-npm test              # Jest unit tests (56 tests, 6 suites)
-npm run test:e2e      # Playwright E2E (Chromium, WebKit, Firefox)
-npm run test:all      # both suites
+# First time only: Install Playwright browsers (all profiles)
+npm run test:e2e:install
+
+# Fast local checks
+npm run typecheck
+npm test
+
+# Run Playwright only when needed
+npm run test:e2e
 ```
 
 Unit test suites: profile data structure, content quality, skills integrity, health endpoint schema, source file integrity, and TypeScript setup.
+E2E test suites: Site layout, Terminal & AI Feed commands/typing, Security (right-click toggle), and Responsive design.
 
 ## Important Constraints
 

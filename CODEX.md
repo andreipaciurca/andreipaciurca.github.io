@@ -42,10 +42,42 @@ Configure at **Settings → Secrets and variables → Actions**.
 
 | Command | Description |
 |---------|-------------|
-| `npm test` | Run 16 integration tests |
+| `npm test` | Run 56 Jest unit/integration tests |
+| `npm run build` | Compile and minify (tsc && terser && cleancss) |
+| `npm run optimize-images` | Convert images to WebP and resize |
+| `npm run test:e2e` | Run Playwright E2E tests (all browsers) |
+| `npx playwright test --project=chromium` | Run E2E tests for Chromium only |
 | `npm ci` | Install exact dependencies from lockfile (used in CI) |
 | `GEMINI_API_KEY=<key> node scripts/update-resume.js` | Manual pipeline sync |
 | `python3 -m http.server 8080` | Local dev server — required for ES Modules (`file://` won't work) |
+
+### Performance & Optimization
+
+The 2026-ready interface is optimized for high PageSpeed scores.
+
+- **Image Optimization**: Images are served in **WebP** format with fallback to JPG/PNG. Use `npm run optimize-images` after adding new assets.
+- **Resource Minification**: CSS and JS are minified during the build process using `terser` and `clean-css-cli`.
+- **Resource Hinting**: `index.html` uses `dns-prefetch` and `preconnect` for external dependencies (Google Fonts, FontAwesome).
+- **LCP Optimization**: The main profile photo uses `fetchpriority="high"` and explicit dimensions to improve Largest Contentful Paint.
+
+## Testing Strategy
+
+The 2026-ready features (Terminal, AI Feed, Security Toggles) require rigorous verification.
+
+- **Unit Tests (Jest)**: Verify `profile-data.js` integrity and core logic.
+- **E2E Tests (Playwright)**: Verify UI behavior, layout stability, and interactivity.
+- **Cross-Browser Requirement**: All tests **must** pass on **Chromium**, **WebKit (Safari)**, and **Firefox** before merging.
+
+## CI/CD Pipeline
+
+The project uses GitHub Actions for Continuous Integration.
+
+- **CI Workflow**: `.github/workflows/ci.yml` runs on every Pull Request.
+  - Installs dependencies and Playwright browsers.
+  - Builds the project (`npm run build`).
+  - Executes Jest tests (`npm test`).
+  - Executes multi-browser Playwright tests (`npm run test:e2e`).
+- **Dependabot**: Automatically tracks and updates dependencies via `.github/dependabot.yml`.
 
 ## Health Monitoring
 

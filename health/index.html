@@ -25,7 +25,7 @@
     </header>
 
     <main class="workspace-root">
-      <section class="pane">
+      <section class="pane glass-pane">
         <div class="pane-bar">
           <p class="pane-title">system.health — diagnostics</p>
         </div>
@@ -43,11 +43,15 @@
     async function typeLine(text, color, speed) {
       const p = document.createElement('p');
       p.style.cssText = 'margin:4px 0;font-family:var(--font-code);font-size:0.84rem;color:' + (color || 'var(--text-soft)');
+      p.style.borderLeft = '2px solid transparent';
+      p.style.paddingLeft = '8px';
+      p.style.transition = 'border-color 0.3s ease';
       out.appendChild(p);
       for (const ch of text) {
         p.textContent += ch;
         await delay(speed || 18);
       }
+      p.style.borderColor = color || 'var(--line-soft)';
       await delay(80);
     }
 

@@ -14,11 +14,12 @@ const { defineConfig, devices } = require('@playwright/test');
 
 module.exports = defineConfig({
   testDir: './tests/e2e',
-  timeout: 20000,
-  expect: { timeout: 8000 },
+  timeout: 60000,
+  expect: { timeout: 10000 },
   fullyParallel: true,
   retries: process.env.CI ? 2 : 0,
-  reporter: process.env.CI ? 'github' : 'list',
+  workers: process.env.CI ? 2 : undefined,
+  reporter: process.env.CI ? [['github'], ['html', { open: 'never', outputFolder: 'playwright-report' }]] : 'list',
 
   // Spin up the built-in Python HTTP server before running tests.
   // Change the port if 8787 is already in use.

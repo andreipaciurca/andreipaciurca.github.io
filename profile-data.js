@@ -17,7 +17,7 @@ export const profileData = {
   ],
   "topBar": {
     "firstVisitMessage": "Welcome to my 127.0.0.1",
-    "commandMessage": "$ code session --agent=viewer --profile=andrei",
+    "commandMessage": "$ code session --agent=viewer --profile=andrei --lang en",
     "commandCursor": "|",
     "buttonLabels": {
       "close": "x",

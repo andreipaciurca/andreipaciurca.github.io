@@ -45,6 +45,12 @@ function buildPrintResumePayload(options) {
         certificationEntries: profileData.certifications,
     };
 }
+/**
+ * Redraws the hidden print-optimised container and calculates the ATS score.
+ * This is called before printing to ensure content fits the single-page target.
+ * @param options Overrides for truncation and bullet limits.
+ * @returns An ATS report with the heuristic score and word counts.
+ */
 export function renderPrintResume(options = {}) {
     const printResumeSettings = profileData.printResume ?? {};
     const resolvedOptions = Object.assign({
@@ -157,6 +163,10 @@ export function buildAtsHeuristicReport(printPayload, fitsOnePage) {
             : 'ready';
     return { status, score: normalizedScore, criticalIssues, warnings };
 }
+/**
+ * Automatically adjusts content density (strategy steps) to fit the resume on one page.
+ * @returns The final ATS report after optimization.
+ */
 export function optimizePrintResumeLayout() {
     const printResumeSettings = profileData.printResume ?? {};
     let bestPayload = null;
