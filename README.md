@@ -5,14 +5,14 @@
 [![Tests](https://img.shields.io/badge/tests-56%20passing-brightgreen)](https://github.com/andreipaciurca/andreipaciurca.github.io/actions)
 [![Health](https://img.shields.io/website?url=https%3A%2F%2Fandreipaciurca.github.io%2Fhealth.json&label=health)](https://andreipaciurca.github.io/health/)
 [![Live Site](https://img.shields.io/badge/live-andreipaciurca.github.io-blue)](https://andreipaciurca.github.io)
-[![License: MIT](https://img.shields.io/badge/license-MIT-yellow)](LICENSE)
+[![License: Custom Non-Commercial](https://img.shields.io/badge/license-custom%20non--commercial-yellow)](LICENCE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-6.x-3178c6)](https://www.typescriptlang.org/)
 
 **Live Preview:** [andreipaciurca.github.io](https://andreipaciurca.github.io)
 
 ## Overview
 
-A cutting-edge, terminal-styled, and ATS-optimized resume platform featuring a fully automated LinkedIn → Gemini AI → GitHub Pages data pipeline. Engineered with modern TypeScript and compiled to native ES Modules, it achieves a perfect balance between high-performance "no-framework" architecture and sophisticated AI-driven personalization.
+A terminal-inspired, ATS-optimized resume platform with a GitHub Pages deployment pipeline and a strong focus on maintainability. The UI keeps the “session / shell / launcher” concept, but the content, translations, and print resume are all driven from structured data so the site can evolve without rewriting the whole page.
 
 ## Key Features
 
@@ -22,6 +22,7 @@ A cutting-edge, terminal-styled, and ATS-optimized resume platform featuring a f
 - **Enterprise-Grade Security** — Automated dependency tracking via Dependabot and built-in protection against unauthorized data extraction.
 - **ATS-Optimized Print System** — Specialized print layout with heuristic scoring and automatic overflow management to ensure perfect Harvard-style PDF generation.
 - **Performance Optimized** — 100/100 Lighthouse-ready with WebP image delivery, resource minification, and critical path optimization.
+- **Translation Toggle** — Runtime EN/RO switching with external translation support and a local fallback dictionary.
 
 ## Architecture
 
@@ -146,19 +147,25 @@ npm run build
 
 ## Testing
 
-It is mandatory to run all tests before committing changes, especially the E2E suite which verifies the 2026-ready UI features (Terminal, AI Feed, Security). Playwright tests must be executed against all three browser profiles: **Chromium**, **WebKit**, and **Firefox**.
+The suite is designed to be checked in CI first. On the local MacBook Air, prefer targeted unit/type checks and only run Playwright when a UI change actually touches the interaction contract.
 
 ```bash
 # First time only: Install Playwright browsers (all profiles)
 npm run test:e2e:install
 
-# Run all tests (Unit + E2E on all 3 browsers)
-npm run test:all
+# Run targeted checks
+npm run typecheck
+npm test
 
-# Run individual suites
-npm test              # Jest unit tests (56 tests, 6 suites)
-npm run test:e2e      # Playwright E2E — Chromium, WebKit, Firefox
+# Run Playwright only when needed
+npm run test:e2e
 ```
+
+Key CI compatibility hooks to preserve:
+- `#downloadResumeBtn` wraps the visible download CTA used by the Playwright layout checks.
+- `#printResumeButton` remains the actual print action trigger.
+- `#themeToggleButton`, `#windowButtonClose`, `#windowButtonMinimize`, `#windowButtonMaximize`, and `.experience-toggle` are part of the UI contract.
+- `#terminalCommandText` and `#terminalHistory` are used by terminal and launcher tests.
 
 Unit test suites:
 - **Profile Data — Structure** — required keys, types, contact validation
@@ -183,3 +190,11 @@ Pipeline status is available at [andreipaciurca.github.io/health/](https://andre
 |-----------|---------|
 | `[ai] gemini` | Gemini produced usable AI output this run |
 | `[sync] apify` | Fresh LinkedIn data fetched this run |
+
+## Editing Guide
+
+- Edit [profile-data.js](/Users/andrei-alexandrupaciurca/Documents/github/andreipaciurca.github.io/profile-data.js) for content, roles, skills, education, certifications, and contact details.
+- Edit [js/modules/config.ts](/Users/andrei-alexandrupaciurca/Documents/github/andreipaciurca.github.io/js/modules/config.ts) for UI labels, print tuning, and terminal copy.
+- Edit [assets/style.css](/Users/andrei-alexandrupaciurca/Documents/github/andreipaciurca.github.io/assets/style.css) for the visual system, responsive behavior, and print styling.
+- Edit [js/modules/terminal.ts](/Users/andrei-alexandrupaciurca/Documents/github/andreipaciurca.github.io/js/modules/terminal.ts) when changing CLI commands or output text.
+- Edit [js/modules/print.ts](/Users/andrei-alexandrupaciurca/Documents/github/andreipaciurca.github.io/js/modules/print.ts) if the PDF layout or ATS heuristics need tuning.

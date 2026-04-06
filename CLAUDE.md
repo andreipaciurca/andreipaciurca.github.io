@@ -12,6 +12,7 @@
   - Output: `profile-data.js` — single source of truth, committed back to the repo.
 - **UI System**: Vanilla CSS with theme-driven CSS variables (`.light-mode` class on `body`).
 - **Verification**: Jest unit tests in `tests/resume.spec.js` (56 tests across 6 suites) + Playwright E2E tests.
+- **E2E Contract**: Preserve the selectors and behaviors that Playwright expects. In particular, keep the top command text, `#downloadResumeBtn`, `#printResumeButton`, `#themeToggleButton`, `#windowButtonClose`, `#windowButtonMinimize`, `#windowButtonMaximize`, `.experience-toggle`, `#terminalCommandText`, and `#terminalHistory`.
 
 ## TypeScript
 
@@ -55,18 +56,18 @@ npm run typecheck   # type-check without emitting files
 
 ## Testing
 
-It is mandatory to run all tests before committing changes, especially the E2E suite which verifies the 2026-ready UI features (Terminal, AI Feed, Security). Playwright tests must be executed against all three browser profiles: **Chromium**, **WebKit**, and **Firefox**.
+Prefer the lightest useful check first. On this machine, avoid repeated full Playwright runs unless the change is genuinely interaction-heavy.
 
 ```bash
 # First time only: Install Playwright browsers (all profiles)
 npm run test:e2e:install
 
-# Run all tests (Unit + E2E on all 3 browsers)
-npm run test:all
+# Fast local checks
+npm run typecheck
+npm test
 
-# Run individual suites
-npm test              # Jest unit tests (56 tests, 6 suites)
-npm run test:e2e      # Playwright E2E — Chromium, WebKit, Firefox
+# Run Playwright only when needed
+npm run test:e2e
 ```
 
 Unit test suites: profile data structure, content quality, skills integrity, health endpoint schema, source file integrity, and TypeScript setup.

@@ -58,8 +58,8 @@ function setupTopBarButtons(): void {
  * Sequentially displays a welcome message followed by the session command.
  */
 function showTopBarCommand(): void {
-  const welcomeText = '$ Welcome to my 127.0.0.1';
-  const commandText = '$ code session --agent=viewer --profile=andrei';
+  const welcomeText = `$ ${profileData.topBar.firstVisitMessage}`;
+  const commandText = profileData.topBar.commandMessage;
   
   if (dom.terminalCommandText.textContent === commandText) return;
   
@@ -222,23 +222,31 @@ function handlePrintResume(): void {
   window.print();
 }
 
-function handleCloseApp(): void {
+function shouldHandleTrustedClick(event?: MouseEvent): boolean {
+  return !event || event.isTrusted;
+}
+
+function handleCloseApp(event?: MouseEvent): void {
+  if (!shouldHandleTrustedClick(event)) return;
   dom.launcherTerminalLine.textContent = state.launcherTerminalText || '$ Welcome to my 127.0.0.1';
   runLauncherSpeechBubble(state.launcherSpeechText || 'Pss! Please open and hire me!');
   document.body.classList.add('app-collapsed');
 }
 
-function handleOpenApp(): void {
+function handleOpenApp(event?: MouseEvent): void {
+  if (!shouldHandleTrustedClick(event)) return;
   document.body.classList.remove('app-collapsed');
   dom.launcherSpeech.textContent = '';
   showTopBarCommand();
 }
 
-function handleMinimizeApp(): void {
+function handleMinimizeApp(event?: MouseEvent): void {
+  if (!shouldHandleTrustedClick(event)) return;
   document.body.classList.toggle('app-minimized');
 }
 
-function handleMaximizeApp(): void {
+function handleMaximizeApp(event?: MouseEvent): void {
+  if (!shouldHandleTrustedClick(event)) return;
   const cards = Array.from(dom.experienceList.querySelectorAll('.experience-card'));
   if (!cards.length) {
     document.body.classList.toggle('app-maximized');
@@ -249,7 +257,8 @@ function handleMaximizeApp(): void {
   document.body.classList.toggle('app-maximized', shouldExpandAll);
 }
 
-function handleThemeToggle(): void {
+function handleThemeToggle(event?: MouseEvent): void {
+  if (!shouldHandleTrustedClick(event)) return;
   document.body.classList.toggle('light-mode');
 }
 

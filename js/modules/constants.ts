@@ -8,7 +8,7 @@ import { profileData } from '../../profile-data.js';
 export const TERMINAL_CONFIG = {
   VERSION: `${new Date().getFullYear()}.0.1`,
   WELCOME_MESSAGE: 'Welcome to my 127.0.0.1',
-  INITIAL_COMMAND: '$ code session --agent=viewer --profile=andrei',
+  INITIAL_COMMAND: profileData.topBar.commandMessage,
   HELP_HEADER: `Andrei-Alexandru Paciurca | Terminal Resume CLI v${new Date().getFullYear()}.0.1`,
 };
 
@@ -65,7 +65,7 @@ export const RESUME_FLAGS: CommandFlag[] = [
     description: 'Open LinkedIn profile',
     action: () => {
       window.open(profileData.contact.linkedinUrl, '_blank');
-      return `Opening LinkedIn: ${profileData.contact.linkedinUrl}`;
+      return 'Opening LinkedIn profile...';
     }
   },
   {
@@ -74,7 +74,7 @@ export const RESUME_FLAGS: CommandFlag[] = [
     description: 'Open GitHub profile',
     action: () => {
       window.open(profileData.contact.githubUrl, '_blank');
-      return `Opening GitHub: ${profileData.contact.githubUrl}`;
+      return 'Opening GitHub profile...';
     }
   },
   {

@@ -38,6 +38,7 @@ export const dom = {
     skillsPaneTitle: el('skillsPaneTitle'),
     educationPaneTitle: el('educationPaneTitle'),
     certificationsPaneTitle: el('certificationsPaneTitle'),
+    downloadResumeBtn: el('downloadResumeBtn'),
     printResumeButton: el('printResumeButton'),
     printResumeLabel: el('printResumeLabel'),
     statusLine: el('statusLine'),

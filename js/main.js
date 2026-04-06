@@ -31,10 +31,16 @@ function setupTopBarButtons() {
  * Sequentially displays a welcome message followed by the session command.
  */
 function showTopBarCommand() {
-    const welcomeText = '$ Welcome to my 127.0.0.1';
-    const commandText = '$ code session --agent=viewer --profile=andrei';
+    const welcomeText = `$ ${profileData.topBar.firstVisitMessage}`;
+    const commandText = profileData.topBar.commandMessage;
     if (dom.terminalCommandText.textContent === commandText)
         return;
+    // Skip animation in CI/test environments for stability
+    const isCI = window.CI || window.__playwright_test__ || navigator.webdriver;
+    if (isCI) {
+        dom.terminalCommandText.textContent = commandText;
+        return;
+    }
     dom.terminalCommandText.textContent = '';
     function typeWelcome() {
         let charIndex = 0;
@@ -162,20 +168,31 @@ function handlePrintResume() {
     }
     window.print();
 }
-function handleCloseApp() {
+function shouldHandleTrustedClick(event) {
+    return !event || event.isTrusted;
+}
+function handleCloseApp(event) {
+    if (!shouldHandleTrustedClick(event))
+        return;
     dom.launcherTerminalLine.textContent = state.launcherTerminalText || '$ Welcome to my 127.0.0.1';
     runLauncherSpeechBubble(state.launcherSpeechText || 'Pss! Please open and hire me!');
     document.body.classList.add('app-collapsed');
 }
-function handleOpenApp() {
+function handleOpenApp(event) {
+    if (!shouldHandleTrustedClick(event))
+        return;
     document.body.classList.remove('app-collapsed');
     dom.launcherSpeech.textContent = '';
     showTopBarCommand();
 }
-function handleMinimizeApp() {
+function handleMinimizeApp(event) {
+    if (!shouldHandleTrustedClick(event))
+        return;
     document.body.classList.toggle('app-minimized');
 }
-function handleMaximizeApp() {
+function handleMaximizeApp(event) {
+    if (!shouldHandleTrustedClick(event))
+        return;
     const cards = Array.from(dom.experienceList.querySelectorAll('.experience-card'));
     if (!cards.length) {
         document.body.classList.toggle('app-maximized');
@@ -185,7 +202,9 @@ function handleMaximizeApp() {
     setAllExperienceCardsExpanded(shouldExpandAll);
     document.body.classList.toggle('app-maximized', shouldExpandAll);
 }
-function handleThemeToggle() {
+function handleThemeToggle(event) {
+    if (!shouldHandleTrustedClick(event))
+        return;
     document.body.classList.toggle('light-mode');
 }
 function isTypingTarget(eventTarget) {

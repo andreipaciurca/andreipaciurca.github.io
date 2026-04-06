@@ -343,7 +343,8 @@ export function bindExperienceToggleEvents(): void {
 
     setExperienceCardExpanded(cardElement, cardIndex === 0);
 
-    toggleButton.addEventListener('click', function onToggleClick() {
+    toggleButton.addEventListener('click', function onToggleClick(event) {
+      if (!event.isTrusted) return;
       const isOpen = cardElement.classList.contains('open');
       setExperienceCardExpanded(cardElement, !isOpen);
     });
